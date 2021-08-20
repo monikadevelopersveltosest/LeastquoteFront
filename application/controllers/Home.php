@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 	}
 
 	public function index(){
-		echo "Comming Soon";die;
+		//echo "Comming Soon";die;
 	   // echo "hi";
 // 		$this->load->view('front/header');
 // 		$this->load->view('front/home');
@@ -30,7 +30,7 @@ class Home extends CI_Controller {
     		}
     	}
         $this->load->view('front/header1');
-		$this->load->view('front/sell_on_indocliq',$data);
+		$this->load->view('front/sign-in',$data);
 		$this->load->view('front/footer1');
 	}
 

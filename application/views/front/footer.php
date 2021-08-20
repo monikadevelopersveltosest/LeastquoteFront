@@ -1,166 +1,213 @@
-<?php  $session_userdata = $this->session->userdata(USER_SESSION); ?>
-<!-- <foooter section start> -->
-			<footer style="color: white;">
-				<div class="container">
-					<div class="row pt-20">
-						<div class="col-lg-2">
-							<div class="footer-main f">
-								<h4>Menu</h4>
-								<ul>
-									<li><a href="<?php echo base_url(); ?>">Home</a></li>
-									<li><a href="<?php echo base_url(); ?>aboutus">About Us</a></li>
-									<li><a href="<?php echo base_url(); ?>shops">shops</a></li>
-									<li><a href="<?php echo base_url(); ?>clearance_product">Clearance Product</a></li>
-									<li><a href="<?php echo base_url(); ?>privacy_policy">Privacy Policy</a></li>
-									<li><a href="<?php echo base_url(); ?>terms_condition">Terms & condition</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-2">
-							<div class="footer-main f">
-								<h4>Merchant Central</h4>
-								<ul>
-									<li><a href="<?php echo base_url(); ?>home/sell_on_indocliq">Sell on Indocliq</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="footer-main2 f">
-								<h4>Help</h4>
-								<ul>
-									<!-- <li><a href="#">Faqs</a></li> -->
-									<li><a href="<?php echo base_url(); ?>contact"><i class="fa fa-phone"></i> &nbsp;&nbsp;Contact Us</a></li>
-									<?php if(isset($session_userdata) && !empty($session_userdata)){ ?>
-									<li><a href="<?php echo base_url().'support_ticket';?>"><i class="fa fa-support"></i> &nbsp;&nbsp;Support</a></li>
-									<?php } ?>
-									<!-- <li><a href="#">bb Wallet Faqs</a></li>
-									<li><a href="#">bb wallet t&Cs</a></li>
-									<li><a href="#">Vender Connect</a></li> -->
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-2">
-							<div class="footer-main3 f">
-								<h4>Contact Us</h4>
-								<div class="main-t">
-									<i class="fa fa-phone"></i>
-									<div class="f-number">
-										99xxxxxx72, 94xxxxxx58
-									</div>
-								</div>
-								<div class="main-t">
-									<i class="fa fa-envelope"></i>
-									<div class="f-number">
-										info@eshop.com
-									</div>
-								</div>
-								<div class="main-t">
-									<i class="fa fa-map-marker"></i>
-									<div class="f-number">
-										160/4, Piplia Rao, Vishnupuri i-Bus Stop, Bhanwarkua,    Indore (M.P.)
-									</div>
-								</div>
-								<div class="main-t">
-									<i class="fa fa-clock-o"></i>
-									<div class="f-number">
-										Opening Hours
-										Mon-Sat:8:00AM-8:00PM
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="footer-main4 f" style="display: inline-block;">
-								<h4>Get Social With Us</h4>
-								<div class="f1">
-									<i class="fa fa-facebook"></i>
-								</div>
-								<div class="f1">
-									<i class="fa fa-google"></i>
-								</div>
-							</div>
-							<div class="payment">
-								<h5>Payment Option</h5>
-								<img src="front_assets/images/visa.png">
-								<img src="front_assets/images/mesto1.png">
-								<img src="front_assets/images/paytm.png">
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
-		<!-- <foooter section end> -->
-	<!-- <bottom section start> -->
-			<section class="copyright">
-				<div class="container">
-					<div class="bottom-s text-center">
-						<p>© Copyright 2019. All Rights Reserved. by <a href="https://itsparktechnology.com/"> It Spark Technology</a></p>
-					</div>
-				</div>
-			</section>
-	<!-- <bottom section end> -->
-		</div>
-		
-	<script src="<?php echo base_url();?>common_assets/notify/notify.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>front_assets/js/commonjsnirbhay.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>front_assets/css/mdb.min.js"></script>
-		<!-- <md bootstrap end> -->
-	<script type="text/javascript" src="<?php echo base_url();?>front_assets/js/slider.js"></script>
-	<!-- <slider js end> -->
-	<script type="text/javascript" src="<?php echo base_url();?>front_assets/js/owl.carousel.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>front_assets/js/jquery.flexslider.js"></script>
-	<script>
-	    showPosition();
-	    function showPosition() {
-	        if(navigator.geolocation) {
-	            navigator.geolocation.getCurrentPosition(showMap, showError);
-	        } else {
-	            alert("Sorry, your browser does not support HTML5 geolocation.");
-	        }
-	    }
-	     
-	    // Define callback function for successful attempt
-	    function showMap(position) {
-	        // Get location data
-	        lat = position.coords.latitude;
-	        long = position.coords.longitude;
-	        $("#latitude").val(lat);
-	        $("#longitude").val(long);
-	        var latlong = new google.maps.LatLng(lat, long);
-	        
-	        var myOptions = {
-	            center: latlong,
-	            zoom: 16,
-	            mapTypeControl: true,
-	            navigationControlOptions: {
-	                style:google.maps.NavigationControlStyle.SMALL
-	            }
-	        }
-	        
-	        var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
-	        var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
-	    }
-	     
-	    // Define callback function for failed attempt
-	    function showError(error) {
-	        if(error.code == 1) {
-	            // result.innerHTML = "You've decided not to share your position, but it's OK. We won't ask you again.";
-	        } else if(error.code == 2) {
-	            // result.innerHTML = "The network is down or the positioning service can't be reached.";
-	        } else if(error.code == 3) {
-	            // result.innerHTML = "The attempt timed out before it could get the location data.";
-	        } else {
-	            // result.innerHTML = "Geolocation failed due to unknown error.";
-	        }
-	    }
+<!--============= Footer Section Starts Here =============-->
+<footer class="bg_img padding-top oh  bg-black" data-background="">
+        <div class="footer-top-shape">
+            <img src="<?php echo base_url();?>fornt_new_assests/assets/css/img/footer-top-shape.png" alt="css">
+        </div>
+        <div class="anime-wrapper">
+            <div class="anime-1 plus-anime">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/p1.png" alt="footer">
+            </div>
+            <div class="anime-2 plus-anime">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/p2.png" alt="footer">
+            </div>
+            <div class="anime-3 plus-anime">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/p3.png" alt="footer">
+            </div>
+            <div class="anime-5 zigzag">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/c2.png" alt="footer">
+            </div>
+            <div class="anime-6 zigzag">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/c3.png" alt="footer">
+            </div>
+            <div class="anime-7 zigzag">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/c4.png" alt="footer">
+            </div>
+        </div>
+        <div class="newslater-wrapper">
+            <div class="container">
+                <div class="newslater-area">
+                    <div class="newslater-thumb">
+                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/newslater.png" alt="footer">
+                    </div>
+                    <div class="newslater-content">
+                        <div class="section-header left-style mb-low">
+                            <h5 class="cate">Subscribe to Sbidu</h5>
+                            <h3 class="title">To Get Exclusive Benefits</h3>
+                        </div>
+                        <form class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Email" name="email">
+                            <button type="submit" class="custom-button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-top padding-bottom padding-top">
+            <div class="container">
+                <div class="row mb--60">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                            <h5 class="title">Auction Categories</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0">Ending Now</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Watches</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Electronics</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Real Estate</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Jewelry</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Art</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Sports & Outdoor</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                            <h5 class="title">About Us</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0">About Sbidu</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Help</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Affiliates</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Press</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Our blog</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Collectors' portal</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                            <h5 class="title">We're Here to Help</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0">Your Account</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Safe and Secure</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Shipping Information</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Help & FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-follow">
+                            <h5 class="title">Follow Us</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0"><i class="fas fa-phone-alt"></i>(646) 663-4575</a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fas fa-blender-phone"></i>(646) 968-0608</a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fas fa-envelope-open-text"></i><span class="__cf_email__" data-cfemail="d8b0bdb4a898bdb6bfb7acb0bdb5bdf6bbb7b5">[email&#160;protected]</span></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fas fa-location-arrow"></i>1201 Broadway Suite</a>
+                                </li>
+                            </ul>
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="#0" class="active"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fab fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright-area">
+                    <div class="footer-bottom-wrapper">
+                        <div class="logo">
+                           <a href="index.html"><img src="assets/images/logo/logo-wh.png" alt="logo" class="logo-st"></a>
+                        </div>
+                        <ul class="gateway-area">
+                            <li>
+                                <a href="#0"><img src="assets/images/footer/paypal.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="assets/images/footer/visa.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="assets/images/footer/discover.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="assets/images/footer/mastercard.png" alt="footer"></a>
+                            </li>
+                        </ul>
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--============= Footer Section Ends Here =============-->
 
-	    $(".loginModal").click(function(){
 
-	    	var clickbutton = $(this).attr('href-btntype');
-	    	//alert(clickbutton);
-	    	$(".clickbutton").val(clickbutton);
-	    })
-	</script>
+
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/waypoints.js"></script>
+    <script src="assets/js/nice-select.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+    <script src="assets/js/owl.min.js"></script>
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <script src="assets/js/yscountdown.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
+
 
 </html>
