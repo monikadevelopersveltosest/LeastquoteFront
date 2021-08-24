@@ -177,6 +177,13 @@
       <li> 
         <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Sallers</span></a>
       </li>
+      <li> 
+        <a href="<?php echo base_url();?>adminnew/citylist"><span style="padding-left: 7px;">City</span></a>
+      </li>
+      <li> 
+        <a href="<?php echo base_url();?>adminnew/areas"><span style="padding-left: 7px;">Area</span></a>
+      </li>
+      
       <!--<li> -->
       <!--  <a href="<?php echo base_url();?>adminnew/ordershistory"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a>-->
       <!--</li>-->
@@ -200,6 +207,9 @@
             <li><a href="<?php echo base_url();?>adminnew/landingpagslider"><i class="fa fa-circle-o"></i> Landing Slider Image</a></li>-->
           </ul>
       </li>
+      <!--<li> -->
+      <!--  <a href="<?php echo base_url();?>adminnew/ordershistory"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a>-->
+      <!--</li>-->
     <!--   <li class="treeview">
           <a href="#">
             <i class="fa fa-list-alt"></i>

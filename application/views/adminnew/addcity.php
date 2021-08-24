@@ -10,11 +10,11 @@
 
     <section class="content-header">
 
-    <?php if($area_data) { 
+    <?php if(!empty($city_data)) { 
 
       ?>
 
-      <h1>Edit Categories</h1>
+      <h1>Edit City</h1>
 
       <?php 
 
@@ -26,7 +26,7 @@
 
       ?>
 
-      <h1>Add Area</h1>
+      <h1>Add City</h1>
 
       <?php 
 
@@ -80,26 +80,19 @@
           <form role="form" enctype="multipart/form-data" method="post" action="">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Area Name</label>
-                <input type="text" class="form-control" name="area_name" value="<?php echo (!empty($area_data) && !empty($area_data['area_name']) ? $area_data['area_name'] : "" )?>" required>
+                <label>City Name</label>
+                <input type="text" class="form-control" name="name" value="<?php echo (!empty($city_data) && !empty($city_data['name']) ? $city_data['name'] : "" )?>" required>
               </div>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="form-group">
                 <label>Zip Code</label>
                 <input type="text" class="form-control" name="area_zipcode" value="<?php echo (!empty($area_data) && !empty($area_data['area_zipcode']) ? $area_data['area_zipcode'] : "" )?>" required>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>City</label>
-                <input type="text" class="form-control" name="city" value="<?php echo (!empty($area_data) && !empty($area_data['area_zipcode']) ? $area_data['area_zipcode'] : "" )?>" required>
-              </div>
-            </div>
+            </div> -->
             <div class="col-md-12 mt-5">
-              <input type="hidden" name="area_id" value="<?php echo (!empty($area_data) && !empty($area_data['area_id']) ? $area_data['area_id'] : "" )?>">
+              <input type="hidden" name="id" value="<?php echo (!empty($city_data) && !empty($city_data['id']) ? $city_data['id'] : "" )?>">
                <button type="submit" name="submit"  class="btn btn-primary">Save</button>
-                      <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
             </div>
           </form>
 

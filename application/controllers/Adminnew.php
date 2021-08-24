@@ -2109,7 +2109,6 @@ class Adminnew extends CI_Controller {
 
 
 	public function areas()
-
 	{
 
 		$data = array();
@@ -2125,11 +2124,21 @@ class Adminnew extends CI_Controller {
 		$this->load->view('adminnew/footer');
 
 	}
+	public function citylist(){
+		$data = array();
 
+		$whr2 = array('1='=>1);
+
+		$data['city_data'] = $this->Common_model->GetWhere('city_list', $whr2);
+		$this->load->view('adminnew/header');
+
+		$this->load->view('adminnew/citylist',$data);
+
+		$this->load->view('adminnew/footer');
+	}
 
 
 	public function addarea($area_id = "")
-
 	{
 
 		$data = array();
@@ -2214,6 +2223,55 @@ class Adminnew extends CI_Controller {
 
 	}
 
+	public function addcity($area_id = "")
+	{
+
+		$data = array();
+
+		$data['success'] = "";
+
+		$data['error'] = "";
+
+		$data['area_data'] = "";
+
+
+
+		if(isset($_POST['submit']))
+		{
+			$user_data = array();
+			$user_data['name'] = $_POST['name'];
+			
+			if (isset($_POST['id']) &&  !empty($_POST['id'])){
+				$result_id = $this->Common_model->updateRecords('city_list',$user_data,array('id'=>$_POST['id']));
+			}else{
+				$result_id = $this->Common_model->addRecords('city_list',$user_data);
+			}
+			if($result_id)
+			{
+				$data['success'] = "Area has been added successfully";
+				redirect(base_url().'adminnew/citylist/');
+			}else{
+				$data['error'] = "Some thing went wrong please try again";
+			}
+		}
+
+
+
+		if(!empty($area_id))
+		{
+		    $whr = array('id'=>$area_id);
+			$data['city_data'] = $this->Common_model->getSingleRecordById('city_list', $whr);
+		}
+		$whr2 = array('status !='=>3);
+		$data['all_areas'] = $this->Common_model->GetWhere('area', $whr2);
+
+		$this->load->view('adminnew/header');
+
+		$this->load->view('adminnew/addcity',$data);
+
+		$this->load->view('adminnew/footer');
+
+	}
 
 
 	public function Customerslist()

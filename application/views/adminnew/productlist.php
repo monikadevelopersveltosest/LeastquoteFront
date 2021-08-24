@@ -102,7 +102,7 @@
                                     </tr>
                                 <?php
                             }
-                         ?>
+                         ?> 
                     </tbody>
                 </table>
                 <div class="pagination col-sm-12 text-right"><p><?php //  echo $links;?></p></div>
