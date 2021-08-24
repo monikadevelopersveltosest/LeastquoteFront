@@ -70,7 +70,9 @@ a.st-ankr {
                              <div class="dropdown-content text-left st-drop">
                                 <a href="javascript:void(0);" class="st-ankr">Profile</a>
                                 <a href="javascript:void(0);" class="st-ankr">Dashboard</a>
-                                <a href="javascript:void(0);" class="st-ankr">Log Out</a>
+                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
+                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
+                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
                              </div>
                         </li> 
                     </ul>
