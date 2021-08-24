@@ -3488,7 +3488,8 @@ div[class*="auction"] .custom-button {
     overflow: hidden;
     background-color: #f6f6ff;
     justify-content: center;
-    align-items: center;
+   /* align-items: center;*/
+   text-align: center;
 }
 
 .auction-item-2 .auction-thumb .bid {
@@ -8889,13 +8890,13 @@ a.vt-cash {
     font-weight: 800;
 }
 .img-glob{
-    width: 70px !important;
-    margin-right: 20px;
+    width: 50px !important;
+    margin-right: 10px;
 }
 
 
 a.buyer-text {
-    font-size: 30px;
+    font-size: 16px;
     padding: 50px 0px;
     color: #000;
     font-weight: 900;
@@ -8941,5 +8942,14 @@ h4.ct-shop {
     margin-bottom: 14px;
     font-weight: 500;
     color: #545454;
+}
+
+p.title-st {
+    font-size: 18px;
+    margin-top: 6px;
+    font-weight: 600;
+}
+a.browse-item.st-ht {
+    height: 200px !important;
 }
 /*close*/
