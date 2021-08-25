@@ -280,6 +280,7 @@ textarea {
                                 <option>Indore</option>
                                 <option>Bhopal</option>
                                 <option>Sagar</option>
+                                <option>dewas</option>
                             </select>
                         </div>
                         <div class="form-group mb-30">
