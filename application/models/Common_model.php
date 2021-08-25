@@ -115,12 +115,12 @@ class Common_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	function getPaginateRecordsByConditions($table, $result, $offset=0, $condition){
+	function getPaginateRecordsByConditions($table='', $result='', $offset=0, $condition=''){
 		$query = $this->db->get_where($table, $condition, $result, $offset);
 		return $query->result_array();
 	}
 
-	function getPaginateRecordsByLikeConditions($table, $result, $offset=0, $condition, $like_field, $like_value){
+	function getPaginateRecordsByLikeConditions($table='', $result='', $offset=0, $condition='', $like_field='', $like_value=''){
 		$this->db->like($like_field, $like_value);
 		$query = $this->db->get_where($table, $condition, $result, $offset);
 		return $query->result_array();
@@ -137,20 +137,20 @@ class Common_model extends CI_Model {
 		return $query->num_rows();
 	}
 
-	function getPaginateRecordsByCondition($table,$result,$offset=0,$where_condition,$condition){
+	function getPaginateRecordsByCondition($table='',$result='',$offset=0,$where_condition='',$condition=''){
 		$this->db->where($where_condition,$condition);
 		$query = $this->db->get($table,$result,$offset);
 		return $query->result_array();
 	}
 
-	function getPaginateRecordsByOrderByCondition($table, $field, $short, $result, $offset=0, $condition){
+	function getPaginateRecordsByOrderByCondition($table='', $field='', $short='', $result='', $offset=0, $condition=''){
 		$this->db->where($condition);
 		$this->db->order_by($field, $short);
 		$query = $this->db->get($table,$result,$offset);
 		return $query->result_array();
 	}
 	
-	function getTotalRecordsByCondition($table, $condition)
+	function getTotalRecordsByCondition($table='', $condition='')
 	{
 
 	    $this->db->where($condition);
@@ -161,7 +161,7 @@ class Common_model extends CI_Model {
 
 	}
 
-	function fetchMaxRecord($table,$field)
+	function fetchMaxRecord($table='',$field='')
 
 	{
 
@@ -173,7 +173,7 @@ class Common_model extends CI_Model {
 
 	}
 
-	function fetchRecordsByOrder($table,$field,$sort)
+	function fetchRecordsByOrder($table='',$field='',$sort='')
 
 	{
 
@@ -185,7 +185,7 @@ class Common_model extends CI_Model {
 
 	}			
 
-	function getAllRecordsByLimitId($table,$conditions,$limit)
+	function getAllRecordsByLimitId($table='',$conditions='',$limit='')
 
 	{
 
@@ -197,7 +197,7 @@ class Common_model extends CI_Model {
 
 	}
 
-	function getLatestRecords($table,$date,$limit)
+	function getLatestRecords($table='',$date='',$limit='')
 
 	{
 	    $this->db->order_by($date,'desc');
@@ -210,7 +210,7 @@ class Common_model extends CI_Model {
 
 	}
 
-	function getRelatedRecords($table,$date,$conditions)
+	function getRelatedRecords($table='',$date='',$conditions='')
 
 	{
 

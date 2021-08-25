@@ -36,7 +36,7 @@ else
 // Append the host(domain name, ip) to the URL.   
 $url.= $_SERVER['HTTP_HOST']; 
 if($_SERVER['SERVER_NAME'] == 'localhost'){
-	$config['base_url'] ='https://localhost/Leastquote/';
+	$config['base_url'] ='https://localhost/LeastquoteFront/';
 }else{
 	$config['base_url'] = $url;
 }

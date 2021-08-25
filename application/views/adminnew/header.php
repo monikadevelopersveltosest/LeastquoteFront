@@ -54,7 +54,7 @@
 </script>
 <style type="text/css">
     .skin-blue .main-header .navbar {
-      background-color: #dc2626  !important;
+      background-color: #f65275  !important;
     }
     .skin-blue .main-header .logo {
       background-color: #FFF !important;
@@ -91,6 +91,10 @@
     }
     .fa-toggle-off{
       font-size: 24px;
+    }
+    .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a {
+    color: #fff;
+    background: #f65275;
     }
 </style>
 <style type="text/css">
@@ -176,7 +180,17 @@
       </li>
       <li> 
         <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Sallers</span></a>
+<<<<<<< HEAD
+=======
       </li>
+      <li> 
+        <a href="<?php echo base_url();?>adminnew/citylist"><span style="padding-left: 7px;">City</span></a>
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
+      </li>
+      <li> 
+        <a href="<?php echo base_url();?>adminnew/areas"><span style="padding-left: 7px;">Area</span></a>
+      </li>
+      
       <!--<li> -->
       <!--  <a href="<?php echo base_url();?>adminnew/ordershistory"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a>-->
       <!--</li>-->
@@ -200,6 +214,9 @@
             <li><a href="<?php echo base_url();?>adminnew/landingpagslider"><i class="fa fa-circle-o"></i> Landing Slider Image</a></li>-->
           </ul>
       </li>
+      <!--<li> -->
+      <!--  <a href="<?php echo base_url();?>adminnew/ordershistory"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a>-->
+      <!--</li>-->
     <!--   <li class="treeview">
           <a href="#">
             <i class="fa fa-list-alt"></i>

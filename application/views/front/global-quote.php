@@ -241,18 +241,10 @@ textarea {
             </div> -->
             <div class="row justify-content-center mb-30-none">
                 <div class="col-sm-10 col-md-12 col-lg-12">
-                  <div class="quote-form"> 
+                <div class="quote-form"> 
                     <h3 class="st-req">Global Request</h3>
                       <form class="login-form">
-                        <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Category--</option>
-                                <option>Home Appliance</option>
-                                <option>Electronics</option>
-                                <option>Automobiles</option>
-                            </select>
-                        </div>
+                       
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
@@ -275,12 +267,12 @@ textarea {
                         </div>
                         <div class="form-group mb-30">
                             <label for="price"></label>
-                            <input type="text" id="price" placeholder="Max Price in Rupees ">
+                            <input type="text" id="price" placeholder="Specification ">
                         </div>
-                        <div class="form-group">
+                       <!--  <div class="form-group">
                             <label for="login-pass"></label>
                             <textarea name="message" id="message" placeholder="Description"></textarea>
-                        </div>
+                        </div> -->
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >

@@ -87,6 +87,7 @@
 
                                         <td><a ><?php echo $value['name']; ?></a></td>
 
+<<<<<<< HEAD
                                          <td><?php echo $value['create_date']; ?></td>
 
                                        <!-- <td><?php //echo $value['discount'] ."". (isset($value['discount_type']) && $value['discount_type'] == 1 ? '%' : ''); ?></td>
@@ -129,44 +130,35 @@
 
                                         </td> -->
 
+=======
+                                         <td><?php echo $value['create_date']; ?></td>                                       
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
                                         <td>
-
                                             <div class="dropdown">
-
                                               <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Select Action
-
                                               <span class="caret"></span></button>
-
                                               <ul class="dropdown-menu">
+<<<<<<< HEAD
 
                                                 <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['id']?>"  >View</a>
 
                                                 </li>
 
+=======
+                                                <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['id']?>"  >View</a></li>
+                                                <li><a href="<?php echo base_url().'adminnew/addproduct/'.$value['id']?>"  >Edit</a></li>
+                                                <li><a href="javascript:void(0)" href-data="<?php echo  $value['id']; ?>" class="delete" >Delete1</a></li>
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
                                               </ul>
-
                                             </div>
-
                                         </td>
-
                                     </tr>
-
-
-
                                 <?php
-
                             }
-
-
-
-                         ?>
-
+                         ?> 
                     </tbody>
-
                 </table>
-
-                <div class="pagination col-sm-12 text-right"><p><?php echo $links;?></p></div>
-
+                <div class="pagination col-sm-12 text-right"><p><?php //  echo $links;?></p></div>
           </div>
 
           <!-- /.box-body -->
@@ -203,213 +195,24 @@
        "autoWidth": false
     });
   });
-
-  // $(".delete").click(function(e){
-
-  //   var val = confirm("Sure you want to Delete Product ?");
-
-  //   var id = $(this).attr("href-id");
-
-  //   if(val){
-
-  //     $.ajax({
-
-  //       type: "POST",
-
-  //       url: "<?php echo base_url();?>shop/change_status",
-
-  //       data:{tablename:'product',id:id,status:3,whrcol:'product_id',whrstatuscol:'status',action:"Delete"},
-
-  //       dataType:'json',
-
-  //       success: function(response) {
-
-  //         if (response.status == 1){
-
-  //           $.notify(response.msg, "success");
-
-  //           setTimeout(function(){location.reload()},1000);
-
-  //         }else{
-
-  //           $.notify(response.msg, "error");
-
-  //         }
-
-  //       }
-
-  //     });
-
-  //   }
-
-  // });
-
-
-
-  $(".pulish_status").click(function(e){
-
-        var val = confirm("Sure you want to Publised Product ?");
-
-        var id = $(this).attr("href-id");
-
-        if(val){
-
-          $.ajax({
-
-            type: "POST",
-
-            url: "<?php echo base_url();?>adminnew/change_status",
-
-            data:{tablename:'product',id:id,status:1,whrcol:'product_id',whrstatuscol:'status',action:"Publised"},
-
-            dataType:'json',
-
-            success: function(response) {
-
-              if (response.status == 1){
-
-                $.notify(response.msg, "success");
-
-                setTimeout(function(){location.reload()},1000);
-
-              }else{
-
-                $.notify(response.msg, "error");
-
-              }
-
-            }
-
-          });
-
+  $(".delete").click(function(e){
+    var val = confirm("Are you sure, you want to delete user ?");
+    var id = $(this).attr("href-data");
+    if(val){
+      $.ajax({
+        type: "POST",
+        url: "<?php echo base_url();?>adminnew/deleteRecord",
+        data:{table:'dummyproduct',id:id,status:3,colwhr:'id',whrstatuscol:'status',action:"Delete"},
+        dataType:'json',
+        success: function(response) {
+          if (response.status == 1){
+            $.notify(response.msg, "success");
+            setTimeout(function(){location.reload()},1000);
+          }else{
+            $.notify(response.msg, "error");
+          }
         }
-
+      });
+    }
   });
-
-  
-
-  $(".un_pulish_status").click(function(e){
-
-      var val = confirm("Sure you want to Un Publised Product ?");
-
-      var id = $(this).attr("href-id");
-
-      if(val){
-
-        $.ajax({
-
-          type: "POST",
-
-          url: "<?php echo base_url();?>adminnew/change_status",
-
-          data:{tablename:'product',id:id,status:0,whrcol:'product_id',whrstatuscol:'status',action:"Un Publised"},
-
-          dataType:'json',
-
-          success: function(response) {
-
-            if (response.status == 1){
-
-              $.notify(response.msg, "success");
-
-              setTimeout(function(){location.reload()},1000);
-
-            }else{
-
-              $.notify(response.msg, "error");
-
-            }
-
-          }
-
-        });
-
-      }
-
-  });
-
-
-
-  $(".featured_status").click(function(e){
-
-      var val = confirm("Sure you want to Featured Product ?");
-
-      var id = $(this).attr("href-id");
-
-      if(val){
-
-        $.ajax({
-
-          type: "POST",
-
-          url: "<?php echo base_url();?>adminnew/change_status",
-
-          data:{tablename:'product',id:id,status:1,whrcol:'product_id',whrstatuscol:'featured_status',action:"Featured"},
-
-          dataType:'json',
-
-          success: function(response) {
-
-            if (response.status == 1){
-
-              $.notify(response.msg, "success");
-
-              setTimeout(function(){location.reload()},1000);
-
-            }else{
-
-              $.notify(response.msg, "error");
-
-            }
-
-          }
-
-        });
-
-      }
-
-  });
-
-
-
-  $(".un_featured_status").click(function(e){
-
-      var val = confirm("Sure you want to Un Featured Product ?");
-
-      var id = $(this).attr("href-id");
-
-      if(val){
-
-        $.ajax({
-
-          type: "POST",
-
-          url: "<?php echo base_url();?>adminnew/change_status",
-
-          data:{tablename:'product',id:id,status:0,whrcol:'product_id',whrstatuscol:'featured_status',action:"Featured"},
-
-          dataType:'json',
-
-          success: function(response) {
-
-            if (response.status == 1){
-
-              $.notify(response.msg, "success");
-
-              setTimeout(function(){location.reload()},1000);
-
-            }else{
-
-              $.notify(response.msg, "error");
-
-            }
-
-          }
-
-        });
-
-      }
-
-  });
-
 </script>

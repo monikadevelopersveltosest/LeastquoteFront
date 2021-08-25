@@ -554,10 +554,15 @@ class Adminnew extends CI_Controller {
 
 
     	//$url = base_url()."adminnew/productlist";
+<<<<<<< HEAD
 
 		//$data["links"] = $this->pagination($url,$data['pagination'],$this->input->get('per_page'),total_per_page);
 		$data['rows'] = $this->Common_model->getwhere('dummyproduct',array());
+=======
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
 
+		//$data["links"] = $this->pagination($url,$data['pagination'],$this->input->get('per_page'),total_per_page);
+		$data['rows'] = $this->Common_model->getwhere('dummyproduct',array());
 		$this->load->view('adminnew/header');
 
 		$this->load->view('adminnew/productlist', $data);
@@ -589,7 +594,12 @@ class Adminnew extends CI_Controller {
 		}			
 
 	}
+<<<<<<< HEAD
 	public function addproduct(){
+=======
+	public function addproduct($id=false){
+		//echo $id;die;
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
 		$data = array();
 		$data['success'] = "";
 		$data['error'] = "";
@@ -597,6 +607,7 @@ class Adminnew extends CI_Controller {
 		if(isset($_POST['submit']))
 		{
 			$user_data = array();
+<<<<<<< HEAD
 
 			$filearray = array();
 			if (isset($_FILES)) {
@@ -617,6 +628,28 @@ class Adminnew extends CI_Controller {
 				$user_data['category_image'] = $filearray['category_image'];
 			}
 
+=======
+
+			$filearray = array();
+			if (isset($_FILES)) {
+			    //echo '<pre>';print_r($_FILES);die();
+			    foreach ($_FILES as $key => $value){
+			        //print_r($value['size']);
+			        if($value['size'] > 0) {
+						$filearraydata = $this->uploadcategoryfile($key);
+			            $filearray[$key] = $filearraydata;
+			        }else{
+			            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
+			        }
+			    }
+				//$post_data = $_POST+$filearray;
+			}
+
+			if(isset($filearray['category_image'])) {
+				$user_data['category_image'] = $filearray['category_image'];
+			}
+
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
 			// print_r($filearray);
 			// die;
 			// $parent_id = $_POST['parent_id'];
@@ -645,6 +678,11 @@ class Adminnew extends CI_Controller {
 		if(!empty($id))
 		{
 		    $whr = array();
+<<<<<<< HEAD
+=======
+			$data['product_data'] = $this->Common_model->getSingleRecordById('dummyproduct', array("id"=>$id));
+
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
 			$data['cat_data'] = $this->Common_model->getSingleRecordById('shopcategories', $whr);
 		}
 		$whr2 = array('1'=>1);
@@ -2107,7 +2145,6 @@ class Adminnew extends CI_Controller {
 
 
 	public function areas()
-
 	{
 
 		$data = array();
@@ -2123,11 +2160,21 @@ class Adminnew extends CI_Controller {
 		$this->load->view('adminnew/footer');
 
 	}
+	public function citylist(){
+		$data = array();
 
+		$whr2 = array('1='=>1);
+
+		$data['city_data'] = $this->Common_model->GetWhere('city_list', $whr2);
+		$this->load->view('adminnew/header');
+
+		$this->load->view('adminnew/citylist',$data);
+
+		$this->load->view('adminnew/footer');
+	}
 
 
 	public function addarea($area_id = "")
-
 	{
 
 		$data = array();
@@ -2212,6 +2259,55 @@ class Adminnew extends CI_Controller {
 
 	}
 
+	public function addcity($area_id = "")
+	{
+
+		$data = array();
+
+		$data['success'] = "";
+
+		$data['error'] = "";
+
+		$data['area_data'] = "";
+
+
+
+		if(isset($_POST['submit']))
+		{
+			$user_data = array();
+			$user_data['name'] = $_POST['name'];
+			
+			if (isset($_POST['id']) &&  !empty($_POST['id'])){
+				$result_id = $this->Common_model->updateRecords('city_list',$user_data,array('id'=>$_POST['id']));
+			}else{
+				$result_id = $this->Common_model->addRecords('city_list',$user_data);
+			}
+			if($result_id)
+			{
+				$data['success'] = "Area has been added successfully";
+				redirect(base_url().'adminnew/citylist/');
+			}else{
+				$data['error'] = "Some thing went wrong please try again";
+			}
+		}
+
+
+
+		if(!empty($area_id))
+		{
+		    $whr = array('id'=>$area_id);
+			$data['city_data'] = $this->Common_model->getSingleRecordById('city_list', $whr);
+		}
+		$whr2 = array('status !='=>3);
+		$data['all_areas'] = $this->Common_model->GetWhere('area', $whr2);
+
+		$this->load->view('adminnew/header');
+
+		$this->load->view('adminnew/addcity',$data);
+
+		$this->load->view('adminnew/footer');
+
+	}
 
 
 	public function Customerslist()
