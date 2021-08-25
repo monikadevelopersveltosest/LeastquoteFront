@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>leastquote </title>
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/owl.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-
-    <link rel="shortcut icon" href="assets/images/st-favicon.png" type="image/x-icon">
-</head>
-
-<body>
     <!--============= ScrollToTop Section Starts Here =============-->
     <div class="overlayer" id="overlayer">
         <div class="loader">
@@ -70,8 +46,8 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="index-5.html">
-                            <img src="assets/images/logo/st-logo.png" alt="logo" class="logo-st">
+                        <a href="<?php echo base_url();?>home">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/st-logo.png" alt="logo" class="logo-st">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
@@ -119,10 +95,10 @@
                                     <a href="#0">My Account</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="sign-up.html">Sign Up</a>
+                                            <a href="<?php echo base_url();?>home/signUp">Sign Up</a>
                                         </li>
                                         <li>
-                                            <a href="sign-in.html">Sign In</a>
+                                            <a href="<?php echo base_url();?>home/signIn">Sign In</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -308,7 +284,7 @@
                             <a href="#0">Forgot Password?</a>
                         </div> -->
                         <div class="form-group mb-0">
-                           <a href="seller-home.html" class="custom-button st-btn ">Pay</a>
+                           <a href="<?php echo base_url();?>home/sellerHome" class="custom-button st-btn ">Pay</a>
                         </div>
                     </form>
                 </div>
@@ -316,7 +292,7 @@
                     <div class="section-header mb-0">
                         <h3 class="title mt-0" style="color: #fff">NEW HERE?</h3>
                         <p style="color: #fff">Sign up and create your Account</p>
-                        <a href="sign-up.html" class="custom-button transparent">Sign Up</a>
+                        <a href="<?php echo base_url();?>home/signUp" class="custom-button transparent">Sign Up</a>
                     </div>
                 </div>
             </div>

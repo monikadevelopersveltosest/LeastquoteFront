@@ -1,5 +1,7 @@
 
-
+<?php 
+//echo "<pre>";print_r($rows);die;
+?>
 <div class="content-wrapper">
 
   <section class="content">
@@ -24,15 +26,15 @@
 
                     <form >
 
-                        <!-- <div class="col-md-12" style="margin-bottom: 16px;">
+                        <div class="col-md-12" style="margin-bottom: 16px;">
 
                             <div class="col-md-12">
 
-                                <a href="<?php echo base_url().'shop/addproduct'?>" class="btn btn-success pull-right" >Add Product</a>
+                                <a href="<?php echo base_url().'adminnew/addproduct'?>" class="btn btn-success pull-right" >Add Product</a>
 
                             </div>
 
-                        </div> -->
+                        </div>
 
                     </form>
 
@@ -46,21 +48,19 @@
 
                             <th style="width: 20px;">S.NO</th>
 
-                            <td>Product Id</td>
-
                             <th>Title</th>
 
-                            <th>Unit Price</th>
+                            <!-- <th>Unit Price</th> -->
 
-                            <th>Discount</th>
+                            <!-- <th>Discount</th> -->
 
-                            <th>Quantity</th>
+                            <!-- <th>Quantity</th> -->
 
-                            <th>Fetured</th>
+                            <!-- <th>Fetured</th> -->
 
-                            <th>Published</th>
+                            <!-- <th>Published</th> -->
 
-                            <th>Total sales</th>
+                            <!-- <th>Total sales</th> -->
 
                             <th>Date</th>
 
@@ -77,6 +77,7 @@
                             $i = 1;
 
                             foreach ($rows as $key => $value) {
+                             // echo "<pre>";print_r($value);die;
 
                                 ?>
 
@@ -84,37 +85,33 @@
 
                                         <td><?php echo $i;$i++; ?></td>
 
-                                        <td><?php echo $value['product_reg_id']; ?></td>
-
                                         <td><a ><?php echo $value['name']; ?></a></td>
 
-                                        <td><?php echo $value['unit_price']; ?></td>
+                                         <td><?php echo $value['create_date']; ?></td>
 
-                                        <td><?php echo $value['discount'] ."". (isset($value['discount_type']) && $value['discount_type'] == 1 ? '%' : ''); ?></td>
+                                       <!-- <td><?php //echo $value['discount'] ."". (isset($value['discount_type']) && $value['discount_type'] == 1 ? '%' : ''); ?></td>
 
-                                        <td><?php echo $value['quantity']; ?></td>
-
-                                        <td>
-
-                                          <?php if($value['featured_status'] == 1) { ?>
-
-                                              <!-- <i class="fa fa-toggle-on"></i> -->
-
-                                              <a href="javascript:void(0)" href-id="<?php echo $value['product_id']?>" class="un_featured_status" href-status="0"><i class="fa fa-toggle-on"></i></a>
-
-                                          <?php  } ?>
-
-                                          <?php if($value['featured_status'] == 0) { ?>
-
-                                              <!-- <i class="fa fa-toggle-off"></i> -->
-
-                                              <a href="javascript:void(0)" href-id="<?php echo $value['product_id']?>" class="featured_status" href-status="1"><i class="fa fa-toggle-off"></i></a>
-
-                                          <?php } ?>
-
-                                        </td>
+                                        <td><?php //echo $value['quantity']; ?></td>
 
                                         <td>
+
+                                          <?php //if($value['featured_status'] == 1) { ?>
+
+
+                                              <a href="javascript:void(0)" href-id="<?php //echo $value['product_id']?>" class="un_featured_status" href-status="0"><i class="fa fa-toggle-on"></i></a>
+
+                                          <?php  //} ?>
+
+                                          <?php //if($value['featured_status'] == 0) { ?>
+
+
+                                              <a href="javascript:void(0)" href-id="<?php //echo $value['product_id']?>" class="featured_status" href-status="1"><i class="fa fa-toggle-off"></i></a>
+
+                                          <?php //} ?>
+
+                                        </td> -->
+
+                                        <!-- <td>
 
                                           <?php if($value['status'] == 1) { ?>
 
@@ -130,11 +127,7 @@
 
                                           <?php } ?>
 
-                                        </td>
-
-                                        <td><?php echo $value['num_of_sale']?></td>
-
-                                        <td><?php echo $value['create_date']?></td>
+                                        </td> -->
 
                                         <td>
 
@@ -146,7 +139,7 @@
 
                                               <ul class="dropdown-menu">
 
-                                                <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['product_id']?>"  >View</a>
+                                                <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['id']?>"  >View</a>
 
                                                 </li>
 

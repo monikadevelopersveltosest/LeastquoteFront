@@ -1,6 +1,6 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <section class="content-header"><h1><img src="<?php echo base_url().'common_assets/images/categories.png';?>">Vendor Categories<small>List</small></h1></section>
+  <section class="content-header"><h1><img src="<?php echo base_url().'common_assets/images/categories.png';?>">Saller Categories<small>List</small></h1></section>
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -8,7 +8,7 @@
         <div class="box">
           <div class="box-header col-md-6" style="float: left;">
             <h3 class="box-title">
-                <a href="<?php echo base_url();?>adminnew/addShopCategory" class="btn btn-primary pull-right">Add New Vendor Category</a>
+                <a href="<?php echo base_url();?>adminnew/addShopCategory" class="btn btn-primary pull-right">Add New Saller Category</a>
             </h3>
           </div>
           <div class="box-header" style="float: right">

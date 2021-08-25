@@ -1,5 +1,4 @@
 
-<body>
     <!--============= ScrollToTop Section Starts Here =============-->
     <div class="overlayer" id="overlayer">
         <div class="loader">
@@ -54,8 +53,8 @@
                     <ul class="menu ml-auto">
                         <li>
                             <a href="#0">Home</a>
-                            <!-- <ul class="submenu">
-                                <li>
+                            <ul class="submenu">
+                                <!-- <li>
                                     <a href="index.html">Home Page One</a>
                                 </li>
                                 <li>
@@ -69,8 +68,8 @@
                                 </li>
                                 <li>
                                     <a href="index-5.html">Home Page Five</a>
-                                </li>
-                            </ul> -->
+                                </li> -->
+                            </ul>
                         </li>
                         <li>
                             <a href="product.html">Auction</a>
@@ -96,7 +95,7 @@
                                     <a href="#0">My Account</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="sign-up.html">Sign Up</a>
+                                            <a href="<?php echo base_url();?>home/signUp">Sign Up</a>
                                         </li>
                                         <li>
                                             <a href="sign-in.html">Sign In</a>
@@ -144,7 +143,7 @@
                             <a href="contact.html">Contact</a>
                         </li>
                     </ul>
-                    <form class="search-form">
+                    <form class="search-form white">
                         <input type="text" placeholder="Search for brand, model....">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
@@ -232,75 +231,166 @@
     <!--============= Cart Section Ends Here =============-->
 
 
-    <!--============= Hero Section Starts Here =============-->
-    <div class="hero-section st-hero">
+    <!--============= Banner Section Starts Here =============-->
+    <section class="banner-section-5 bg_img oh st-banner">
         <div class="container">
-            <!-- <ul class="breadcrumb">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="#0">Pages</a>
-                </li>
-                <li>
-                    <span>Sign In</span>
-                </li>
-            </ul> -->
-        </div>
-        <div class="bg_img hero-bg bottom_center" ></div>
-    </div>
-    <!--============= Hero Section Ends Here =============-->
-
-
-    <!--============= Account Section Starts Here =============-->
-    <section class="account-section padding-bottom">
-        <div class="container">
-            <div class="account-wrapper mt--100 mt-lg--440">
-                <div class="left-side">
-                    <div class="section-header">
-                        <h2 class="title">Buyer's Login</h2>
-                        <p>You can log in to your <b>leastquote</b> account here.</p>
+            <div class="row align-items-center">
+                <div class="col-md-10 col-lg-9 col-xl-9">
+                    <div class="banner-content cl-white">                        
+                        <h5 class="cate">Find Next Generation</h5>
+                        <h1 class="title"><span class="d-xl-block">A Better Way</span> To Buy Property</h1>
+                        <p class="mw-500">
+                            Bid in private, from the comfort of your home.
+                        </p>
+                        <a href="<?php echo base_url();?>home/signUp" class="custom-button yellow btn-large">Buyer</a>
+                        <a href="<?php echo base_url();?>home/dealerSingup" class="custom-button yellow btn-large">Dealer</a>
                     </div>
-                    <!-- <ul class="login-with">
-                        <li>
-                            <a href="#0"><i class="fab fa-facebook"></i>Log in with Facebook</a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-google-plus"></i>Log in with Google</a>
-                        </li>
-                    </ul> -->
-                   <!--  <div class="or">
-                        <span>Or</span>
-                    </div> -->
-                    <form class="login-form">
-                        <div class="form-group mb-30">
-                            <label for="login-name"><i class="far fa-user"></i></label>
-                            <input type="text" id="login-name" placeholder="Username Nmae">
-                        </div>
-                        <div class="form-group">
-                            <label for="login-pass"><i class="fas fa-lock"></i></label>
-                            <input type="password" id="login-pass" placeholder="Password">
-                            <span class="pass-type"><i class="fas fa-eye"></i></span>
-                        </div>
-                        <div class="form-group">
-                            <a href="#0">Forgot Password?</a>
-                        </div>
-                        <div class="form-group mb-0">
-                           <a href="<?php echo base_url(); ?>home/buyer" class="custom-button st-btn ">LOG IN</a>
-                        </div>
-                    </form>
                 </div>
-                <div class="right-side cl-white">
-                    <div class="section-header mb-0">
-                        <h3 class="title mt-0" style="color: #fff">NEW HERE?</h3>
-                        <p style="color: #fff">Sign up and create your Account</p>
-                        <a href="sign-up.php" class="custom-button transparent">Sign Up</a>
+                <div class="col-lg-3 col-xl-3 d-none d-lg-block">
+                    <div class="banner-thumb-5">
+                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/banner/banner-5.png" alt="banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-shape banner-shape-5 d-none d-lg-block bot-0">
+            <img src="<?php echo base_url();?>fornt_new_assests/assets/css/img/banner-shape-4.png" alt="css">
+        </div>
+    </section>
+    <!--============= Banner Section Ends Here =============-->
+
+
+    <!--============= Hightlight Slider Section Starts Here =============-->
+    <div class="browse-slider-section padding-top pt-lg-0 mt--140 mt-max-xl-0">
+        <div class="container">
+            <div class="section-header-2 mb-4">
+                <div class="left">
+                    <h6 class="title pl-0">Browse the highlights</h6>
+                </div>
+                <div class="slider-nav">
+                    <a href="#0" class="bro-prev"><i class="flaticon-left-arrow"></i></a>
+                    <a href="#0" class="bro-next active"><i class="flaticon-right-arrow"></i></a>
+                </div>
+            </div>
+            <div class="m--15">
+                <div class="browse-slider-2 owl-theme owl-carousel">
+                    <a href="#0" class="browse-item-2">
+                        <div class="thumb">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/brow2-1.png" alt="auction">
+                        </div>
+                        <div class="content">
+                            <span class="title">Houses & Apartments</span>
+                            <span class="info">Show</span>
+                        </div>
+                    </a>
+                    <a href="#0" class="browse-item-2">
+                        <div class="thumb">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/brow2-2.png" alt="auction">
+                        </div>
+                        <div class="content">
+                            <span class="title">Commercial Properties</span>
+                            <span class="info">Show</span>
+                        </div>
+                    </a>
+                    <a href="#0" class="browse-item-2">
+                        <div class="thumb">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/brow2-3.png" alt="auction">
+                        </div>
+                        <div class="content">
+                            <span class="title">Industrial Properties</span>
+                            <span class="info">Show</span>
+                        </div>
+                    </a>
+                    <a href="#0" class="browse-item-2">
+                        <div class="thumb">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/brow2-4.png" alt="auction">
+                        </div>
+                        <div class="content">
+                            <span class="title">Land Plots</span>
+                            <span class="info">Show</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============= Client Section Starts Here =============-->
+    <section class="client-section padding-top padding-bottom">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title">Don’t just take our word for it!</h2>
+                <p>Our hard work is paying off. Great reviews from amazing customers.</p>
+            </div>
+            <div class="m--15">
+                <div class="client-slider owl-theme owl-carousel">
+                    <div class="client-item">
+                        <div class="client-content">
+                            <p>I can't stop bidding! It's a great way to spend some time and I want everything on Sbidu.</p>
+                        </div>
+                        <div class="client-author">
+                            <div class="thumb">
+                                <a href="#0">
+                                    <img src="<?php echo base_url();?>fornt_new_assests/assets/images/client/client01.png" alt="client">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#0">Alexis Moore</a></h6>
+                                <div class="ratings">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-content">
+                            <p>I came I saw I won. Love what I have won, and will try to win something else.</p>
+                        </div>
+                        <div class="client-author">
+                            <div class="thumb">
+                                <a href="#0">
+                                    <img src="<?php echo base_url();?>fornt_new_assests/assets/images/client/client02.png" alt="client">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#0">Darin Griffin</a></h6>
+                                <div class="ratings">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-content">
+                            <p>This was my first time, but it was exciting. I will try it again. Thank you so much.</p>
+                        </div>
+                        <div class="client-author">
+                            <div class="thumb">
+                                <a href="#0">
+                                    <img src="<?php echo base_url();?>fornt_new_assests/assets/images/client/client03.png" alt="client">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#0">Tom Powell</a></h6>
+                                <div class="ratings">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--============= Account Section Ends Here =============-->
-
-
-    
+    <!--============= Client Section Ends Here =============-->

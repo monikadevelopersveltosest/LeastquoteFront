@@ -13,13 +13,13 @@
     <?php 
     if(!empty($cat_data)) { 
       ?>
-        <h1>Edit Saller Categories</h1>
+        <h1>Edit Product</h1>
       <?php 
         }
         else
         {
       ?>
-        <h1>Add Saller Categories</h1>
+        <h1>Add Product</h1>
       <?php 
         }
       ?>
@@ -84,13 +84,10 @@
                   
 
                   <div class="form-group">
-                    <label>Categories Name</label>
-                    <input type="text" class="form-control" name="category_name" value="<?php echo (!empty($cat_data) && !empty($cat_data['category_name']) ? $cat_data['category_name'] : "" )?>" required>
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" name="name" value="<?php echo (!empty($cat_data) && !empty($cat_data['name']) ? $cat_data['name'] : "" )?>" required>
                   </div>
-                  <!-- <div class="form-group">
-                    <label>Categories Percentage</label>
-                    <input type="number" class="form-control" name="category_percentage" value="<?php echo (!empty($cat_data) && !empty($cat_data['category_percentage']) ? $cat_data['category_percentage'] : "" )?>" step="0.01" required>
-                  </div> -->
+                  
                   <?php 
                   if(!empty($cat_data))
                   {
@@ -103,19 +100,19 @@
                   }
                   ?>
                   <div class="form-group">
-                    <label>Categories Image (Type : jpg/png)</label>
+                    <label>Product Image (Type : jpg/png)</label>
                     <input type="file" class="form-control" name="category_image">
                   </div>
-                  <!--  <div class="form-group">
-                    <label>Position</label>
-                    <input type="number" class="form-control" name="pos" value="<?php echo !empty($cat_data['pos']) ? $cat_data['pos'] : '';?>" required>
+
+                  <!-- <div class="form-group">
+                    <label>Product description</label>
+                    <input type="text" class="form-control" name="description" value="">
                   </div> -->
+                  
             </div>
             <div class="col-md-12 mt-5">
               <input type="hidden" name="id" value="<?php echo (!empty($cat_data) && !empty($cat_data['id']) ? $cat_data['id'] : "" )?>">
                <button type="submit" name="submit"  class="btn btn-primary">Save</button>
-                      <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
-
             </div>
 
           </form>

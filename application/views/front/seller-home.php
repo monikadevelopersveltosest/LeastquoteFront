@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>leastquote</title>
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/owl.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-
-    <link rel="shortcut icon" href="assets/images/st-favicon.png" type="image/x-icon">
-</head>
 <style>
 .dropdown {
   position: relative;
@@ -49,7 +27,6 @@ a.st-ankr {
     padding: 8px 0px;
 }
 </style>
-<body>
     <!--============= ScrollToTop Section Starts Here =============-->
     <div class="overlayer" id="overlayer">
         <div class="loader">
@@ -321,40 +298,9 @@ a.st-ankr {
       <!--============= Product Auction Section Starts Here =============-->
     <div class="product-auction padding-bottom">
         <div class="container">
-           <!--  <div class="product-header mb-40">
-                <div class="product-header-item">
-                    <div class="item">Sort By : </div>
-                    <select name="sort-by" class="select-bar">
-                        <option value="all">All</option>
-                        <option value="name">Name</option>
-                        <option value="date">Date</option>
-                        <option value="type">Type</option>
-                        <option value="car">Car</option>
-                    </select>
-                </div>
-                <div class="product-header-item">
-                    <div class="item">Show : </div>
-                    <select name="sort-by" class="select-bar">
-                        <option value="09">09</option>
-                        <option value="21">21</option>
-                        <option value="30">30</option>
-                        <option value="39">39</option>
-                        <option value="60">60</option>
-                    </select>
-                </div>
-                <form class="product-search ml-auto">
-                    <input type="text" placeholder="Item Name">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div> -->
             <div class="row mb-30-none justify-content-center">
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
-                        <!-- <div class="auction-thumb">
-                            <a href="product-details.html"><img src="assets/images/auction/product/01.png" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div> -->
                         <div class="auction-content">
                             <h6 class="title">
                                 <a href="#0">2019 Mercedes-Benz C, 300</a>
@@ -386,7 +332,7 @@ a.st-ankr {
                                 <span class="total-bids">30 Bids</span>
                             </div>
                             <div class="text-center">
-                                <a href="seller-specific-quote.html" class="custom-button">Send Quote</a>
+                                <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
                             </div>
                         </div>
                     </div>
@@ -627,218 +573,3 @@ a.st-ankr {
         </div>
     </div>
     <!--============= Product Auction Section Ends Here =============-->
-
-
-    <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh bg-black" data-background="">
-        <div class="footer-top-shape">
-            <img src="assets/css/img/footer-top-shape.png" alt="css">
-        </div>
-        <div class="anime-wrapper">
-            <div class="anime-1 plus-anime">
-                <img src="assets/images/footer/p1.png" alt="footer">
-            </div>
-            <div class="anime-2 plus-anime">
-                <img src="assets/images/footer/p2.png" alt="footer">
-            </div>
-            <div class="anime-3 plus-anime">
-                <img src="assets/images/footer/p3.png" alt="footer">
-            </div>
-            <div class="anime-5 zigzag">
-                <img src="assets/images/footer/c2.png" alt="footer">
-            </div>
-            <div class="anime-6 zigzag">
-                <img src="assets/images/footer/c3.png" alt="footer">
-            </div>
-            <div class="anime-7 zigzag">
-                <img src="assets/images/footer/c4.png" alt="footer">
-            </div>
-        </div>
-        <div class="newslater-wrapper">
-            <div class="container">
-                <div class="newslater-area">
-                    <div class="newslater-thumb">
-                        <img src="assets/images/footer/newslater.png" alt="footer">
-                    </div>
-                    <div class="newslater-content">
-                        <div class="section-header left-style mb-low">
-                            <h5 class="cate">Subscribe to Sbidu</h5>
-                            <h3 class="title">To Get Exclusive Benefits</h3>
-                        </div>
-                        <form class="subscribe-form">
-                            <input type="text" placeholder="Enter Your Email" name="email">
-                            <button type="submit" class="custom-button">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-top padding-bottom padding-top">
-            <div class="container">
-                <div class="row mb--60">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget widget-links">
-                            <h5 class="title">Auction Categories</h5>
-                            <ul class="links-list">
-                                <li>
-                                    <a href="#0">Ending Now</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Vehicles</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Watches</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Electronics</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Real Estate</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jewelry</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Sports & Outdoor</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget widget-links">
-                            <h5 class="title">About Us</h5>
-                            <ul class="links-list">
-                                <li>
-                                    <a href="#0">About Sbidu</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Help</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Affiliates</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Press</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Our blog</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Collectors' portal</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget widget-links">
-                            <h5 class="title">We're Here to Help</h5>
-                            <ul class="links-list">
-                                <li>
-                                    <a href="#0">Your Account</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Safe and Secure</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Shipping Information</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Help & FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget widget-follow">
-                            <h5 class="title">Follow Us</h5>
-                            <ul class="links-list">
-                                <li>
-                                    <a href="#0"><i class="fas fa-phone-alt"></i>(646) 663-4575</a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fas fa-blender-phone"></i>(646) 968-0608</a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fas fa-envelope-open-text"></i><span class="__cf_email__" data-cfemail="bdd5d8d1cdfdd8d3dad2c9d5d8d0d893ded2d0">[email&#160;protected]</span></a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fas fa-location-arrow"></i>1201 Broadway Suite</a>
-                                </li>
-                            </ul>
-                            <ul class="social-icons">
-                                <li>
-                                    <a href="#0" class="active"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="copyright-area">
-                    <div class="footer-bottom-wrapper">
-                        <div class="logo">
-                           <a href="index.html"><img src="assets/images/logo/logo-wh.png" alt="logo" class="logo-st"></a>
-                        </div>
-                        <ul class="gateway-area">
-                            <li>
-                                <a href="#0"><img src="assets/images/footer/paypal.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="assets/images/footer/visa.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="assets/images/footer/discover.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="assets/images/footer/mastercard.png" alt="footer"></a>
-                            </li>
-                        </ul>
-                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--============= Footer Section Ends Here =============-->
-
-
-
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/waypoints.js"></script>
-    <script src="assets/js/nice-select.js"></script>
-    <script src="assets/js/counterup.min.js"></script>
-    <script src="assets/js/owl.min.js"></script>
-    <script src="assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/yscountdown.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-
-
-</html>

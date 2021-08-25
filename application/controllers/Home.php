@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->SessionModel->checkuserlogin(array("sendemaildemo","cartcount","sendsmsdemo","login","loginajax","registerajax","index","registration_otp_send","confirmregisterajax","loginbypassword","createCode","shops","shopdetail","productdetail","variant_price","buynow","addToCart","contact","updateNavCart","cart","removeCartProduct","updateQuantity","addshippinginfo","uploadfilebypath","contactinfo","aboutus","aboutus1","privacy_policy","terms_condition","clearance_product","forgotpasswordsubmit","verifyForgotOtp","changeforgotpasswrodsubmit","loginbyotpsubmit","verifyloginOtp","clearance_detail","subcatbycatname","sell_on_indocliq","vendor_registration","vendorsingup","forget_password","passwordchange","Otpsent"));
+		$this->SessionModel->checkuserlogin(array("sendemaildemo","cartcount","sendsmsdemo","login","loginajax","registerajax","index","registration_otp_send","confirmregisterajax","loginbypassword","createCode","shops","shopdetail","productdetail","variant_price","buynow","addToCart","contact","updateNavCart","cart","removeCartProduct","updateQuantity","addshippinginfo","uploadfilebypath","contactinfo","aboutus","aboutus1","privacy_policy","terms_condition","clearance_product","forgotpasswordsubmit","verifyForgotOtp","changeforgotpasswrodsubmit","loginbyotpsubmit","verifyloginOtp","clearance_detail","subcatbycatname","sell_on_indocliq","vendor_registration","vendorsingup","forget_password","passwordchange","Otpsent","buyer","signIn","signUp","dealerSingup","dealerSinIn","rechargeVirtualCash","sellerHome","sellerSpecificQuote","globalQuote","inShopRequest"));
 	}
 
 	public function index(){
@@ -29,11 +29,70 @@ class Home extends CI_Controller {
     			$data['error']="Message not send, please try again";
     		}
     	}
-        $this->load->view('front/header1');
-		$this->load->view('front/sign-in',$data);
-		$this->load->view('front/footer1');
+        $this->load->view('front/header');
+		$this->load->view('front/index-5',$data);
+		$this->load->view('front/footer');
+	}
+	public function inShopRequest(){
+		//echo "dfdf";//in-shop-request.html
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/in-shop-request',$data);
+		$this->load->view('front/footer');
+	}
+	public function signUp(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/sign-up',$data);
+		$this->load->view('front/footer');
+	}
+	public function dealerSingup(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/dealer-signup',$data);
+		$this->load->view('front/footer');
+	}
+	public function dealerSinIn(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/dealer-signin',$data);
+		$this->load->view('front/footer');
 	}
 
+	public function globalQuote(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/global-quote',$data);
+		$this->load->view('front/footer');
+	}
+	public function signIn(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/sign-in',$data);
+		$this->load->view('front/footer');
+	}
+	public function buyer(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/buyer-home',$data);
+		$this->load->view('front/footer');
+	}
+	public function rechargeVirtualCash(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/recharge-virtual-cash',$data);
+		$this->load->view('front/footer');
+	}
+	public function sellerHome(){
+		$this->load->view('front/header');
+        $this->load->view('front/seller-home');
+        $this->load->view('front/footer');
+	}
+	public function sellerSpecificQuote (){
+		$this->load->view('front/header');
+        $this->load->view('front/seller-specific-quote');
+        $this->load->view('front/footer');
+	}
     public function aboutus(){
         $this->load->view('front/header');
         $this->load->view('front/aboutus');

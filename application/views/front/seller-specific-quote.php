@@ -1,5 +1,17 @@
 
-<body>
+<style type="text/css">
+   .login-form .form-group input {
+    height: 50px;
+    border: 1px solid rgba(97, 90, 191, 0.2);
+    background: #ffffff;
+    padding: 0 10px;
+}
+textarea {
+    height: 100px;
+    resize: none;
+    padding: 10px;
+}
+</style>
     <!--============= ScrollToTop Section Starts Here =============-->
     <div class="overlayer" id="overlayer">
         <div class="loader">
@@ -34,6 +46,9 @@
                     </ul>
                     <ul class="cart-button-area">
                         <li>
+                            <a href="#0" class="vt-cash"><span class="amount">Virtual Cash &#8377 0.00</span></a>
+                        </li>  
+                        <li>
                             <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
                         </li>                        
                         <li>
@@ -47,15 +62,15 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="index-5.html">
+                        <a href="<?php echo base_url();?>">
                             <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/st-logo.png" alt="logo" class="logo-st">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
                             <a href="#0">Home</a>
-                            <!-- <ul class="submenu">
-                                <li>
+                            <ul class="submenu">
+                                <!-- <li>
                                     <a href="index.html">Home Page One</a>
                                 </li>
                                 <li>
@@ -69,8 +84,8 @@
                                 </li>
                                 <li>
                                     <a href="index-5.html">Home Page Five</a>
-                                </li>
-                            </ul> -->
+                                </li> -->
+                            </ul>
                         </li>
                         <li>
                             <a href="product.html">Auction</a>
@@ -144,7 +159,7 @@
                             <a href="contact.html">Contact</a>
                         </li>
                     </ul>
-                    <form class="search-form">
+                    <form class="search-form white">
                         <input type="text" placeholder="Search for brand, model....">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
@@ -166,7 +181,7 @@
     <div class="cart-sidebar-area">
         <div class="top-content">
             <a href="index.html" class="logo">
-                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/logo2.png" alt="logo">
+                <img src="assets/images/logo/logo2.png" alt="logo">
             </a>
             <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
         </div>
@@ -175,7 +190,7 @@
                 <h4 class="title">Shopping cart</h4>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop01.jpg" alt="shop"></a>
+                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Color Pencil</a></h4>
@@ -185,7 +200,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop02.jpg" alt="shop"></a>
+                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Water Pot</a></h4>
@@ -195,7 +210,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop03.jpg" alt="shop"></a>
+                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Art Paper</a></h4>
@@ -205,7 +220,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop04.jpg" alt="shop"></a>
+                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Stop Watch</a></h4>
@@ -215,7 +230,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop05.jpg" alt="shop"></a>
+                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Comics Book</a></h4>
@@ -231,76 +246,45 @@
     </div>
     <!--============= Cart Section Ends Here =============-->
 
-
-    <!--============= Hero Section Starts Here =============-->
-    <div class="hero-section st-hero">
+    <!--============= Feture Auction Section Starts Here =============-->
+    <section class="feature-auction-section padding-bottom padding-top bg_img stt-quote" data-background="assets/images/auction/featured/featured-bg-1.jpg">
         <div class="container">
-            <!-- <ul class="breadcrumb">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="#0">Pages</a>
-                </li>
-                <li>
-                    <span>Sign In</span>
-                </li>
-            </ul> -->
-        </div>
-        <div class="bg_img hero-bg bottom_center" ></div>
-    </div>
-    <!--============= Hero Section Ends Here =============-->
-
-
-    <!--============= Account Section Starts Here =============-->
-    <section class="account-section padding-bottom">
-        <div class="container">
-            <div class="account-wrapper mt--100 mt-lg--440">
-                <div class="left-side">
-                    <div class="section-header">
-                        <h2 class="title">Buyer's Login</h2>
-                        <p>You can log in to your <b>leastquote</b> account here.</p>
-                    </div>
-                    <!-- <ul class="login-with">
-                        <li>
-                            <a href="#0"><i class="fab fa-facebook"></i>Log in with Facebook</a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-google-plus"></i>Log in with Google</a>
-                        </li>
-                    </ul> -->
-                   <!--  <div class="or">
-                        <span>Or</span>
-                    </div> -->
-                    <form class="login-form">
-                        <div class="form-group mb-30">
-                            <label for="login-name"><i class="far fa-user"></i></label>
-                            <input type="text" id="login-name" placeholder="Username Nmae">
+           <!--  <div class="section-header">
+                <h2 class="title">Featured Items</h2>
+                <p>Bid and win great deals,Our auction process is simple, efficient, and transparent.</p>
+            </div> -->
+            <div class="row justify-content-center mb-30-none">
+                <div class="col-sm-10 col-md-12 col-lg-12">
+                  <div class="quote-form"> 
+                    <h3 class="st-req">Seller's Specific Request</h3>
+                      <form class="login-form">
+                         <div class="form-group mb-30">
+                            <label for="amount"></label>
+                            <input type="text" id="" placeholder="Quote Amount">
+                         </div>
+                        <div class="form-group checkgroup mb-30">
+                            <input type="checkbox" name="terms" id="check"><label for="check">Exchange Offer </label>
+                        </div>
+                        <div class="form-group checkgroup mb-30">
+                            <input type="checkbox" name="terms" id="check"><label for="check">Other offer </label>
                         </div>
                         <div class="form-group">
-                            <label for="login-pass"><i class="fas fa-lock"></i></label>
-                            <input type="password" id="login-pass" placeholder="Password">
-                            <span class="pass-type"><i class="fas fa-eye"></i></span>
-                        </div>
-                        <div class="form-group">
-                            <a href="#0">Forgot Password?</a>
+                            <label for="login-pass"></label>
+                            <textarea name="message" id="message" placeholder="Description"></textarea>
                         </div>
                         <div class="form-group mb-0">
-                           <a href="<?php echo base_url(); ?>home/buyer" class="custom-button st-btn ">LOG IN</a>
+                           <a href="buyer-home.html" class="custom-button st-btn " data-toggle="modal" data-target="#exampleModal">Sent Request</a>
                         </div>
                     </form>
-                </div>
-                <div class="right-side cl-white">
-                    <div class="section-header mb-0">
-                        <h3 class="title mt-0" style="color: #fff">NEW HERE?</h3>
-                        <p style="color: #fff">Sign up and create your Account</p>
-                        <a href="sign-up.php" class="custom-button transparent">Sign Up</a>
-                    </div>
+                  </div>
                 </div>
             </div>
+            <!-- <div class="load-wrapper">
+                <a href="#0" class="normal-button">See All Auction</a>
+            </div> -->
         </div>
     </section>
-    <!--============= Account Section Ends Here =============-->
+    <!--============= Feture Auction Section Ends Here =============-->
 
 
     

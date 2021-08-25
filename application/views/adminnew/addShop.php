@@ -1021,7 +1021,7 @@
                             <input type="password" class="form-control" name="password">
                           </div>
                         <?php } ?>
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                               <label>Select MemberShip Type</label>
                               <select class="form-control" name="membership-duration">
                                 <option value="">Select MemberShip Type</option>
@@ -1042,7 +1042,7 @@
                                 }
                                 ?>
                               </select>
-                          </div>                        
+                          </div>                         -->
                        
                         <!-- <div class="form-group">
                           <label>Password</label>

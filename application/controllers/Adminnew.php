@@ -508,60 +508,55 @@ class Adminnew extends CI_Controller {
 
 
 	public function productlist()
-
 	{   
-
 		$data = array();
+		// if($this->input->get('per_page'))
+		// {
 
-		if($this->input->get('per_page'))
+		// 	$page = $this->input->get('per_page');
 
-		{
+		// }else{
 
-			$page = $this->input->get('per_page');
+		// 	$page=0;
 
-		}else{
-
-			$page=0;
-
-		}
+		// }
 
 		
 
-		$whr = array();
+		//$whr = array();
 
 		// $whr[] = "o.userid != 0";
 
-		$whr = array();
+		//$whr = array();
 
-		if(isset($_GET['status'])){
+		// if(isset($_GET['status'])){
 
-			$whr[] = "status = ".$_GET['status'];
+		// 	$whr[] = "status = ".$_GET['status'];
 
-		}else{
+		// }else{
 
-			$whr[] = "status != 3";
+		// 	$whr[] = "status != 3";
 
-		}
+		// }
 
 		
 
-		$orderby = " LIMIT " .$page.", ".total_per_page;
+		//$orderby = " LIMIT " .$page.", ".total_per_page;
 
-		$where = " WHERE ".implode(" AND ", $whr);
+		//$where = " WHERE ".implode(" AND ", $whr);
 
-    	$data['rows'] = $this->Common_model->getwherecustome('product',$where,$orderby);
+    	//$data['rows'] = $this->Common_model->getwherecustome('dummyproduct',$where,$orderby);
 
-		$data['pagination'] = $this->Common_model->getwhrcountbycol('product','product_id',$where); 
+		//$data['pagination'] = $this->Common_model->getwhrcountbycol('dummyproduct','id',$where); 
 
 		//$data['totalorderamount'] = $this->Common_model->getWhrOrderssum('o.total',$where);
 
 
 
-    	$url = base_url()."adminnew/productlist".(isset($_GET['status']) ? "?status=".trim($_GET['status'])."":'').(isset($_GET['product_reg_id']) ? "&product_reg_id=".trim($_GET['product_reg_id'])."" : '').(isset($_GET['name']) ? "&name=".trim($_GET['name'])."":'');
+    	//$url = base_url()."adminnew/productlist";
 
-		$data["links"] = $this->pagination($url,$data['pagination'],$this->input->get('per_page'),total_per_page);
-
-		
+		//$data["links"] = $this->pagination($url,$data['pagination'],$this->input->get('per_page'),total_per_page);
+		$data['rows'] = $this->Common_model->getwhere('dummyproduct',array());
 
 		$this->load->view('adminnew/header');
 
@@ -594,8 +589,73 @@ class Adminnew extends CI_Controller {
 		}			
 
 	}
+	public function addproduct(){
+		$data = array();
+		$data['success'] = "";
+		$data['error'] = "";
+		$data['cat_data'] = "";
+		if(isset($_POST['submit']))
+		{
+			$user_data = array();
 
+			$filearray = array();
+			if (isset($_FILES)) {
+			    //echo '<pre>';print_r($_FILES);die();
+			    foreach ($_FILES as $key => $value){
+			        //print_r($value['size']);
+			        if($value['size'] > 0) {
+						$filearraydata = $this->uploadcategoryfile($key);
+			            $filearray[$key] = $filearraydata;
+			        }else{
+			            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
+			        }
+			    }
+				//$post_data = $_POST+$filearray;
+			}
 
+			if(isset($filearray['category_image'])) {
+				$user_data['category_image'] = $filearray['category_image'];
+			}
+
+			// print_r($filearray);
+			// die;
+			// $parent_id = $_POST['parent_id'];
+			$user_data['name'] = $_POST['name'];
+			//$user_data['pos'] = $_POST['pos'];
+			//$user_data['category_percentage'] = $_POST['category_percentage'];
+			$user_data['create_date'] = date('Y-m-d H:i:s');
+			///p($user_data);die;
+			if (isset($_POST['id']) &&  !empty($_POST['id'])){
+				$result_id = $this->Common_model->updateRecords('dummyproduct',$user_data,array('id'=>$_POST['id']));
+			}
+			else
+			{
+				$result_id = $this->Common_model->addRecords('dummyproduct',$user_data);
+			}
+			if($result_id)
+			{
+				$data['success'] = "productlist has been added successfully";
+				redirect(base_url().'adminnew/productlist/');
+			}
+			else
+			{
+				$data['error'] = "Some thing went wrong please try again";
+			}
+		}
+		if(!empty($id))
+		{
+		    $whr = array();
+			$data['cat_data'] = $this->Common_model->getSingleRecordById('shopcategories', $whr);
+		}
+		$whr2 = array('1'=>1);
+		$data['all_categories'] = $this->Common_model->GetWhere('shopcategories', $whr2);
+		$this->load->view('adminnew/header');
+		$this->load->view('adminnew/addproduct',$data);
+		$this->load->view('adminnew/footer');
+	}
+/*$this->load->view('adminnew/header');
+		$this->load->view('adminnew/addproduct',$data);
+		$this->load->view('adminnew/footer');*/
 
 // 	public function neworders(){
 
@@ -3440,9 +3500,9 @@ public function addShop($shop_id = false){
 				if(isset($_POST['shopcetegory_type_id'])) {
 					$user_data['shopcetegory_type_id'] = $_POST['shopcetegory_type_id'];
 				}
-				if(isset($_POST['membership-duration'])) {
-					$user_data['membership-duration'] = $_POST['membership-duration'];
-				}
+				// if(isset($_POST['membership-duration'])) {
+				// 	$user_data['membership-duration'] = $_POST['membership-duration'];
+				// }
 				if(isset($_POST['desc'])) {
 					$user_data['desc'] = $_POST['desc'];
 				}
@@ -3481,12 +3541,6 @@ public function addShop($shop_id = false){
 		}
 		if(isset($_POST['update']))
 		{
-			// print_r($_POST);
-			// $user_data = $_POST;
-			// unset($user_data['update']);
-			// unset($user_data['password']);
-			// $user_data['password'] = md5($password);
-			// $user_data['show_password'] = $password;
 			$user_data = array();
 			$user_data['owner_name'] = $_POST['owner_name'];
 			$user_data['shop_name'] = $_POST['shop_name'];
@@ -3495,13 +3549,9 @@ public function addShop($shop_id = false){
 			$user_data['shop_latitude'] = trim($_POST['shop_latitude']);
 			$user_data['shop_longitude'] = trim($_POST['shop_longitude']);
 			$user_data['account_holder_name'] = (isset($_POST['account_holder_name']) ? $_POST['account_holder_name'] : '');
-			//$user_data['bank_name'] = (isset($_POST['bank_name']) ? $_POST['bank_name'] : '');
 			$user_data['bank_acc_no'] = (isset($_POST['bank_acc_no']) ? $_POST['bank_acc_no'] : '');
 			$user_data['routing-number'] = (isset($_POST['routing-number']) ? $_POST['routing-number'] : '');
-			//$user_data['bank_ifsc_code'] = (isset($_POST['bank_ifsc_code']) ? $_POST['bank_ifsc_code'] : '');
-			//$user_data['bank_branch'] = (isset($_POST['bank_branch']) ? $_POST['bank_branch'] : '');
 			$email = $user_data['email'];
-			
 			if(isset($_POST['shop_registration_no']) && !empty($_POST['shop_registration_no'])){
 				$user_data['shop_registration_no'] = $_POST['shop_registration_no'];
 			}
@@ -3518,26 +3568,16 @@ public function addShop($shop_id = false){
 				$user_data['gst_number'] = $_POST['gst_number'];
 			}
 			if(isset($_POST['mobile_no']) && !empty($_POST['mobile_no'])){
-				//$mobc=$_POST['country_code'].$_POST['mobile_no'];
-			///	$mobile_no = $mobc;
-				//$mobile_no = base64_encode($mobc);
-				$user_data['mobile_no'] = $_POST['mobile_no'];//$mobile_no;
-			}//			$user_data['country_code']=$_POST['country_code'];
+				$user_data['mobile_no'] = $_POST['mobile_no'];
+			}
 			if(isset($_POST['country_code']) && !empty($_POST['country_code'])){
 				$user_data['country_code'] = $_POST['country_code'];
 			}
 			if(isset($_POST['shopping_categories']) && !empty($_POST['shopping_categories'])){
 				$user_data['shopping_categories'] = implode(",", $_POST['shopping_categories']);
 			}
-			// if(isset($_POST['shopping_specialized']) && !empty($_POST['shopping_specialized'])){
-			// 	$user_data['shopping_specialized'] = implode(",", $_POST['shopping_specialized']);
-			// }
-			// if(isset($_POST['meta_tags'])) {
-			// 	$user_data['meta_tags'] = $_POST['meta_tags'];
-			// }	
 			$filearray = array();
 			if (isset($_FILES)){
-			    //echo '<pre>';print_r($_FILES);die();
 			    if(isset($_FILES['owner_image']['name']) && !empty($_FILES['owner_image']['name'])){
 	        		$uploadpath = "./uploads/shop_images/shop_owner_images/";
 	        		$filearraydata = $this->uploadfilebypath('owner_image',$uploadpath);
@@ -3545,13 +3585,6 @@ public function addShop($shop_id = false){
 						$user_data['owner_image'] = $filearraydata;
 					}
 	        	}
-	    //     	if(isset($_FILES['shop_logo']['name']) && !empty($_FILES['owner_image']['name'])){
-	    //     		$uploadpath = "./uploads/shop_images/shop_logos/";
-	    //     		$filearraydatalogo = $this->uploadfilebypath('shop_logo',$uploadpath);
-	    //         	if(isset($filearraydatalogo)){
-					// 	$user_data['shop_logo'] = $filearraydatalogo;
-					// }
-	    //     	}
 	        	if(isset($_FILES['shop_image_mobile']['name']) && !empty($_FILES['shop_image_mobile']['name'])){
 	        		$uploadpath = "./uploads/shop_images/shop_image_mobile/";
 	        		$filearraydatamobile = $this->uploadfilebypath('shop_image_mobile',$uploadpath);
@@ -3559,13 +3592,6 @@ public function addShop($shop_id = false){
 						$user_data['shop_image_mobile'] = $filearraydatamobile;
 					}
 	        	}
-	    //     	if(isset($_FILES['shop_image_desktop']['name']) && !empty($_FILES['shop_image_desktop']['name'])){
-	    //     		$uploadpath = "./uploads/shop_images/shop_image_desktop/";
-	    //     		$filearraydatadsk = $this->uploadfilebypath('shop_image_desktop',$uploadpath);
-	    //         	if(isset($filearraydatadsk)){
-					// 	$user_data['shop_image_desktop'] = $filearraydatadsk;
-					// }
-	    //     	}
 	        	if(isset($_FILES['adhar_image']['name']) && !empty($_FILES['adhar_image']['name'])){
 	        		$uploadpath = "./uploads/shop_images/adhar_image/";
 	        		$filearrayadharimage = $this->uploadfilebypath('adhar_image',$uploadpath);
@@ -3580,31 +3606,10 @@ public function addShop($shop_id = false){
 						$user_data['pan_image'] = $filearraypanimage;
 					}
 	        	}
-	    //     	if(isset($_FILES['gumasta_image']['name']) && !empty($_FILES['gumasta_image']['name'])){
-		   //      		$uploadpathgumasta = "./uploads/shop_images/gumasta_images/";
-	    //     		$filearraydatagumasta = $this->uploadfilebypath('gumasta_image',$uploadpathgumasta);
-	    //         	if(isset($filearraydatagumasta)){
-	            		
-					// 	$user_data['gumasta_image'] = $filearraydatagumasta;
-					// }
-	    //     	}
-	    //     	if(isset($_FILES['cancel_check_image']['name']) && !empty($_FILES['cancel_check_image']['name'])){
-		   //      		$uploadpathcancelcheck = "./uploads/shop_images/cancel_check_images/";
-	    //     		$filearraydatacancelcheck = $this->uploadfilebypath('cancel_check_image',$uploadpathcancelcheck);
-	    //         	if(isset($filearraydatacancelcheck)){
-					// 	$user_data['cancel_check_image'] = $filearraydatacancelcheck;
-					// }
-	    //     	}
 			}
 
-			// if(isset($filearray['shop_logo'])) {
-			// 	$user_data['shop_logo'] = $filearray['shop_logo'];
-			// }
 			if(isset($_POST['shopcetegory_type_id'])) {
 				$user_data['shopcetegory_type_id'] = $_POST['shopcetegory_type_id'];
-			}
-			if(isset($_POST['membership-duration'])) {
-				$user_data['membership-duration'] = $_POST['membership-duration'];
 			}
 			if(isset($_POST['desc'])) {
 				$user_data['desc'] = $_POST['desc'];
@@ -3620,13 +3625,12 @@ public function addShop($shop_id = false){
 				}
 				if(isset($_POST['year_business'])) {
 					$user_data['year_business'] = $_POST['year_business'];
-				}//routing-number
+				}
 				if(isset($_POST['routing-number'])) {
 					$user_data['routing-number'] = $_POST['routing-number'];
 				}
 			$result_id = $this->Common_model->updateRecords('shops',$user_data,array('shop_id'=>$shop_id));
 			if($result_id){
-				// $data['success'] = "Shop has been updated sucessfully";
 				$this->session->set_flashdata('addshop_success', 'Shop has been updated sucessfully');
 				redirect(base_url().'adminnew/shoplist?shop_id='.$shop_id);
 

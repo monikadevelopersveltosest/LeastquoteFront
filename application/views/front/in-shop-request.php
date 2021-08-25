@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <link rel="shortcut icon" href="assets/images/st-favicon.png" type="image/x-icon">
-</head>
+</head> -->
 <style type="text/css">
    .login-form .form-group input {
     height: 50px;
@@ -85,29 +85,14 @@ textarea {
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="index-5.html">
-                            <img src="assets/images/logo/st-logo.png" alt="logo" class="logo-st">
+                        <a href="<?php echo base_url();?>">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/st-logo.png" alt="logo" class="logo-st">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
                             <a href="#0">Home</a>
                             <ul class="submenu">
-                                <!-- <li>
-                                    <a href="index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Page Five</a>
-                                </li> -->
                             </ul>
                         </li>
                         <li>
@@ -203,8 +188,8 @@ textarea {
     <!--============= Cart Section Starts Here =============-->
     <div class="cart-sidebar-area">
         <div class="top-content">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo/logo2.png" alt="logo">
+            <a href="<?php echo base_url();?>home" class="logo">
+                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/logo2.png" alt="logo">
             </a>
             <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
         </div>
@@ -279,21 +264,69 @@ textarea {
             <div class="row justify-content-center mb-30-none">
                 <div class="col-sm-10 col-md-12 col-lg-12">
                   <div class="quote-form"> 
-                    <h3 class="st-req">Seller's Specific Request</h3>
+                    <h3 class="st-req">In-Shop Request</h3>
                       <form class="login-form">
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Category--</option>
+                                <option>Home Appliance</option>
+                                <option>Electronics</option>
+                                <option>Automobiles</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select product--</option>
+                                <option>Fridge</option>
+                                <option>Microwave</option>
+                                <option>Watches</option>
+                                <option>Mobiles</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Brand--</option>
+                                <option>Fridge</option>
+                                <option>Microwave</option>
+                                <option>Watches</option>
+                                <option>Mobiles</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="price"></label>
+                            <input type="text" id="price" placeholder="Max Price in Rupees ">
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select city--</option>
+                                <option>Indore</option>
+                                <option>Bhopal</option>
+                                <option>Sagar</option>
+                            </select>
+                        </div>
                          <div class="form-group mb-30">
-                            <label for="amount"></label>
-                            <input type="text" id="" placeholder="Quote Amount">
-                         </div>
-                        <div class="form-group checkgroup mb-30">
-                            <input type="checkbox" name="terms" id="check"><label for="check">Exchange Offer </label>
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Area--</option>
+                                <option>Lorem</option>
+                                <option>Lorem</option>
+                                <option>Lorem</option>
+                                <option>Lorem</option>
+                            </select>
                         </div>
-                        <div class="form-group checkgroup mb-30">
-                            <input type="checkbox" name="terms" id="check"><label for="check">Other offer </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="login-pass"></label>
-                            <textarea name="message" id="message" placeholder="Description"></textarea>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Vendor--</option>
+                                <option>Lorem</option>
+                                <option>Lorem</option>
+                                <option>Lorem</option>
+                                <option>Lorem</option>
+                            </select>
                         </div>
                         <div class="form-group mb-0">
                            <a href="buyer-home.html" class="custom-button st-btn " data-toggle="modal" data-target="#exampleModal">Sent Request</a>
@@ -311,7 +344,7 @@ textarea {
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh bg-black" data-background="">
+    <!-- <footer class="bg_img padding-top oh bg-black" data-background="">
         <div class="footer-top-shape">
             <img src="assets/css/img/footer-top-shape.png" alt="css">
         </div>
@@ -500,38 +533,17 @@ textarea {
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!--============= Footer Section Ends Here =============-->
     
     <!-- Modal Thankyou -->
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content" style="border: 2px solid#f65275;">
-              <div class="modal-header">
-               <!--  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 60px">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                 <h2 class="st-thank">Thankyou</h2>
-                 <p class="st-th-txt">
-                     “Thank you for generating request. You will get quote from dealers within maximum of 30 mins”
-                 </p>
-              </div>
-             <!--  <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div> -->
-            </div>
-          </div>
-        </div>
+       
 
         <!-- Modal Thankyou close -->
 
 
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
+    <!-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -548,4 +560,4 @@ textarea {
 </body>
 
 
-</html>
+</html> -->

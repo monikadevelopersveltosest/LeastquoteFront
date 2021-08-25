@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>leastquote</title>
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/owl.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-
-    <link rel="shortcut icon" href="assets/images/st-favicon.png" type="image/x-icon">
-</head>
 <style type="text/css">
    .login-form .form-group input {
     height: 50px;
@@ -85,29 +63,14 @@ textarea {
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="index-5.html">
-                            <img src="assets/images/logo/st-logo.png" alt="logo" class="logo-st">
+                        <a href="<?php echo base_url();?>home">
+                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/st-logo.png" alt="logo" class="logo-st">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
                             <a href="#0">Home</a>
                             <ul class="submenu">
-                                <!-- <li>
-                                    <a href="index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Page Five</a>
-                                </li> -->
                             </ul>
                         </li>
                         <li>
@@ -203,7 +166,7 @@ textarea {
     <!--============= Cart Section Starts Here =============-->
     <div class="cart-sidebar-area">
         <div class="top-content">
-            <a href="index.html" class="logo">
+            <a href="<?php echo  base_url();?>home" class="logo">
                 <img src="assets/images/logo/logo2.png" alt="logo">
             </a>
             <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
@@ -353,7 +316,7 @@ textarea {
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh bg-black" data-background="">
+    <!-- <footer class="bg_img padding-top oh bg-black" data-background="">
         <div class="footer-top-shape">
             <img src="assets/css/img/footer-top-shape.png" alt="css">
         </div>
@@ -542,7 +505,7 @@ textarea {
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!--============= Footer Section Ends Here =============-->
     
     <!-- Modal Thankyou -->
@@ -573,8 +536,7 @@ textarea {
         <!-- Modal Thankyou close -->
 
 
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/modernizr-3.6.0.min.js"></script>
+    <!-- <script src="assets/js/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
@@ -586,8 +548,4 @@ textarea {
     <script src="assets/js/magnific-popup.min.js"></script>
     <script src="assets/js/yscountdown.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-
-
-</html>
+    <script src="assets/js/main.js"></script> -->

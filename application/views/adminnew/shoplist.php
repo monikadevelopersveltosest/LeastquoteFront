@@ -1,13 +1,13 @@
 <div class="content-wrapper">
   <section class="content-header">
-    <h1> <img src="<?php echo base_url().'common_assets/images/shop.png';?>" style="width: 30px"> All Vendors<small></small></h1>
+    <h1> <img src="<?php echo base_url().'common_assets/images/shop.png';?>" style="width: 30px"> All Sallers<small></small></h1>
   </section>
   <section class="content">
     <div class="row">
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header col-md-6" style="float: left;">
-          <h3 class="box-title"><a href="<?php echo base_url();?>adminnew/addShop" class="btn btn-primary">Add New Vendor</a></h3>
+          <h3 class="box-title"><a href="<?php echo base_url();?>adminnew/addShop" class="btn btn-primary">Add New Saller</a></h3>
         </div>
         <?php if($this->session->flashdata('addshop_success')){ 
          echo '<div class="alert alert-success alert-dismissible">

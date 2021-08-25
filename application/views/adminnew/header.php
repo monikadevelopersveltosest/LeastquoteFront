@@ -161,18 +161,21 @@
   <section class="sidebar">
     <ul class="sidebar-menu" data-widget="tree">
     <!--   <li class="header">MAIN NAVIGATION</li> -->
-    <li class="active"> <a href="<?php echo base_url();?>admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a> </li>
+    <li class="active"> <a href="<?php echo base_url();?>adminnew"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a> </li>
      <li> 
-        <a href="<?php echo base_url();?>adminnew/VendorsCtegorylist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Vendor Category</span></a>
+        <a href="<?php echo base_url();?>adminnew/VendorsCtegorylist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Saller Category</span></a>
       </li>
-      <li> 
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/memberShiplist"><i class="fa fa-users"></i><span>MemberShip</span></a>
-      </li>
+      </li>-->
       <li> 
         <a href="<?php echo base_url();?>adminnew/Customerslist"><i class="fa fa-user"></i> <span>Customers</span></a> 
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Vendors</span></a>
+        <a href="<?php echo base_url();?>adminnew/productlist"><i class="fa fa-user"></i> <span>Products</span></a> 
+      </li>
+      <li> 
+        <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Sallers</span></a>
       </li>
       <!--<li> -->
       <!--  <a href="<?php echo base_url();?>adminnew/ordershistory"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a>-->
@@ -189,12 +192,12 @@
             <li > 
               <a href="<?php echo base_url();?>adminnew/commonsettings"><i class="fa fa-circle-o"></i> <span>Common Setting</span></a> 
             </li>
-            <li><a href="<?php echo base_url();?>adminnew/homebannerslider"><i class="fa fa-circle-o"></i>Home Banners</a></li>
+            <!--<li><a href="<?php echo base_url();?>adminnew/homebannerslider"><i class="fa fa-circle-o"></i>Home Banners</a></li>
             <li><a href="<?php echo base_url();?>adminnew/homebannerslidersec"><i class="fa fa-circle-o"></i>Home Banners 2</a></li>
             <li><a href="<?php echo base_url();?>adminnew/homebannersliderthird"><i class="fa fa-circle-o"></i>Home Banners 3</a></li>
             <li><a href="<?php echo base_url();?>adminnew/homebannersliderfourth"><i class="fa fa-circle-o"></i>Home Banners 4</a></li>
             <li><a href="<?php echo base_url();?>adminnew/homepopupimage"><i class="fa fa-circle-o"></i>Home Popup Image</a></li>
-            <li><a href="<?php echo base_url();?>adminnew/landingpagslider"><i class="fa fa-circle-o"></i> Landing Slider Image</a></li>
+            <li><a href="<?php echo base_url();?>adminnew/landingpagslider"><i class="fa fa-circle-o"></i> Landing Slider Image</a></li>-->
           </ul>
       </li>
     <!--   <li class="treeview">
@@ -231,42 +234,42 @@
       <!-- <li> 
         <a href=""><i class="fa fa-comment"></i><span>Support Chat</span></a>
       </li> -->
-      <li> 
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/support_ticket?user_type=customer"><i class="fa fa-comment"></i><span>Customer Support</span></a>
       </li>
-      <li> 
+      <li>
         <a href="<?php echo base_url();?>adminnew/support_ticket?user_type=shop"><i class="fa fa-comment"></i><span>Shop Support</span></a>
-      </li>
+      </li>-->
      <!--  <li> 
         <a href="<?php echo base_url();?>adminnew/support_ticket?user_type=deliveryboy"><i class="fa fa-comment"></i><span>Delivery Boys Support</span></a>
       </li> -->
-      <li> 
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/testimonial"><i class="fa fa-quote-left"></i><span>Testimonial</span></a>
-      </li>
+      </li>-->
       <!-- <li> -->
       <!--  <a href="<?php echo base_url();?>adminnew/admincommission"><i class="fa fa-quote-left"></i><span>Admin Commision</span></a>-->
       <!--</li>-->
-      <li> 
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/brand_logo"><i class="fa fa-adjust custom"></i><span>Brand Logo</span></a>
-      </li>
-      <li> 
+      </li>-->
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/contactus"><i class="fa fa-phone"></i><span>Contact US</span></a>
-      </li>
-      <li> 
+      </li>-->
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/seller_agreement"><i class="fa fa-adjust custom"></i><span>Seller Agreement</span></a>
-      </li>
-      <li> 
+      </li>-->
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/user_agreement"><i class="fa fa-adjust custom"></i><span>User Agreement</span></a>
-      </li>
-      <li> 
+      </li>-->
+      <!--<li> 
         <a href="<?php echo base_url();?>adminnew/aboutus"><i class="fa fa-adjust custom"></i><span>About us</span></a>
-      </li>
+      </li>-->
       <!--<li> -->
       <!--  <a href="<?php echo base_url();?>adminnew/contactus"><i class="fa fa-comment"></i><span>Contact Enquiries</span></a>-->
-      <!--</li>-->
+      <!--</li>
       <li> 
         <a href="<?php echo base_url();?>adminnew/faqlist"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
-      </li>
+      </li>-->
       
       
     </ul>

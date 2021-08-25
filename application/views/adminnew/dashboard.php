@@ -125,13 +125,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <a href="<?= base_url('adminnew/adminusers') ?>">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a> -->
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -143,7 +136,7 @@
                         </div>
                         <div class="col-xs-9 text-right" style="padding-right: 9px;">
                             <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('shops',array('status'=>1));?></div>
-                            <div style="padding-left: 8px;">Vendores</div>
+                            <div style="padding-left: 8px;">Sallers</div>
                         </div>
                     </div>
                 </div>
@@ -157,21 +150,19 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="panel panel-yellow">
+            <div class="panel panel-green">
                 <div class="panel-heading fast-view-panel">
                     <div class="row">
                         <div class="col-xs-3">
                             <i class="fa fa-shopping-cart fa-5x" style="font-size: 4em;"></i>
                         </div>
-
                         <div class="col-xs-9 text-right" style="padding-right: 9px;">
-                             Total : <?php echo $pd =   $this->Common_model->getwhrsum('members','price', 'WHERE 1 = 1'); ?>
-                            <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('members',array('1'=>1));?></div>
-                            <div style="padding-left: 6px;">MemberShip</div>
+                            <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('shops',array('status'=>1));?></div>
+                            <div style="padding-left: 8px;">Customers</div>
                         </div>
                     </div>
                 </div>
-                <a href="<?= base_url('adminnew/memberShiplist') ?>">
+                <a href="<?= base_url('adminnew/shoplist') ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -180,137 +171,10 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-yellow">
-                <div class="panel-heading fast-view-panel">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x" style="font-size: 4em;"></i>
-                        </div>
-                        <div class="col-xs-9 text-right" style="padding-right: 9px;">
-                            <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('orders',array('status'=>8));?></div>
-                            <div style="padding-left: 6px;">Admin Commision</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="<?= base_url('adminnew/admincommission') ?>">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-       <!--  <div class="col-lg-2 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading fast-view-panel">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x" style="font-size: 4em;"></i>
-                        </div>
-                        <div class="col-xs-9 text-right" style="padding-right: 9px;">
-                            <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('orders',array('status'=>1,'delivery_status'=>4));?></div>
-                            <div style="padding-left: 6px;">Pending Product</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="<?= base_url('adminnew/productlist?status=0') ?>">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div> -->
+        
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <!-- <div class="panel panel-default"> -->
-                <!-- <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart - Orders By Month</h3>
-                </div>
-                <div class="panel-body">
-                    <div id="container-by-month" style="min-width: 310px; height: 400px; margin: 0 auto;">
-
-                    </div>
-                </div> -->
-            <!-- </div> -->
-           <!--  <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Area Chart - Orders By Month</h3>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="w-100">
-                             <div class="pull-top dropdown show">
-                              <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-calendar"></i><i class="caret"></i>
-                              </a> Orders
-                                <ul id="range" class="dropdown-menu dropdown-menu-top" aria-labelledby="dropdownMenuLink">
-                                    <li><a href="#" data-value="day">Today</a></li>
-                                    <li><a href="#" data-value="week">Week</a></li>
-                                    <li class="active"><a href="#" data-value="month">Month</a></li>
-                                    <li><a href="#" data-value="year">Year</a></li>
-                                </ul>
-                            </div>
-                        </div><br><br>
-                         <div id="chart-sale" style="width: 100%; height: 260px;"></div>
-                        </div>
-
-                        <div class="col-lg-6">
-                        <div class="w-100 mt-2">
-                        <div class="pull-left dropdown show">
-                                Vendore Categories<br>
-                              <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-calendar"></i><i class="caret"></i>
-                              </a>
-                                <ul id="range" class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuLink">
-                                    <li><a href="#" data-value="day">Today</a></li>
-                                    <li><a href="#" data-value="week">Week</a></li>
-                                    <li class="active"><a href="#" data-value="month">Month</a></li>
-                                    <li><a href="#" data-value="year">Year</a></li>
-                                </ul>
-                        </div><br><br>
-                        <div class="w-100 mt-2"></div>
-                        </div>  
-                        <div class="w-100 mt-2">
-                            <div class="pull-left dropdown show">
-                                 MemberShip's<br>
-                              <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-calendar"></i><i class="caret"></i>
-                              </a>
-                                <ul id="range" class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuLink">
-                                    <li><a href="#" data-value="day">Today</a></li>
-                                    <li><a href="#" data-value="week">Week</a></li>
-                                    <li class="active"><a href="#" data-value="month">Month</a></li>
-                                    <li><a href="#" data-value="year">Year</a></li>
-                                </ul>
-                            </div><br><br>
-                        <div class="w-100 mt-2"></div>
-                        </div> 
-                        <div class="w-100 mt-2">
-                            <div class="pull-left dropdown show">
-                            Admin Commision<br>
-                              <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-calendar"></i><i class="caret"></i>
-                              </a>
-                                <ul id="range" class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuLink">
-                                    <li><a href="#" data-value="day">Today</a></li>
-                                    <li><a href="#" data-value="week">Week</a></li>
-                                    <li class="active"><a href="#" data-value="month">Month</a></li>
-                                    <li><a href="#" data-value="year">Year</a></li>
-                                </ul>
-                            </div>
-                            <div class="w-100 mt-2"></div>
-                        </div>   
-                    </div>
-                </div>
-               
-              </div>
-            </div> -->
             <div class="panel panel-default">
                 <div class="pull-right dropdown show">
                   <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

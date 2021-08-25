@@ -167,20 +167,20 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                           <a href="index.html"><img src="assets/images/logo/logo-wh.png" alt="logo" class="logo-st"></a>
+                           <a href="index.html"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/logo-wh.png" alt="logo" class="logo-st"></a>
                         </div>
                         <ul class="gateway-area">
                             <li>
-                                <a href="#0"><img src="assets/images/footer/paypal.png" alt="footer"></a>
+                                <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/paypal.png" alt="footer"></a>
                             </li>
                             <li>
-                                <a href="#0"><img src="assets/images/footer/visa.png" alt="footer"></a>
+                                <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/visa.png" alt="footer"></a>
                             </li>
                             <li>
-                                <a href="#0"><img src="assets/images/footer/discover.png" alt="footer"></a>
+                                <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/discover.png" alt="footer"></a>
                             </li>
                             <li>
-                                <a href="#0"><img src="assets/images/footer/mastercard.png" alt="footer"></a>
+                                <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/mastercard.png" alt="footer"></a>
                             </li>
                         </ul>
                         <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
@@ -191,22 +191,39 @@
     </footer>
     <!--============= Footer Section Ends Here =============-->
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border: 2px solid#f65275;">
+              <div class="modal-header">
+               <!--  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 60px">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                 <h2 class="st-thank">Thankyou</h2>
+                 <p class="st-th-txt">
+                    “Thank you for generating request. You will get quote from selected dealer within maximum of 30 mins”
+                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/waypoints.js"></script>
-    <script src="assets/js/nice-select.js"></script>
-    <script src="assets/js/counterup.min.js"></script>
-    <script src="assets/js/owl.min.js"></script>
-    <script src="assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/yscountdown.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="<?php echo base_url();?>fornt_new_assests/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/modernizr-3.6.0.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/plugins.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/isotope.pkgd.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/wow.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/waypoints.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/nice-select.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/counterup.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/owl.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/magnific-popup.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/yscountdown.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/jquery-ui.min.js"></script>
+    <script src="<?php echo base_url();?>fornt_new_assests/assets/js/main.js"></script>
 </body>
 
 
