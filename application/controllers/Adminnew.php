@@ -2152,47 +2152,26 @@ class Adminnew extends CI_Controller {
 
 
 		if(isset($_POST['submit']))
-
 		{
-
 			$user_data = array();
-
-
-
-			// print_r($filearray);
-
-			// die;
-
-			// $parent_id = $_POST['parent_id'];
-
 			$user_data['area_name'] = $_POST['area_name'];
-
-			$user_data['area_zipcode'] = $_POST['area_zipcode'];
-
+			//$user_data['area_zipcode'] = $_POST['area_zipcode'];
+			$user_data['city']=$_POST['city'];
 			$user_data['create_date'] = date('Y-m-d H:i:s');
-
+			//p($user_data);
 			if (isset($_POST['area_id']) &&  !empty($_POST['area_id'])){
-
 				$result_id = $this->Common_model->updateRecords('area',$user_data,array('area_id'=>$_POST['area_id']));
-
 			}else{
-
 				$result_id = $this->Common_model->addRecords('area',$user_data);
-
 			}
-
 			if($result_id)
-
 			{
-
+				$this->session->set_flashdata('addshop_success', 'Shop has been added sucessfully');
+				//$this->session->set_flashdata('success', 'File size is empty!');
 				$data['success'] = "Area has been added successfully";
-
-				redirect(base_url().'adminnew/areas/');
-
+				//redirect(base_url().'adminnew/areas/');
 			}else{
-
 				$data['error'] = "Some thing went wrong please try again";
-
 			}
 
 		}
@@ -2200,13 +2179,9 @@ class Adminnew extends CI_Controller {
 
 
 		if(!empty($area_id))
-
 		{
-
 		    $whr = array('status !='=>3,'area_id'=>$area_id);
-
 			$data['area_data'] = $this->Common_model->getSingleRecordById('area', $whr);
-
 		}
 
 
@@ -2214,13 +2189,13 @@ class Adminnew extends CI_Controller {
 		$whr2 = array('status !='=>3);
 
 		$data['all_areas'] = $this->Common_model->GetWhere('area', $whr2);
+		
+		$whr12= array('1'=>1);
 
+		$data['all_city'] = $this->Common_model->GetWhere('city_list', $whr12);
 		$this->load->view('adminnew/header');
-
 		$this->load->view('adminnew/addarea',$data);
-
 		$this->load->view('adminnew/footer');
-
 	}
 
 	public function addcity($area_id = "")
@@ -2248,8 +2223,9 @@ class Adminnew extends CI_Controller {
 			}
 			if($result_id)
 			{
-				$data['success'] = "Area has been added successfully";
-				redirect(base_url().'adminnew/citylist/');
+				$this->session->set_flashdata('addshop_success', 'City has been added successfully');
+				$data['success'] = "City has been added successfully";
+				//redirect(base_url().'adminnew/citylist/');
 			}else{
 				$data['error'] = "Some thing went wrong please try again";
 			}

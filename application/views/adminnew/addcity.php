@@ -61,14 +61,10 @@
             if(isset($success) && !empty($success))
 
             {
-
+                echo '<div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-close"></i></button><h4><i class="fa fa-spinner fa-spin"></i>'.$success.'</h4></div>';
+              echo '<meta http-equiv="refresh" content="2;url='.base_url('adminnew/citylist').'">';
               ?>
-
-              <div class="alert alert-success" align="center">
-
-              <strong><?php echo $success; ?></strong>
-
-              </div>
             <?php   
             }
             if(isset($error) && !empty($error)){

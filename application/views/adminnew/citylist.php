@@ -79,7 +79,7 @@
     });
   });
   $(".delete").click(function(e){
-    var val = confirm("Sure you want to Delete Area ?");
+    var val = confirm("Sure you want to Delete City ?");
     var id = $(this).attr("href-data");
     if(val){
       $.ajax({

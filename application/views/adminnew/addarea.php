@@ -10,8 +10,8 @@
 
     <section class="content-header">
 
-    <?php if($area_data) { 
-
+    <?php 
+    if($area_data) { 
       ?>
 
       <h1>Edit Categories</h1>
@@ -61,14 +61,16 @@
             if(isset($success) && !empty($success))
 
             {
-
+              echo '<div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-close"></i></button><h4><i class="fa fa-spinner fa-spin"></i>'.$success.'</h4></div>';
+            echo '<meta http-equiv="refresh" content="2;url='.base_url('adminnew/areas').'">';
               ?>
 
-              <div class="alert alert-success" align="center">
+              <!-- <div class="alert alert-success" align="center"> -->
 
-              <strong><?php echo $success; ?></strong>
+              <!-- <strong><?php //echo $success; ?></strong> -->
 
-              </div>
+              <!-- </div> -->
             <?php   
             }
             if(isset($error) && !empty($error)){
@@ -84,16 +86,28 @@
                 <input type="text" class="form-control" name="area_name" value="<?php echo (!empty($area_data) && !empty($area_data['area_name']) ? $area_data['area_name'] : "" )?>" required>
               </div>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <div class="form-group">
                 <label>Zip Code</label>
                 <input type="text" class="form-control" name="area_zipcode" value="<?php echo (!empty($area_data) && !empty($area_data['area_zipcode']) ? $area_data['area_zipcode'] : "" )?>" required>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-6">
               <div class="form-group">
                 <label>City</label>
-                <input type="text" class="form-control" name="city" value="<?php echo (!empty($area_data) && !empty($area_data['area_zipcode']) ? $area_data['area_zipcode'] : "" )?>" required>
+                <select name="city" class="form-control" required>
+                  <option>Select City</option>
+                  <?php 
+                    if(!empty($all_city)){
+                      foreach($all_city as $key=> $value){
+                        ?>
+                        <option <?php echo !empty($area_data['city']) && $area_data['city']==$value['name'] ? 'selected' : ''; ?> ><?php echo $value['name']; ?></option>
+                        <?php
+                      }
+                    }
+                  ?>
+                </select>
+                <!-- <input type="text" class="form-control" name="city" value="<?php echo (!empty($area_data) && !empty($area_data['city']) ? $area_data['city'] : "" )?>" required> -->
               </div>
             </div>
             <div class="col-md-12 mt-5">
