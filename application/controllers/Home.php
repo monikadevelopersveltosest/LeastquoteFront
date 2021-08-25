@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->SessionModel->checkuserlogin(array("sendemaildemo","cartcount","sendsmsdemo","login","loginajax","registerajax","index","registration_otp_send","confirmregisterajax","loginbypassword","createCode","shops","shopdetail","productdetail","variant_price","buynow","addToCart","contact","updateNavCart","cart","removeCartProduct","updateQuantity","addshippinginfo","uploadfilebypath","contactinfo","aboutus","aboutus1","privacy_policy","terms_condition","clearance_product","forgotpasswordsubmit","verifyForgotOtp","changeforgotpasswrodsubmit","loginbyotpsubmit","verifyloginOtp","clearance_detail","subcatbycatname","sell_on_indocliq","vendor_registration","vendorsingup","forget_password","passwordchange","Otpsent","buyer","signIn","signUp","dealerSingup","dealerSinIn","rechargeVirtualCash","sellerHome","sellerSpecificQuote","globalQuote","inShopRequest"));
+		$this->SessionModel->checkuserlogin(array("sendemaildemo","cartcount","sendsmsdemo","login","loginajax","registerajax","index","registration_otp_send","confirmregisterajax","loginbypassword","createCode","shops","shopdetail","productdetail","variant_price","buynow","addToCart","contact","updateNavCart","cart","removeCartProduct","updateQuantity","addshippinginfo","uploadfilebypath","contactinfo","aboutus","aboutus1","privacy_policy","terms_condition","clearance_product","forgotpasswordsubmit","verifyForgotOtp","changeforgotpasswrodsubmit","loginbyotpsubmit","verifyloginOtp","clearance_detail","subcatbycatname","sell_on_indocliq","vendor_registration","vendorsingup","forget_password","passwordchange","Otpsent","buyer","signIn","signUp","dealerSingup","dealerSinIn","rechargeVirtualCash","sellerHome","sellerSpecificQuote","globalQuote","inShopRequest","demo"));
 	}
 
 	public function index(){
@@ -32,6 +32,14 @@ class Home extends CI_Controller {
         $this->load->view('front/header');
 		$this->load->view('front/index-5',$data);
 		$this->load->view('front/footer');
+	}
+	public function demo(){
+		//echo "df";die;
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/electro-global-req',$data);
+		$this->load->view('front/footer');
+		//electro-global-req
 	}
 	public function inShopRequest(){
 		//echo "dfdf";//in-shop-request.html

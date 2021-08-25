@@ -295,31 +295,6 @@ a.st-ankr {
             </div>
             <div class="m--15">
                 <div class="browse-slider owl-theme owl-carousel">
-<<<<<<< HEAD:application/views/front/buyer-home.php
-                    <a href="#0" class="browse-item">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/01.png" alt="auction">
-                        <span class="info">Vehicles</span>
-                    </a>
-                    <a href="#0" class="browse-item">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/02.png" alt="auction">
-                        <span class="info">Jewelry</span>
-                    </a>
-                    <a href="#0" class="browse-item">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/03.png" alt="auction">
-                        <span class="info">Watches</span>
-                    </a>
-                    <a href="#0" class="browse-item">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/04.png" alt="auction">
-                        <span class="info">Electronics</span>
-                    </a>
-                    <a href="#0" class="browse-item">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/05.png" alt="auction">
-                        <span class="info">Sports</span>
-                    </a>
-                    <a href="#0" class="browse-item">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/06.png" alt="auction">
-                        <span class="info">Real Estate</span>
-=======
                     <a href="#0" class="browse-item st-ht" data-toggle="modal" data-target="#requestModalCenter">
                         <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/06.png" alt="auction">
                         <span class="info">Home Appliance</span>
@@ -351,7 +326,6 @@ a.st-ankr {
                     <a href="#0" class="browse-item st-ht">
                         <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/event-img.png" alt="auction">
                         <span class="info">Events</span>
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907:application/views/front/buyer-home.html
                     </a>
                     <a href="#0" class="browse-item st-ht">
                         <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/profess-img.png" alt="auction">
@@ -370,11 +344,7 @@ a.st-ankr {
 
 
     <!--============= Feture Auction Section Starts Here =============-->
-<<<<<<< HEAD:application/views/front/buyer-home.php
-    <section class="feature-auction-section padding-bottom padding-top bg_img" data-background="<?php echo base_url();?>fornt_new_assests/assets/images/auction/featured/featured-bg-1.jpg">
-=======
     <!-- <section class="feature-auction-section padding-bottom padding-top bg_img" data-background="<?php echo base_url();?>fornt_new_assests/assets/images/auction/featured/featured-bg-1.jpg">
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907:application/views/front/buyer-home.html
         <div class="container">
 
             <div class="row justify-content-center mb-30-none">
@@ -382,12 +352,7 @@ a.st-ankr {
                     <div class="auction-item-2">
                         <div class="auction-thumb">
                             <a href="<?php echo base_url();?>home/globalQuote" class="buyer-text"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/global-img.png" alt="" class="img-glob"/>Global Request</a>
-<<<<<<< HEAD:application/views/front/buyer-home.php
-                            <!-- <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a> -->
-=======
                            
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907:application/views/front/buyer-home.html
                         </div>
                        
                     </div>
@@ -396,12 +361,6 @@ a.st-ankr {
                     <div class="auction-item-2">
                         <div class="auction-thumb">
                             <a href="<?php echo base_url();?>home/inShopRequest" class="buyer-text"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/store-img.png" alt="" class="img-glob"/> Shop Request</a>
-<<<<<<< HEAD:application/views/front/buyer-home.php
-                           <!--  <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a> -->
-=======
-
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907:application/views/front/buyer-home.html
                         </div>
                        
                     </div>
@@ -413,9 +372,6 @@ a.st-ankr {
     <!--============= Feture Auction Section Ends Here =============-->
 
 
-<<<<<<< HEAD:application/views/front/buyer-home.php
-  
-=======
     <!-- modal for home appliance request -->
     <div class="modal fade" id="requestModalCenter" tabindex="-1" role="dialog" aria-labelledby="requestModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -462,7 +418,7 @@ a.st-ankr {
                 <div class="col-sm-10 col-md-6 col-lg-6">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="electro-global-req.html" class="buyer-text"><img src="assets/images/logo/global-img.png" alt="" class="img-glob"/>
+                            <a href="<?php echo base_url();?>home/demo" class="buyer-text"><img src="assets/images/logo/global-img.png" alt="" class="img-glob"/>
                             <p class="title-st">Global Request</p>
                             </a>
                         </div>
@@ -471,7 +427,7 @@ a.st-ankr {
                 <div class="col-sm-10 col-md-6 col-lg-6">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="in-shop-request.html" class="buyer-text"><img src="assets/images/logo/store-img.png" alt="" class="img-glob"/>
+                            <a href="<?php echo base_url();?>home/inShopRequest" class="buyer-text"><img src="assets/images/logo/store-img.png" alt="" class="img-glob"/>
                                 <p class="title-st">Shop Request</p>
                             </a>
                         </div>
@@ -485,7 +441,6 @@ a.st-ankr {
  <!-- modal for electronic close-->
 
 
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907:application/views/front/buyer-home.html
 
 
   
