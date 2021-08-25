@@ -87,68 +87,15 @@
 
                                         <td><a ><?php echo $value['name']; ?></a></td>
 
-<<<<<<< HEAD
-                                         <td><?php echo $value['create_date']; ?></td>
-
-                                       <!-- <td><?php //echo $value['discount'] ."". (isset($value['discount_type']) && $value['discount_type'] == 1 ? '%' : ''); ?></td>
-
-                                        <td><?php //echo $value['quantity']; ?></td>
-
-                                        <td>
-
-                                          <?php //if($value['featured_status'] == 1) { ?>
-
-
-                                              <a href="javascript:void(0)" href-id="<?php //echo $value['product_id']?>" class="un_featured_status" href-status="0"><i class="fa fa-toggle-on"></i></a>
-
-                                          <?php  //} ?>
-
-                                          <?php //if($value['featured_status'] == 0) { ?>
-
-
-                                              <a href="javascript:void(0)" href-id="<?php //echo $value['product_id']?>" class="featured_status" href-status="1"><i class="fa fa-toggle-off"></i></a>
-
-                                          <?php //} ?>
-
-                                        </td> -->
-
-                                        <!-- <td>
-
-                                          <?php if($value['status'] == 1) { ?>
-
-                                              
-
-                                              <a href="javascript:void(0)" href-id="<?php echo $value['product_id']?>" class="un_pulish_status" href-status="0" ><i class="fa fa-toggle-on"></i></a>
-
-                                          <?php  } ?>
-
-                                          <?php if($value['status'] == 0) { ?>
-
-                                              <a href="javascript:void(0)" href-id="<?php echo $value['product_id']?>" class="pulish_status" href-status="0" ><i class="fa fa-toggle-off"></i></a>
-
-                                          <?php } ?>
-
-                                        </td> -->
-
-=======
                                          <td><?php echo $value['create_date']; ?></td>                                       
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
                                         <td>
                                             <div class="dropdown">
                                               <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Select Action
                                               <span class="caret"></span></button>
                                               <ul class="dropdown-menu">
-<<<<<<< HEAD
-
-                                                <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['id']?>"  >View</a>
-
-                                                </li>
-
-=======
                                                 <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['id']?>"  >View</a></li>
                                                 <li><a href="<?php echo base_url().'adminnew/addproduct/'.$value['id']?>"  >Edit</a></li>
                                                 <li><a href="javascript:void(0)" href-data="<?php echo  $value['id']; ?>" class="delete" >Delete1</a></li>
->>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
                                               </ul>
                                             </div>
                                         </td>
