@@ -11,8 +11,12 @@
     <section class="content-header">
 
     <?php 
+<<<<<<< HEAD
+    if(!empty($cat_data)) { 
+=======
    // echo '<pre>';print_r($product_data);die;
     if(!empty($product_data)) { 
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
       ?>
         <h1>Edit Product</h1>
       <?php 
@@ -86,6 +90,17 @@
 
                   <div class="form-group">
                     <label>Product Name</label>
+<<<<<<< HEAD
+                    <input type="text" class="form-control" name="name" value="<?php echo (!empty($cat_data) && !empty($cat_data['name']) ? $cat_data['name'] : "" )?>" required>
+                  </div>
+                  
+                  <?php 
+                  if(!empty($cat_data))
+                  {
+                  ?>
+                    <div class="form-group">
+                      <img src="<?php echo base_url()?>uploads/category/<?php echo (!empty($cat_data['category_image']) ? $cat_data['category_image'] : "default.png")?>">
+=======
                     <input type="text" class="form-control" name="name" value="<?php echo (!empty($product_data) && !empty($product_data['name']) ? $product_data['name'] : "" )?>" required>
                   </div>
                   
@@ -95,6 +110,7 @@
                   ?>
                     <div class="form-group">
                       <img src="<?php echo base_url()?>uploads/category/<?php echo (!empty($product_data['category_image']) ? $product_data['category_image'] : "default.png")?>">
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
                     </div>
 
                   <?php 
@@ -112,7 +128,11 @@
                   
             </div>
             <div class="col-md-12 mt-5">
+<<<<<<< HEAD
+              <input type="hidden" name="id" value="<?php echo (!empty($cat_data) && !empty($cat_data['id']) ? $cat_data['id'] : "" )?>">
+=======
               <input type="hidden" name="id" value="<?php echo (!empty($product_data) && !empty($product_data['id']) ? $product_data['id'] : "" )?>">
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
                <button type="submit" name="submit"  class="btn btn-primary">Save</button>
             </div>
 

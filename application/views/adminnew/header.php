@@ -180,9 +180,12 @@
       </li>
       <li> 
         <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Sallers</span></a>
+<<<<<<< HEAD
+=======
       </li>
       <li> 
         <a href="<?php echo base_url();?>adminnew/citylist"><span style="padding-left: 7px;">City</span></a>
+>>>>>>> e223e2f5bc562509f7bfe4a05af9e543d49ab907
       </li>
       <li> 
         <a href="<?php echo base_url();?>adminnew/areas"><span style="padding-left: 7px;">Area</span></a>
