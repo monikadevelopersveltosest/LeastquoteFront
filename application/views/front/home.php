@@ -39,8 +39,9 @@
 
 <!-- <modal end> -->
 
-
+   
 	<!-- <cart inner section end> -->
+
 	<!-- <menu start> -->
 	<?php include('categoryslider.php');?>
     <!-- <menu end> -->

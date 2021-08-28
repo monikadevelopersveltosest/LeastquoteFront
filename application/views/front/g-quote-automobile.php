@@ -31,7 +31,15 @@
                                 <option>Mobiles</option>
                             </select>
                         </div>
-                        
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Modal--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                            </select>
+                        </div>
                         <div class="form-group mb-30">
                             <label for="specification"></label>
                             <input type="text" id="specification" placeholder="Specification">

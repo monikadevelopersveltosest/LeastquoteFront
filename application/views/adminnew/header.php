@@ -96,6 +96,9 @@
     color: #fff;
     background: #f65275;
     }
+    .skin-blue .sidebar a {
+    color: #ffffff;
+    }
 </style>
 <style type="text/css">
   .pagination{
@@ -173,19 +176,19 @@
         <a href="<?php echo base_url();?>adminnew/memberShiplist"><i class="fa fa-users"></i><span>MemberShip</span></a>
       </li>-->
       <li> 
-        <a href="<?php echo base_url();?>adminnew/Customerslist"><i class="fa fa-user"></i> <span>Customers</span></a> 
+        <a href="<?php echo base_url();?>adminnew/Customerslist"><i class="fa fa-user-circle-o"></i> <span>Customer</span></a> 
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/productlist"><i class="fa fa-user"></i> <span>Products</span></a> 
+        <a href="<?php echo base_url();?>adminnew/productlist"><i class="fa fa-product-hunt"></i> <span>Products</span></a> 
       </li>
       <li> 
         <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Sallers</span></a>
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/citylist"><span style="padding-left: 7px;">City</span></a>
+        <a href="<?php echo base_url();?>adminnew/citylist"> <i class="fa fa-map-marker"></i><span style="padding-left: 7px;">City</span></a>
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/areas"><span style="padding-left: 7px;">Area</span></a>
+        <a href="<?php echo base_url();?>adminnew/areas"><i class="fa fa-map-marker"></i><span style="padding-left: 7px;">Area</span></a>
       </li>
       
       <!--<li> -->

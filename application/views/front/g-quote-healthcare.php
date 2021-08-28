@@ -14,24 +14,12 @@
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select product--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
+                                <option>--Select Service Type--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
                             </select>
                         </div>
-                        <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
-                        </div>
-                        
                         <div class="form-group mb-30">
                             <label for="specification"></label>
                             <input type="text" id="specification" placeholder="Specification">

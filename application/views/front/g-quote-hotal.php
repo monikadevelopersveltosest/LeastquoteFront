@@ -14,7 +14,37 @@
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select product--</option>
+                                <option>--Select Room Type--</option>
+                                <option>Ac Room</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select No. of Guests--</option>
+                                <option>1 room</option>
+                                <option>2 room</option>
+                                <option>3 room</option>
+                                <option>1 room</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select No. of Rooms--</option>
+                                <option>1 room</option>
+                                <option>2 room</option>
+                                <option>3 room</option>
+                                <option>1 room</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Occupancy--</option>
                                 <option>Fridge</option>
                                 <option>Microwave</option>
                                 <option>Watches</option>
@@ -22,16 +52,13 @@
                             </select>
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
+                            <label for="checkin-date "></label>
+                            <input type="date" id="checkin-date " placeholder="Checkin date ">
                         </div>
-                        
+                        <div class="form-group mb-30">
+                            <label for="checkout-date  "></label>
+                            <input type="date" id="checkout-date  " placeholder="Checkout date ">
+                        </div>
                         <div class="form-group mb-30">
                             <label for="specification"></label>
                             <input type="text" id="specification" placeholder="Specification">

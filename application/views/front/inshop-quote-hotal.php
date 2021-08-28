@@ -11,10 +11,49 @@
                   <div class="quote-form"> 
                     <h3 class="st-req">Global Request</h3>
                     <form class="login-form">
+                       <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select seller Name--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                            </select>
+                        </div>
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select product--</option>
+                                <option>--Select Room Type--</option>
+                                <option>Ac Room</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select No. of Guests--</option>
+                                <option>1 room</option>
+                                <option>2 room</option>
+                                <option>3 room</option>
+                                <option>1 room</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select No. of Rooms--</option>
+                                <option>1 room</option>
+                                <option>2 room</option>
+                                <option>3 room</option>
+                                <option>1 room</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-name"></label>
+                            <select >
+                                <option>--Select Occupancy--</option>
                                 <option>Fridge</option>
                                 <option>Microwave</option>
                                 <option>Watches</option>
@@ -22,39 +61,14 @@
                             </select>
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group mb-30">
-                            <label for="specification"></label>
-                            <input type="text" id="specification" placeholder="Specification">
+                            <label for="checkin-date "></label>
+                            <input type="date" id="checkin-date " placeholder="Checkin date ">
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select city--</option>
-                                <option>Indore</option>
-                                <option>Bhopal</option>
-                                <option>Sagar</option>
-                            </select>
+                            <label for="checkout-date  "></label>
+                            <input type="date" id="checkout-date  " placeholder="Checkout date ">
                         </div>
-                        <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Area--</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                            </select>
-                        </div>
+                       
                         <div class="form-group mb-0">
                            <a href="buyer-home.html" class="custom-button st-btn " data-toggle="modal" data-target="#exampleModal">Send Request</a>
                         </div>

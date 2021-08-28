@@ -1,271 +1,36 @@
 
 <style>
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content.text-left.st-drop {
-    right: 20px;
-}
 a.st-ankr {
     color: #000;
     padding: 8px 0px;
 }
+a.st-detail {
+    color: #43b055;
+    font-size: 18px;
+    font-weight: 800;
+}
+button.close.btn-x {
+    float: right;
+    width: 50px;
+}
+h2.st-md-title {
+    font-size: 25px;
+    padding: 10px 0px;
+    color: #21a911;
+}
+h4.st-md-title-2 {
+    font-size: 18px;
+    color: #f8446b;
+    margin-bottom: 10px;
+}
+p.p-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 29px;
+}
 </style>
-    <!--============= ScrollToTop Section Starts Here =============-->
-    <div class="overlayer" id="overlayer">
-        <div class="loader">
-            <div class="loader-inner"></div>
-        </div>
-    </div>
-    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
-    <div class="overlay"></div>
-    <!--============= ScrollToTop Section Ends Here =============-->
-
-
-    <!--============= Header Section Starts Here =============-->
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-wrapper">
-                    <ul class="customer-support">
-                        <li>
-                            <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
-                        </li>
-                        <li>
-                            <i class="fas fa-globe"></i>
-                            <select name="language" class="select-bar">
-                                <option value="en">En</option>
-                                <option value="Bn">Bn</option>
-                                <option value="Rs">Rs</option>
-                                <option value="Us">Us</option>
-                                <option value="Pk">Pk</option>
-                                <option value="Arg">Arg</option>
-                            </select>
-                        </li>
-                    </ul>
-                    <ul class="cart-button-area">
-                        <li>
-                            <a href="#0" class="vt-cash"><span class="amount">Virtual Cash &#8377 0.00</span></a>
-                        </li>  
-                        <li>
-                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
-                        </li>                        
-                         <li class="dropdown">
-                            <a href="" class="user-button"><i class="flaticon-user"></i></a>
-                             <div class="dropdown-content text-left st-drop">
-                                <a href="javascript:void(0);" class="st-ankr">Profile</a>
-                                <a href="javascript:void(0);" class="st-ankr">Dashboard</a>
-                                <a href="javascript:void(0);" class="st-ankr">Log Out</a>
-                             </div>
-                        </li>                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom">
-            <div class="container">
-                <div class="header-wrapper">
-                    <div class="logo">
-                        <a href="index-5.html">
-                            <img src="assets/images/logo/st-logo.png" alt="logo" class="logo-st">
-                        </a>
-                    </div>
-                    <ul class="menu ml-auto">
-                        <li>
-                            <a href="#0">Home</a>
-                            <ul class="submenu">
-                                <!-- <li>
-                                    <a href="index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Page Five</a>
-                                </li> -->
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="product.html">Auction</a>
-                        </li>
-                        <li>
-                            <a href="#0">Pages</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#0">Product</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="product.html">Product Page 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="product-2.html">Product Page 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html">Product Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">My Account</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="sign-up.html">Sign Up</a>
-                                        </li>
-                                        <li>
-                                            <a href="sign-in.html">Sign In</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">Dashboard</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="profile.html">Personal Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="my-bid.html">My Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="winning-bids.html">Winning Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="notifications.html">My Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="my-favorites.html">My Favorites</a>
-                                        </li>
-                                        <li>
-                                            <a href="referral.html">Referrals</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="about.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="faqs.html">Faqs</a>
-                                </li>
-                                <li>
-                                    <a href="error.html">404 Error</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <form class="search-form white">
-                        <input type="text" placeholder="Search for brand, model....">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                    <div class="search-bar d-md-none">
-                        <a href="#0"><i class="fas fa-search"></i></a>
-                    </div>
-                    <div class="header-bar d-lg-none">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!--============= Header Section Ends Here =============-->
-
-    <!--============= Cart Section Starts Here =============-->
-    <div class="cart-sidebar-area">
-        <div class="top-content">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo/logo2.png" alt="logo">
-            </a>
-            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
-        </div>
-        <div class="bottom-content">
-            <div class="cart-products">
-                <h4 class="title">Shopping cart</h4>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Water Pot</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Art Paper</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Comics Book</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="btn-wrapper text-center">
-                    <a href="#0" class="custom-button"><span>Checkout</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--============= Cart Section Ends Here =============-->
-
+    
 
     <!--============= Banner Section Starts Here =============-->
     <section class="banner-section-2 bg_img" data-background="">
@@ -283,7 +48,7 @@ a.st-ankr {
                 </div>
                 <div class="col-lg-6 col-xl-6 d-none d-lg-block">
                     <div class="banner-thumb">
-                        <img src="assets/images/banner/banner-2.png" alt="banner">
+                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/banner/banner-2.png" alt="banner" class="ban-img">
                     </div>
                 </div>                
             </div>
@@ -303,7 +68,7 @@ a.st-ankr {
                     <div class="auction-item-2">
                         <div class="auction-content">
                             <h6 class="title">
-                                <a href="#0">2019 Mercedes-Benz C, 300</a>
+                                <a href="javascript:void(0);">Lorem Ipsum</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -311,17 +76,18 @@ a.st-ankr {
                                         <i class="flaticon-auction"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Current Bid</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="current">Current Price</div>
+                                        <div class="amount">₹ 876.00</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
                                     <div class="icon">
-                                        <i class="flaticon-money"></i>
+                                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Buy Now</div>
-                                        <div class="amount">$5,00.00</div>
+                                        <!-- <div class="current">Buy Now</div> -->
+                                        <!-- <div class="amount">$5,00.00</div> -->
+                                        <a href="<?php echo base_url();?>" class="st-detail"   data-toggle="modal" data-target="#detailModalLong">View Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -329,7 +95,7 @@ a.st-ankr {
                                 <div class="countdown">
                                     <div id="bid_counter1"></div>
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                                <!-- <span class="total-bids">30 Bids</span> -->
                             </div>
                             <div class="text-center">
                                 <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
@@ -339,14 +105,9 @@ a.st-ankr {
                 </div>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
-                        <!-- <div class="auction-thumb">
-                            <a href="product-details.html"><img src="assets/images/auction/product/02.png" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div> -->
                         <div class="auction-content">
-                            <h6 class="title">
-                                <a href="#0">2017 Harley-Davidson XG750,</a>
+                           <h6 class="title">
+                                <a href="javascript:void(0);">Lorem Ipsum</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -354,17 +115,18 @@ a.st-ankr {
                                         <i class="flaticon-auction"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Current Bid</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="current">Current Price</div>
+                                        <div class="amount">₹ 876.00</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
                                     <div class="icon">
-                                        <i class="flaticon-money"></i>
+                                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Buy Now</div>
-                                        <div class="amount">$5,00.00</div>
+                                        <!-- <div class="current">Buy Now</div> -->
+                                        <!-- <div class="amount">$5,00.00</div> -->
+                                        <a href="<?php echo base_url();?>" class="st-detail"   data-toggle="modal" data-target="#detailModalLong">View Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -372,24 +134,19 @@ a.st-ankr {
                                 <div class="countdown">
                                     <div id="bid_counter2"></div>
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                                <!-- <span class="total-bids">30 Bids</span> -->
                             </div>
                             <div class="text-center">
-                                <a href="seller-specific-quote.html" class="custom-button">Send Quote</a>
+                               <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
-                       <!--  <div class="auction-thumb">
-                            <a href="product-details.html"><img src="assets/images/auction/product/03.png" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div> -->
                         <div class="auction-content">
                             <h6 class="title">
-                                <a href="#0">2021 Hyundai Elantra, Sel</a>
+                                <a href="javascript:void(0);">Lorem Ipsum</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -397,17 +154,18 @@ a.st-ankr {
                                         <i class="flaticon-auction"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Current Bid</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="current">Current Price</div>
+                                        <div class="amount">₹ 876.00</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
                                     <div class="icon">
-                                        <i class="flaticon-money"></i>
+                                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Buy Now</div>
-                                        <div class="amount">$5,00.00</div>
+                                        <!-- <div class="current">Buy Now</div> -->
+                                        <!-- <div class="amount">$5,00.00</div> -->
+                                        <a href="<?php echo base_url();?>" class="st-detail"   data-toggle="modal" data-target="#detailModalLong">View Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -415,24 +173,19 @@ a.st-ankr {
                                 <div class="countdown">
                                     <div id="bid_counter3"></div>
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                                <!-- <span class="total-bids">30 Bids</span> -->
                             </div>
                             <div class="text-center">
-                                <a href="seller-specific-quote.html" class="custom-button">Send Quote</a>
+                                <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
-                       <!--  <div class="auction-thumb">
-                            <a href="product-details.html"><img src="assets/images/auction/product/04.png" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div> -->
                         <div class="auction-content">
                             <h6 class="title">
-                                <a href="#0">2014 KIA Sorento, LX</a>
+                                <a href="javascript:void(0);">Lorem Ipsum</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -440,17 +193,18 @@ a.st-ankr {
                                         <i class="flaticon-auction"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Current Bid</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="current">Current Price</div>
+                                        <div class="amount">₹ 876.00</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
                                     <div class="icon">
-                                        <i class="flaticon-money"></i>
+                                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Buy Now</div>
-                                        <div class="amount">$5,00.00</div>
+                                        <!-- <div class="current">Buy Now</div> -->
+                                        <!-- <div class="amount">$5,00.00</div> -->
+                                        <a href="<?php echo base_url();?>" class="st-detail"   data-toggle="modal" data-target="#detailModalLong">View Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -458,24 +212,19 @@ a.st-ankr {
                                 <div class="countdown">
                                     <div id="bid_counter4"></div>
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                                <!-- <span class="total-bids">30 Bids</span> -->
                             </div>
                             <div class="text-center">
-                                <a href="seller-specific-quote.html" class="custom-button">Send Quote</a>
+                                <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
-                        <!-- <div class="auction-thumb">
-                            <a href="product-details.html"><img src="assets/images/auction/product/05.png" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div> -->
                         <div class="auction-content">
                             <h6 class="title">
-                                <a href="#0">2019 Subaru Crosstrek, Premium</a>
+                                <a href="javascript:void(0);">Lorem Ipsum</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -483,17 +232,18 @@ a.st-ankr {
                                         <i class="flaticon-auction"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Current Bid</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="current">Current Price</div>
+                                        <div class="amount">₹ 876.00</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
                                     <div class="icon">
-                                        <i class="flaticon-money"></i>
+                                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Buy Now</div>
-                                        <div class="amount">$5,00.00</div>
+                                        <!-- <div class="current">Buy Now</div> -->
+                                        <!-- <div class="amount">$5,00.00</div> -->
+                                        <a href="<?php echo base_url();?>" class="st-detail"   data-toggle="modal" data-target="#detailModalLong">View Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -501,24 +251,19 @@ a.st-ankr {
                                 <div class="countdown">
                                     <div id="bid_counter5"></div>
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                                <!-- <span class="total-bids">30 Bids</span> -->
                             </div>
                             <div class="text-center">
-                                <a href="seller-specific-quote.html" class="custom-button">Send Quote</a>
+                               <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
-                       <!--  <div class="auction-thumb">
-                            <a href="product-details.html"><img src="assets/images/auction/product/06.png" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div> -->
                         <div class="auction-content">
                             <h6 class="title">
-                                <a href="#0">2019 Chevrolet Equinox, LT</a>
+                                <a href="javascript:void(0);">Lorem Ipsum</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -526,17 +271,18 @@ a.st-ankr {
                                         <i class="flaticon-auction"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Current Bid</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="current">Current Price</div>
+                                        <div class="amount">₹ 876.00</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
                                     <div class="icon">
-                                        <i class="flaticon-money"></i>
+                                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                     </div>
                                     <div class="amount-content">
-                                        <div class="current">Buy Now</div>
-                                        <div class="amount">$5,00.00</div>
+                                        <!-- <div class="current">Buy Now</div> -->
+                                        <!-- <div class="amount">$5,00.00</div> -->
+                                        <a href="<?php echo base_url();?>" class="st-detail"   data-toggle="modal" data-target="#detailModalLong">View Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -544,10 +290,10 @@ a.st-ankr {
                                 <div class="countdown">
                                     <div id="bid_counter6"></div>
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                                <!-- <span class="total-bids">30 Bids</span> -->
                             </div>
                             <div class="text-center">
-                                <a href="seller-specific-quote.html" class="custom-button">Send Quote</a>
+                               <a href="<?php echo base_url();?>home/sellerSpecificQuote" class="custom-button">Send Quote</a>
                             </div>
                         </div>
                     </div>
@@ -573,3 +319,69 @@ a.st-ankr {
         </div>
     </div>
     <!--============= Product Auction Section Ends Here =============-->
+
+
+    <!-- modal-detail-product -->
+     
+      <!-- Modal -->
+<div class="modal fade" id="detailModalLong" tabindex="-1" role="dialog" aria-labelledby="detailModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailModalLongTitle" style="color:#f71244;">Product Details</h5>
+        <button type="button" class="close btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!-- <h2 class="st-md-title">Product title</h2> -->
+          <h4 class="st-md-title-2">Description:</h4>
+          <p class="p-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+          a galley of type and scrambled it to make a type specimen book. It has survived not only 
+          five centuries, but also the leap into electronic typesetting, remaining essentially 
+          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+          </p>
+
+          <p class="p-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+          a galley of type and scrambled it to make a type specimen book. It has survived not only 
+          five centuries, but also the leap into electronic typesetting, remaining essentially 
+          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+          </p>
+
+          <p class="p-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+          a galley of type and scrambled it to make a type specimen book. It has survived not only 
+          five centuries, but also the leap into electronic typesetting, remaining essentially 
+          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+          </p>
+
+          <p class="p-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
+          a galley of type and scrambled it to make a type specimen book. It has survived not only 
+          five centuries, but also the leap into electronic typesetting, remaining essentially 
+          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+          </p>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+    <!-- close -->

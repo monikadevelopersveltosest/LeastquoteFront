@@ -12,30 +12,18 @@
                     <h3 class="st-req">Global Request</h3>
                     <form class="login-form">
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select product--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
+                            <label for="medicine "></label>
+                            <input type="text" id="medicine" placeholder="Medicine">
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
+                            <label for="dosage "></label>
+                            <input type="text" id="dosage" placeholder="Dosage">
                         </div>
-                        
                         <div class="form-group mb-30">
-                            <label for="specification"></label>
-                            <input type="text" id="specification" placeholder="Specification">
+                            <label for="quantity  "></label>
+                            <input type="text" id="quantity " placeholder="Quantity ">
                         </div>
+                    
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >

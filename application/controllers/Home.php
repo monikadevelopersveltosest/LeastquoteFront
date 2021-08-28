@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->SessionModel->checkuserlogin(array("sendemaildemo","cartcount","sendsmsdemo","login","loginajax","registerajax","index","registration_otp_send","confirmregisterajax","loginbypassword","createCode","shops","shopdetail","productdetail","variant_price","buynow","addToCart","contact","updateNavCart","cart","removeCartProduct","updateQuantity","addshippinginfo","uploadfilebypath","contactinfo","aboutus","aboutus1","privacy_policy","terms_condition","clearance_product","forgotpasswordsubmit","verifyForgotOtp","changeforgotpasswrodsubmit","loginbyotpsubmit","verifyloginOtp","clearance_detail","subcatbycatname","sell_on_indocliq","vendor_registration","vendorsingup","forget_password","passwordchange","Otpsent","buyer","signIn","signUp","dealerSingup","dealerSinIn","rechargeVirtualCash","sellerHome","sellerSpecificQuote","globalQuote","inShopRequest","demo"));
+		$this->SessionModel->checkuserlogin(array("privacyPolicy","termsCondition","aboutLeastquote","historyLeastquote","contactLeastquote","sendemaildemo","cartcount","sendsmsdemo","login","loginajax","registerajax","index","registration_otp_send","confirmregisterajax","loginbypassword","createCode","shops","shopdetail","productdetail","variant_price","buynow","addToCart","contact","updateNavCart","cart","removeCartProduct","updateQuantity","addshippinginfo","uploadfilebypath","contactinfo","aboutus","aboutus1","privacy_policy","terms_condition","clearance_product","forgotpasswordsubmit","verifyForgotOtp","changeforgotpasswrodsubmit","loginbyotpsubmit","verifyloginOtp","clearance_detail","subcatbycatname","sell_on_indocliq","vendor_registration","vendorsingup","forget_password","passwordchange","Otpsent","buyer","signIn","signUp","dealerSingup","dealerSinIn","rechargeVirtualCash","sellerHome","sellerSpecificQuote","globalQuote","inShopRequest","demo"));
 	}
 
 	public function index(){
@@ -53,6 +53,41 @@ class Home extends CI_Controller {
 		$this->load->view('front/header');
 		$this->load->view('front/sign-up',$data);
 		$this->load->view('front/footer');
+	}
+	public function privacyPolicy(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/privacy-policy',$data);
+		$this->load->view('front/footer');
+		
+	}
+	public function termsCondition(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/terms-condition',$data);
+		$this->load->view('front/footer');
+		
+	}
+	public function aboutLeastquote(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/about-leastquote',$data);
+		$this->load->view('front/footer');
+		
+	}
+	public function contactLeastquote(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/contact-leastquote',$data);
+		$this->load->view('front/footer');
+		
+	}
+	public function historyLeastquote(){
+		$data=array();
+		$this->load->view('front/header');
+		$this->load->view('front/history-leastquote',$data);
+		$this->load->view('front/footer');
+		//g-quote-automobile
 	}
 	public function dealerSingup(){
 		$data=array();

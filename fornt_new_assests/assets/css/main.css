@@ -2242,6 +2242,7 @@ header {
     cursor: pointer;
     width: 25px;
     height: 20px;
+    background: #000;
 }
 
 .header-bar span {
@@ -8953,3 +8954,7 @@ a.browse-item.st-ht {
     height: 200px !important;
 }
 /*close*/
+
+.ban-img{
+    padding-top: 100px;
+}

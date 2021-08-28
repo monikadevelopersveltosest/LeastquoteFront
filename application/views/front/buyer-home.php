@@ -1,258 +1,5 @@
-<style>
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content.text-left.st-drop {
-    right: 20px;
-}
-a.st-ankr {
-    color: #000;
-    padding: 8px 0px;
-}
-</style>
-    <!--============= ScrollToTop Section Starts Here =============-->
-    <div class="overlayer" id="overlayer">
-        <div class="loader">
-            <div class="loader-inner"></div>
-        </div>
-    </div>
-    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
-    <div class="overlay"></div>
-    <!--============= ScrollToTop Section Ends Here =============-->
-
-
-    <!--============= Header Section Starts Here =============-->
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-wrapper">
-                    <ul class="customer-support">
-                        <li>
-                            <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
-                        </li>
-                        <li>
-                            <i class="fas fa-globe"></i>
-                            <select name="language" class="select-bar">
-                                <option value="en">En</option>
-                                <option value="Bn">Bn</option>
-                                <option value="Rs">Rs</option>
-                                <option value="Us">Us</option>
-                                <option value="Pk">Pk</option>
-                                <option value="Arg">Arg</option>
-                            </select>
-                        </li>
-                    </ul>
-                    <ul class="cart-button-area">
-                        <li>
-                            <a href="#0" class="vt-cash"><span class="amount">Virtual Cash &#8377 0.00</span></a>
-                        </li>  
-                        <li>
-                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
-                        </li>                        
-                        <li class="dropdown">
-                            <a href="" class="user-button"><i class="flaticon-user"></i></a>
-                             <div class="dropdown-content text-left st-drop">
-                                <a href="javascript:void(0);" class="st-ankr">Profile</a>
-                                <a href="javascript:void(0);" class="st-ankr">Dashboard</a>
-                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
-                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
-                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
-                             </div>
-                        </li> 
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom">
-            <div class="container">
-                <div class="header-wrapper">
-                    <div class="logo">
-                        <a href="<?php echo base_url();?>home">
-                            <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/st-logo.png" alt="logo" class="logo-st">
-                        </a>
-                    </div>
-                    <ul class="menu ml-auto">
-                        <li>
-                            <a href="#0">Home</a>
-                            <ul class="submenu">
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="product.html">Auction</a>
-                        </li>
-                        <li>
-                            <a href="#0">Pages</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#0">Product</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="product.html">Product Page 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="product-2.html">Product Page 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html">Product Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">My Account</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="sign-up.html">Sign Up</a>
-                                        </li>
-                                        <li>
-                                            <a href="sign-in.html">Sign In</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">Dashboard</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="profile.html">Personal Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="my-bid.html">My Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="winning-bids.html">Winning Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="notifications.html">My Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="my-favorites.html">My Favorites</a>
-                                        </li>
-                                        <li>
-                                            <a href="referral.html">Referrals</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="about.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="faqs.html">Faqs</a>
-                                </li>
-                                <li>
-                                    <a href="error.html">404 Error</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <form class="search-form white">
-                        <input type="text" placeholder="Search for brand, model....">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                    <div class="search-bar d-md-none">
-                        <a href="#0"><i class="fas fa-search"></i></a>
-                    </div>
-                    <div class="header-bar d-lg-none">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!--============= Header Section Ends Here =============-->
-
-    <!--============= Cart Section Starts Here =============-->
-    <div class="cart-sidebar-area">
-        <div class="top-content">
-            <a href="<?php echo base_url();?>home" class="logo">
-                <img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/logo2.png" alt="logo">
-            </a>
-            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
-        </div>
-        <div class="bottom-content">
-            <div class="cart-products">
-                <h4 class="title">Shopping cart</h4>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop01.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop02.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Water Pot</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop03.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Art Paper</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop04.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/shop/shop05.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Comics Book</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="btn-wrapper text-center">
-                    <a href="#0" class="custom-button"><span>Checkout</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--============= Cart Section Ends Here =============-->
-
-
+ 
     <!--============= Banner Section Starts Here =============-->
     <section class="banner-section-2 bg_img" data-background="">
         <div class="container">
@@ -269,7 +16,7 @@ a.st-ankr {
                 </div>
                 <div class="col-lg-6 col-xl-6 d-none d-lg-block">
                     <div class="banner-thumb">
-                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/banner/banner-2.png" alt="banner">
+                        <img src="<?php echo base_url();?>fornt_new_assests/assets/images/banner/banner-2.png" alt="banner" class="ban-img">
                     </div>
                 </div>                
             </div>
@@ -316,7 +63,7 @@ a.st-ankr {
                         <span class="info">Pharamcy</span>
                     </a>
                     <a href="#0" class="browse-item st-ht">
-                         <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/pharmacy-img.png" alt="auction">
+                         <img src="<?php echo base_url();?>fornt_new_assests/assets/images/auction/health-img.png" alt="auction">
                         <span class="info">Healthcare services</span>
                     </a>
                     <a href="#0" class="browse-item st-ht">
@@ -418,7 +165,7 @@ a.st-ankr {
                 <div class="col-sm-10 col-md-6 col-lg-6">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="<?php echo base_url();?>home/demo" class="buyer-text"><img src="assets/images/logo/global-img.png" alt="" class="img-glob"/>
+                            <a href="<?php echo base_url();?>home/electro-global-req" class="buyer-text"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/global-img.png" alt="" class="img-glob"/>
                             <p class="title-st">Global Request</p>
                             </a>
                         </div>
@@ -427,7 +174,7 @@ a.st-ankr {
                 <div class="col-sm-10 col-md-6 col-lg-6">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="<?php echo base_url();?>home/inShopRequest" class="buyer-text"><img src="assets/images/logo/store-img.png" alt="" class="img-glob"/>
+                            <a href="<?php echo base_url();?>home/inShopRequest" class="buyer-text"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/store-img.png" alt="" class="img-glob"/>
                                 <p class="title-st">Shop Request</p>
                             </a>
                         </div>

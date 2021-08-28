@@ -9,52 +9,31 @@
             <div class="row justify-content-center mb-30-none">
                 <div class="col-sm-10 col-md-12 col-lg-12">
                   <div class="quote-form"> 
-                    <h3 class="st-req">Global Request</h3>
+                    <h3 class="st-req">In-shop Request</h3>
                     <form class="login-form">
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select product--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
+                                <option>--Select seller Name--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
                             </select>
                         </div>
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group mb-30">
-                            <label for="specification"></label>
-                            <input type="text" id="specification" placeholder="Specification">
-                        </div>
-                        <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select city--</option>
-                                <option>Indore</option>
-                                <option>Bhopal</option>
-                                <option>Sagar</option>
+                                <option>--Select Service type--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
                             </select>
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Area--</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                            </select>
+                            <label for="date"></label>
+                            <input type="date" id="date" placeholder="">
                         </div>
+                      
                         <div class="form-group mb-0">
                            <a href="buyer-home.html" class="custom-button st-btn " data-toggle="modal" data-target="#exampleModal">Send Request</a>
                         </div>

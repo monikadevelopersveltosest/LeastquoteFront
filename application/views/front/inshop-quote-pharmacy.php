@@ -14,46 +14,23 @@
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select product--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
+                                <option>--Select seller Name--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
                             </select>
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group mb-30">
-                            <label for="specification"></label>
-                            <input type="text" id="specification" placeholder="Specification">
+                            <label for="medicine "></label>
+                            <input type="text" id="medicine" placeholder="Medicine">
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select city--</option>
-                                <option>Indore</option>
-                                <option>Bhopal</option>
-                                <option>Sagar</option>
-                            </select>
+                            <label for="dosage "></label>
+                            <input type="text" id="dosage" placeholder="Dosage">
                         </div>
                         <div class="form-group mb-30">
-                            <label for="login-name"></label>
-                            <select >
-                                <option>--Select Area--</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                                <option>Lorem</option>
-                            </select>
+                            <label for="quantity  "></label>
+                            <input type="text" id="quantity " placeholder="Quantity ">
                         </div>
                         <div class="form-group mb-0">
                            <a href="buyer-home.html" class="custom-button st-btn " data-toggle="modal" data-target="#exampleModal">Send Request</a>

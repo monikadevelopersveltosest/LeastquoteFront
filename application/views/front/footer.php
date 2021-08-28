@@ -45,90 +45,76 @@
         <div class="footer-top padding-bottom padding-top">
             <div class="container">
                 <div class="row mb--60">
+                <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                        <div class="logo">
+                           <a href="index.html"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/logo-wh.png" alt="logo" class="logo-st"></a>
+                        </div> 
+                          <p style="color:#fff; margin-top:10px;">keep visiting our website that you don’t miss out on the next opportunity.</p>
+                        </div>
+                    </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="footer-widget widget-links">
-                            <h5 class="title">Auction Categories</h5>
+                            <h5 class="title"> Categories</h5>
                             <ul class="links-list">
-                                <li>
-                                    <a href="#0">Ending Now</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Vehicles</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Watches</a>
+                            <li>
+                                    <a href="#0">Home Appliance</a>
+                                    
                                 </li>
                                 <li>
                                     <a href="#0">Electronics</a>
+                                    
                                 </li>
                                 <li>
-                                    <a href="#0">Real Estate</a>
+                                    <a href="#0">Automobile</a>
+                                    
                                 </li>
                                 <li>
-                                    <a href="#0">Jewelry</a>
+                                    <a href="about.html">Hotel</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Art</a>
+                                    <a href="faqs.html">Pharamcy</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Sports & Outdoor</a>
+                                    <a href="error.html">Healthcare services</a>
+                                </li>
+                                <li>
+                                    <a href="error.html">Travel</a>
+                                </li>
+                                <li>
+                                    <a href="error.html">Events</a>
+                                </li>
+                                <li>
+                                    <a href="error.html">Professional services</a>
+                                </li>
+                                <li>
+                                    <a href="error.html">Fitness</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-sm-6 col-lg-3">
                         <div class="footer-widget widget-links">
                             <h5 class="title">About Us</h5>
                             <ul class="links-list">
                                 <li>
-                                    <a href="#0">About Sbidu</a>
+                                    <a href="<?php echo base_url();?>home/aboutLeastquote">About leastquote</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Help</a>
+                                    <a href="<?php echo base_url();?>home/privacyPolicy">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Affiliates</a>
+                                    <a href="<?php echo base_url();?>home/termsCondition">Terms & Conditions</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Press</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Our blog</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Collectors' portal</a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget widget-links">
-                            <h5 class="title">We're Here to Help</h5>
-                            <ul class="links-list">
-                                <li>
-                                    <a href="#0">Your Account</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Safe and Secure</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Shipping Information</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Help & FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                   
                     <div class="col-sm-6 col-lg-3">
                         <div class="footer-widget widget-follow">
-                            <h5 class="title">Follow Us</h5>
+                            <h5 class="title">Contact Us</h5>
                             <ul class="links-list">
                                 <li>
                                     <a href="#0"><i class="fas fa-phone-alt"></i>(646) 663-4575</a>
@@ -166,9 +152,7 @@
             <div class="container">
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
-                        <div class="logo">
-                           <a href="index.html"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/logo/logo-wh.png" alt="logo" class="logo-st"></a>
-                        </div>
+                       
                         <ul class="gateway-area">
                             <li>
                                 <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/paypal.png" alt="footer"></a>
@@ -183,7 +167,7 @@
                                 <a href="#0"><img src="<?php echo base_url();?>fornt_new_assests/assets/images/footer/mastercard.png" alt="footer"></a>
                             </li>
                         </ul>
-                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">leastquote</a> Dessign By <a href="#0">Sveltose Technologies</a></p></div>
                     </div>
                 </div>
             </div>

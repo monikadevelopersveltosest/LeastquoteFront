@@ -1,17 +1,17 @@
 
     <!--============= ScrollToTop Section Starts Here =============-->
-    <div class="overlayer" id="overlayer">
+    <!-- <div class="overlayer" id="overlayer">
         <div class="loader">
             <div class="loader-inner"></div>
         </div>
     </div>
     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
-    <div class="overlay"></div>
+    <div class="overlay"></div> -->
     <!--============= ScrollToTop Section Ends Here =============-->
 
 
     <!--============= Header Section Starts Here =============-->
-    <header>
+    <!-- <header>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -54,21 +54,6 @@
                         <li>
                             <a href="#0">Home</a>
                             <ul class="submenu">
-                                <!-- <li>
-                                    <a href="index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Page Five</a>
-                                </li> -->
                             </ul>
                         </li>
                         <li>
@@ -158,7 +143,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
     <!--============= Header Section Ends Here =============-->
 
     <!--============= Cart Section Starts Here =============-->

@@ -14,26 +14,24 @@
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select product--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
+                                <option>--Select Service type--</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
                             </select>
                         </div>
                         <div class="form-group mb-30">
                             <label for="login-name"></label>
                             <select >
-                                <option>--Select Brand--</option>
-                                <option>Fridge</option>
-                                <option>Microwave</option>
-                                <option>Watches</option>
-                                <option>Mobiles</option>
+                                <option>--Select Duration --</option>
+                                <option>demo</option>
+                                <option>demo</option>
+                                <option>demo</option>
                             </select>
                         </div>
                         
                         <div class="form-group mb-30">
-                            <label for="specification"></label>
+                            <label for="specification "></label>
                             <input type="text" id="specification" placeholder="Specification">
                         </div>
                         <div class="form-group mb-30">
@@ -55,6 +53,7 @@
                                 <option>Lorem</option>
                             </select>
                         </div>
+                        
                         <div class="form-group mb-0">
                            <a href="buyer-home.html" class="custom-button st-btn " data-toggle="modal" data-target="#exampleModal">Send Request</a>
                         </div>
