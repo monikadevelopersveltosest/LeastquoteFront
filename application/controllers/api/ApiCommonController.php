@@ -18,7 +18,7 @@ class ApiCommonController extends REST_Controller
         parent::__construct();
         $this->load->database();
         $this->load->library('form_validation');
-       // $this->load->model('api/Authentication_model');
+        $this->load->model('api/Authentication_model');
         $this->load->helper('common_helper');
     }
 
@@ -41,7 +41,7 @@ class ApiCommonController extends REST_Controller
             }
         }
         if (!empty($allcategories)) {
-            $this->response(['success' => true, 'message' => "Product category found successfully.", 'data' => $allcategories], REST_Controller::HTTP_OK);
+            $this->response(['success' => true, 'message' => "category found successfully.", 'data' => $allcategories], REST_Controller::HTTP_OK);
         } else {
 
             $this->response(['success' => false, 'message' => "Record not found.", 'data' => ''], REST_Controller::HTTP_NOT_FOUND);
@@ -927,25 +927,30 @@ class ApiCommonController extends REST_Controller
      *
      * @return Response
      */
+    
+//funtion to get email of user to send password
+
+/*	
+
     public function change_password_post()
     {
-        $this->form_validation->set_rules('user_id', 'User ID', 'required|trim');
-        $this->form_validation->set_rules('auth_token', 'Auth Token', 'required|trim');
+        $this->form_validation->set_rules('subscriber_id', 'User ID', 'required|trim');
+       // $this->form_validation->set_rules('auth_token', 'Auth Token', 'required|trim');
         
-        $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim');
-        $this->form_validation->set_rules('confirm_password', 'Confirm Passwotd', 'required|matches[password]|trim');
-        if ($this->form_validation->run() == FALSE) {
-            $response = array('status' => false, 'message' =>  validation_errors());
+     //$this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+     $this->form_validation->set_rules('password', 'Password', 'required|trim');
+     $this->form_validation->set_rules('confirm_password', 'Confirm Passwotd', 'required|matches[password]|trim');
+    if ($this->form_validation->run() == FALSE){
+      $response = array('status' => false, 'message' =>  validation_errors());
             $this->response($response, REST_Controller::HTTP_BAD_REQUEST);
         } else {
-            $current_password = $this->input->post('current_password');
-            $password = $this->input->post('password');
-            $user_id = $this->input->post('user_id');
-            $check_admin_password = $this->Common_model->getSingleRecord("users", ['id' => $user_id,'auth_token'=>$_POST['auth_token']]);
-            $admin_current_password = $check_admin_password['password'];
-            $current_password = md5(trim($current_password));
-            if ($admin_current_password != $current_password) {
+      //  $current_password = $this->input->post('current_password');
+        $password = $this->input->post('password');
+         $subscriber_id = $this->input->post('subscriber_id');
+         $check_admin_password = $this->Common_model->getSingleRecord("users", ['id' => $subscriber_id]);
+         $admin_current_password = $check_admin_password['password'];
+         $current_password = md5(trim($current_password));
+            if ($admin_current_password != $current_password){
                 $this->response(['success' => false, 'message' => "Invalid Current Password...!"], REST_Controller::HTTP_NOT_FOUND);
             } else {
                 $new_password = md5(trim($password));
@@ -957,23 +962,23 @@ class ApiCommonController extends REST_Controller
 
     public function forgot_password_post()
     {
-        $this->form_validation->set_rules('mobile_no', 'Mobile No', 'required|trim');
+        $this->form_validation->set_rules('user_contact_number','user_contact_number', 'required|trim');
         if ($this->form_validation->run() == FALSE) {
             $response = array('status' => false, 'message' =>  validation_errors());
             $this->response($response, REST_Controller::HTTP_BAD_REQUEST);
         } else {
-            $mobile_no = $this->input->post('mobile_no');
-            $checkmobileno = $this->Common_model->GetWhere('users', array('mobile_no' => $mobile_no));
+            $user_contact_number = $this->input->post('user_contact_number');
+            $checkmobileno = $this->Common_model->GetWhere('users', array('user_contact_number' => $user_contact_number));
             if (!empty($checkmobileno)) {
                 $post_data = array();
-                $post_data['mobile_no'] = $mobile_no;
+                $post_data['user_contact_number'] = $user_contact_number;
                 $country_isd_code = '91';
-                $respotp = $this->forgot_otp_send($mobile_no, $country_isd_code);
+                $respotp = $this->forgot_otp_send($user_contact_number, $country_isd_code);
                 $resotparray = json_decode($respotp, true);
                 $message="Your Otp hass been forget successfully your current otp is ".$resotparray['otp'];
                 //$this->load->helper('sendsms_helper');
                 if (!empty($resotparray) && $resotparray['status'] == 1) {
-                     sendsms($mobile_no,$country_isd_code,$message);
+                     sendsms($user_contact_number,$country_isd_code,$message);
                     $this->response(['success' => true, 'message' => "Your OTP has been sent successfully, please check your Number for getting OTP...@",'otp'=>$resotparray['otp']], REST_Controller::HTTP_OK);
                 } else {
                     $this->response(['success' => false, 'message' => "Invalid Mobile No."], REST_Controller::HTTP_NOT_FOUND);
@@ -983,6 +988,7 @@ class ApiCommonController extends REST_Controller
             }
         }
     }
+
 
     public function forgot_otp_send($mobile_no, $country_isd_code)
     {
@@ -1027,14 +1033,14 @@ class ApiCommonController extends REST_Controller
     public function verify_Forgot_otp_post()
     {
         $this->form_validation->set_rules('otp', 'OTP', 'required|trim');
-        $this->form_validation->set_rules('mobile_no', 'Mobile No', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim');
         if ($this->form_validation->run() == FALSE) {
             $response = array('status' => false, 'message' =>  validation_errors());
             $this->response($response, REST_Controller::HTTP_BAD_REQUEST);
         } else {
             $otp = $this->input->post('otp');
-            $mobile_no = $this->input->post('mobile_no');
-            $checkmobilenootp = $this->Common_model->GetWhere('forgot_otp', array('mobile_no' => $mobile_no, 'otp' => $otp));
+            $mobile_no = $this->input->post('email');
+            $checkmobilenootp = $this->Common_model->GetWhere('forgot_otp', array('email' => $email, 'otp' => $otp));
 
             if (isset($checkmobilenootp) && !empty($checkmobilenootp)) {
                 $this->response(['success' => true, 'message' => "OTP has been verify successfully please login now."], REST_Controller::HTTP_OK);
@@ -1067,7 +1073,7 @@ class ApiCommonController extends REST_Controller
             }
         }
     }
-
+*/
     public function add_shipping_info_post()
     {
         $this->form_validation->set_rules('user_id', 'User ID', 'required|numeric|trim');
@@ -1633,7 +1639,7 @@ class ApiCommonController extends REST_Controller
 
     /*generated by Monika Barde at 14/Oct/2020*/
 
-    public function send_registarion_otp_post()
+    /*public function send_registarion_otp_post()
     {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('full_name', 'Full Name', 'required');
@@ -1696,7 +1702,137 @@ class ApiCommonController extends REST_Controller
                 $this->response($responseArray, REST_Controller::HTTP_OK);
             }
         }  
+    }*/
+/*  saller registration*/
+    public function saller_regsiatration_post()
+    {
+       
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'username', 'required|trim');
+        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('conatct_number', 'Conatct Number', 'trim|required|regex_match[/^[0-9]{10}$/]');
+        $this->form_validation->set_rules('shop_name', 'shop_name', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $errors = strip_tags(validation_errors());
+            $response = array('status' => false, 'message' =>  validation_errors());
+            $this->response($response);
+        } else {
+            $insert=array();
+            $insert['username']=$_POST['username'];
+            $insert['password']=md5($_POST['password']);
+            $insert['seller_contact_number']=$_POST['conatct_number'];
+            $insert['shop_address']=$_POST['shop_address'];
+            $insert['country']=$_POST['country'];
+            $insert['city']=$_POST['city'];
+            $insert['area']=$_POST['area'];
+            $insert['gst_number']=$_POST['gst_number'];
+            $insert['category']=json_encode($_POST['category']);
+            $insert['joining_date']=date("y-m-d");
+            $check_shop = $this->Common_model->getSingleRecordById('shops', array('seller_contact_number' => $_POST['conatct_number']));
+            if(empty($check_shop)){
+                $add_otp = $this->Common_model->addRecords('shops', $insert);
+            }else{
+                $add_otp = $this->Common_model->updateRecords('shops', $insert, array('seller_contact_number' => $_POST['conatct_number']));
+            }
+            if(!empty($add_otp)){
+                $this->response(['status' => true, 'message' => "signup successfully.",'data'=>''], REST_Controller::HTTP_OK);   
+         }else{
+             $responseArray = array('status' => FALSE, 'message' => 'Mobile number already exits.');
+             $this->response($responseArray, REST_Controller::HTTP_OK);
+            }
+        }
     }
+/* user register */
+public function user_regsiatration_post()
+    {
+      
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'username', 'required|trim');
+        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('conatct_number', 'Conatct Number', 'trim|required|regex_match[/^[0-9]{10}$/]');
+
+      //  $this->form_validation->set_rules('seller_id', 'seller_id', 'trim|required|regex_match[/^[0-9]{10}$/]');
+      //  $this->form_validation->set_rules('shop_name', 'shop_name', 'required');
+       if ($this->form_validation->run() == FALSE) {
+            $errors = strip_tags(validation_errors());
+           $response = array('status' => false, 'message' =>  validation_errors());
+            $this->response($response);
+        } else {
+           $insert=array();
+            $insert['username']=$_POST['username'];
+            $insert['password']=md5($_POST['password']);
+            $insert['user_contact_number']=$_POST['conatct_number'];
+            $insert['email']=$_POST['email'];
+           
+            $insert['seller_id']=$_POST['seller_id'];
+            $insert['type']=$_POST['type'];
+         // $insert['vcash']=$_POST['vcash'];
+          
+  $check_shop = $this->Common_model->getSingleRecordById('users', array('user_contact_number' => $_POST['conatct_number']));
+     if(empty($check_shop)){
+          $add_otp = $this->Common_model->addRecords('users', $insert);
+     }else{
+ $add_otp = $this->Common_model->updateRecords('users',$insert, array('user_contact_number' => $_POST['conatct_number']));
+            }
+         if(!empty($add_otp)){
+     $this->response(['status' => true, 'message' => "User successfully registered.",'data'=>''], REST_Controller::HTTP_OK);   
+         }else{
+             $responseArray = array('status' => FALSE, 'message' => 'Mobile number already exits.');
+             $this->response($responseArray, REST_Controller::HTTP_OK);
+            }
+        }
+    }
+    /* user register */
+    
+    public function category_type_post()
+    {
+      
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('title', 'title', 'required|trim');
+        $this->form_validation->set_rules('type', 'type', 'required');
+        $this->form_validation->set_rules('conatct_number', 'Conatct Number', 'trim|required|regex_match[/^[0-9]{10}$/]');
+
+      //  $this->form_validation->set_rules('seller_id', 'seller_id', 'trim|required|regex_match[/^[0-9]{10}$/]');
+      //  $this->form_validation->set_rules('shop_name', 'shop_name', 'required');
+       if ($this->form_validation->run() == FALSE) {
+            $errors = strip_tags(validation_errors());
+           $response = array('status' => false, 'message' =>  validation_errors());
+            $this->response($response);
+        } else {
+           $insert=array();
+            $insert['title']=$_POST['title'];
+            $insert['type']=($_POST['type']);
+            $insert['category_image	']=($_POST['category_image	']);
+            $insert['type']=($_POST['type']);
+            $insert['create_date']=date("y-m-d");
+
+            $insert['user_contact_number']=$_POST['conatct_number'];
+           // $insert['email']=$_POST['email'];
+           
+          //  $insert['seller_id']=$_POST['seller_id'];
+          //  $insert['type']=$_POST['type'];
+         // $insert['vcash']=$_POST['vcash'];
+          
+  $check_shop = $this->Common_model->getSingleRecordById('shopcategories', array('user_contact_number' => $_POST['conatct_number']));
+     if(empty($check_shop)){
+          $add_otp = $this->Common_model->addRecords('shopcategories', $insert);
+     }else{
+ $add_otp = $this->Common_model->updateRecords('shopcategories', $insert, array('user_contact_number' => $_POST['conatct_number']));
+            }
+         if(!empty($add_otp)){
+     $this->response(['status' => true, 'message' => "User successfully registered.",'data'=>''], REST_Controller::HTTP_OK);   
+         }else{
+             $responseArray = array('status' => FALSE, 'message' => 'Mobile number already exits.');
+             $this->response($responseArray, REST_Controller::HTTP_OK);
+            }
+        }
+    }
+
+
+
+
+
+
 
     public function verify_register_otp_post()
     {
@@ -1769,30 +1905,43 @@ class ApiCommonController extends REST_Controller
             }
         }
     }
-
-    public function user_loginbypassword_post()
+/* seller login */
+    public function seller_loginbypassword_post()
     {   
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('mobile_no','Mobile no','required');
+        $this->form_validation->set_rules('username','User Name','required');
         $this->form_validation->set_rules('password','Password','required');
-        $this->form_validation->set_rules('device_type','Device Type','required');
-        $this->form_validation->set_rules('fcm_token','Fcm token','required');
+       // $this->form_validation->set_rules('device_type','Device Type','required');
+      //  $this->form_validation->set_rules('fcm_token','Fcm token','required');
         if($this->form_validation->run() == FALSE){
             $errors = strip_tags(validation_errors());
             $response = array('status'=> false,'message'=>  validation_errors());
             $this->response($response);
         }
         else {
-            $authToken = $this->Authentication_model->_generate_token();
-            $data['mobile_no'] = $this->input->post('mobile_no');
+           
+           $data=array();
+        //    $authToken = $this->Authentication_model->_generate_token();
+            $data['username'] = $this->input->post('username');
             $data['password'] = md5($this->input->post('password'));
-            $data['fcm_token'] = $this->post('fcm_token');
-            $data['device_type'] = $this->post('device_type');
-            $data['auth_token'] = $authToken;
-            $data['table_name'] = 'users';
-            $res = $this->Authentication_model->userLogin($data);
-            $chkuserdata = $this->Common_model->GetWhere('users', array('fcm_token'=>$data['fcm_token']));
-            $this->Common_model->updateRecords('users', array("fcm_token"=>$data['fcm_token']), array("mobile_no"=>$data['mobile_no']));
+         //   $data['fcm_token'] = $this->post('fcm_token');
+          //  $data['device_type'] = $this->post('device_type');
+           // $data['auth_token'] = $authToken;
+            //$data['table_name'] = 'shops';
+            $res = $this->Authentication_model->userLogin("shops",$data);
+           // echo "<pre>";print_r($res);die;
+if(is_array($res)){
+    $this->response(['status' => true, 'message' => "login successfull.",'data'=>$res], REST_Controller::HTTP_OK);   
+
+
+}
+else{
+   $result = "result not found"; 
+
+}
+
+ /*$chkuserdata = $this->Common_model->GetWhere('shops', array('fcm_token'=>$data['fcm_token']));
+            $this->Common_model->updateRecords('shops', array("fcm_token"=>$data['fcm_token']), array("mobile_no"=>$data['mobile_no']));
                 if(is_string($res) && $res == 'NA'){
                     $responseArray = array('status'=>FALSE,'message'=>'User not active.','data' => '');
                 }
@@ -1805,11 +1954,55 @@ class ApiCommonController extends REST_Controller
                     $responseArray = array('status'=> FALSE, 'message'=> 'User not active', 'data' => '');
                 }
             // $this->session->set_userdata('user_data', $res['userData']);
-            $this->response($responseArray, REST_Controller::HTTP_OK);
+            $this->response($responseArray, REST_Controller::HTTP_OK);*/
         
+        }
+    }public function user_login_get()
+    {
+        $allstore = $this->db->get_where("users")->result();
+        if ($allstore) {
+            $this->response(['success' => true, 'message' => "login successfully.", 'data' => $allstore], REST_Controller::HTTP_OK);
+        } else {
+
+            $this->response(['success' => false, 'message' => "Record not found.", 'data' => ''], REST_Controller::HTTP_NOT_FOUND);
         }
     }
 
+
+/* user login 
+    public function user_loginbypassword_post()
+    {   
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username','User Name','required');
+        $this->form_validation->set_rules('password','Password','required');
+       // $this->form_validation->set_rules('device_type','Device Type','required');
+      //  $this->form_validation->set_rules('fcm_token','Fcm token','required');
+        if($this->form_validation->run() == FALSE){
+            $errors = strip_tags(validation_errors());
+            $response = array('status'=> false,'message'=>  validation_errors());
+            $this->response($response);
+        }
+      //  else {
+           
+         //  $data=array();
+        //    $authToken = $this->Authentication_model->_generate_token();
+            $data['username'] = $this->input->post('username');
+            $data['password'] = md5($this->input->post('password'));
+         //   $data['fcm_token'] = $this->post('fcm_token');
+          //  $data['device_type'] = $this->post('device_type');
+           // $data['auth_token'] = $authToken;
+            //$data['table_name'] = 'shops';
+            $res = $this->Authentication_model->userSignup("users",$data);
+       //  echo "<pre>";print_r($res);die;
+if(is_array($res)){
+$this->response(['status' => true, 'message' => "login successfull.",'data'=>$res], REST_Controller::HTTP_OK);   
+}
+else{
+   $result = "result not found"; 
+
+} 
+        }
+    }
     /**
      * Get user profile data
      *
@@ -1935,7 +2128,7 @@ class ApiCommonController extends REST_Controller
                         $checkuserrow = $checkuser[0];
                         if ($checkuserrow['status'] == 1) {
                             $checkuserrow['is_registerd'] = true;
-                            $this->Common_model->updateRecords('users', array("fcm_token"=>$fcm_token), array('mobile_no' => $mobile_no));
+                            $this->Common_model->updateRecords('shops', array("fcm_token"=>$fcm_token), array('mobile_no' => $mobile_no));
                             $responseArray = array('status' => true, 'message' => 'OTP Verified Successfully.', 'data' => $checkuserrow,'profile_img_url'=>base_url().'uploads/customerprofilepic/');
                             $this->response($responseArray, REST_Controller::HTTP_OK);
                         }else{
@@ -1958,11 +2151,11 @@ class ApiCommonController extends REST_Controller
         }
     }
 
-    public function store_locator_get()
+    public function shop_locator_get()
     {
-        $allstore = $this->db->get_where("shops")->result();
+        $allstore = $this->db->get_where("users")->result();
         if ($allstore) {
-            $this->response(['success' => true, 'message' => "Store found successfully.", 'data' => $allstore], REST_Controller::HTTP_OK);
+            $this->response(['success' => true, 'message' => "Shop found successfully.", 'data' => $allstore], REST_Controller::HTTP_OK);
         } else {
 
             $this->response(['success' => false, 'message' => "Record not found.", 'data' => ''], REST_Controller::HTTP_NOT_FOUND);
@@ -2014,7 +2207,7 @@ class ApiCommonController extends REST_Controller
             $data_array=array();
             if(!empty($checaboutus))
             {
-                foreach ($checaboutus as $key => $value) {
+                foreach ($checaboutus as $key => $value){
                     if($lang=="hi")
                     {
                         $data_array[$key]['ans']=$value['ans_hindi'];
