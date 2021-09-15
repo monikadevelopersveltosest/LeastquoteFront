@@ -35,7 +35,7 @@
                 <div class="left-side">
                     <div class="section-header">
                         <h2 class="title">SIGN UP</h2>
-                        <p>We're happy you're here!</p>
+                        <p>We're happy you're here! hahaha</p>
                     </div>
                    <!--  <ul class="login-with">
                         <li>

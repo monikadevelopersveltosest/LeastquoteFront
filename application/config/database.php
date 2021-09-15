@@ -100,9 +100,9 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
-		'username' => 'preamio',
-		'password' => 'preamio123',
-		'database' => 'preamiodb',
+		'username' => 'aydshhesxvd5',
+		'password' => 'T${HUXn9?F%',
+		'database' => 'leastquote_db',
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => FALSE,

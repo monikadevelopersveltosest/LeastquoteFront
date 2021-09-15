@@ -1,7 +1,7 @@
 
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <section class="content-header"><h1>Area <small>List</small></h1></section>
+  <section class="content-header"><h1><img src="<?php echo base_url().'common_assets/images/city-list.png';?>" style="width: 30px">Area <small>List</small></h1></section>
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -22,7 +22,7 @@
                 <tr>
                   <th>S.no.</th>
                   <th>Name</th>
-                  <th>Zip Code</th>
+                  <!--<th>Zip Code</th>-->
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -35,7 +35,7 @@
                   ?>
                     <tr>
                       <td><?php echo $count; ?></td><td><?php  echo (!empty($getdata['area_name'])?$getdata['area_name']:'none'); ?></td>
-                      <td><?php  echo (!empty($getdata['area_zipcode'])?$getdata['area_zipcode']:'none'); ?></td>
+                      <!--<td><?php  //echo (!empty($getdata['area_zipcode'])?$getdata['area_zipcode']:'none'); ?></td>-->
                       <td><?php if($getdata['status']==0){echo "Deactive";}
                                 if($getdata['status']==1){echo "Active";}
                           ?>

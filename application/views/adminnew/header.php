@@ -176,19 +176,25 @@
         <a href="<?php echo base_url();?>adminnew/memberShiplist"><i class="fa fa-users"></i><span>MemberShip</span></a>
       </li>-->
       <li> 
-        <a href="<?php echo base_url();?>adminnew/Customerslist"><i class="fa fa-user-circle-o"></i> <span>Customer</span></a> 
+        <a href="<?php echo base_url();?>adminnew/Customerslist"><img src="<?php echo base_url();?>uploads/customer-img.png"> <span style="padding-left: 7px;">Customer</span></a> 
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/productlist"><i class="fa fa-product-hunt"></i> <span>Products</span></a> 
+        <a href="<?php echo base_url();?>adminnew/productlist"><img src="<?php echo base_url();?>uploads/product-img.png"> <span style="padding-left: 7px;">Products</span></a> 
+      </li>
+      <!--<li> -->
+      <!--  <a href="<?php echo base_url();?>adminnew/productCategory"><img src="<?php echo base_url();?>uploads/categories-img.png"> <span style="padding-left: 7px;">Product Category</span></a> -->
+      <!--</li>-->
+      <li> 
+        <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/seller-img.png"><span style="padding-left: 7px;">Sallers</span></a>
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/shoplist"><img src="<?php echo base_url();?>uploads/store.png"><span style="padding-left: 7px;">Sallers</span></a>
+        <a href="<?php echo base_url();?>adminnew/citylist"> <img src="<?php echo base_url();?>uploads/city-img.png"><span style="padding-left: 7px;">City</span></a>
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/citylist"> <i class="fa fa-map-marker"></i><span style="padding-left: 7px;">City</span></a>
+        <a href="<?php echo base_url();?>adminnew/areas"> <img src="<?php echo base_url();?>uploads/city-img.png"><span style="padding-left: 7px;">Area</span></a>
       </li>
       <li> 
-        <a href="<?php echo base_url();?>adminnew/areas"><i class="fa fa-map-marker"></i><span style="padding-left: 7px;">Area</span></a>
+        <a href="<?php echo base_url();?>adminnew/brand"> <img src="https://leastquote.com/uploads/categories-img.png"><span style="padding-left: 7px;">Brnad</span></a>
       </li>
       
       <!--<li> -->
@@ -196,8 +202,8 @@
       <!--</li>-->
       <li class="treeview">
           <a href="#">
-            <i class="fa fa-gear"></i>
-            <span>Settings</span>
+            <img src="<?php echo base_url();?>uploads/settings-img.png">
+            <span style="padding-left: 7px;">Settings</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

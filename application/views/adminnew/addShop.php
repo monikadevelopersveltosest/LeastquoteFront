@@ -935,9 +935,9 @@
 <div class="content-wrapper">
   <section class="content-header">
     <?php if(isset($shop_data['shop_id']) && !empty($shop_data['shop_id'])){ ?>
-      <h1><img src="<?php echo base_url().'common_assets/images/shop.png';?>" style="width: 30px"> Edit Vendor (<?php echo (isset($shop_data['shop_reg_id']) ? $shop_data['shop_reg_id'] : '');?>)</h1>
+      <h1><img src="<?php echo base_url().'common_assets/images/shop.png';?>" style="width: 30px"> Edit Saller (<?php echo (isset($shop_data['shop_reg_id']) ? $shop_data['shop_reg_id'] : '');?>)</h1>
     <?php }else{ ?>
-      <h1><img src="<?php echo base_url().'common_assets/images/shop.png';?>" style="width: 30px"> ADD Vendor</h1>
+      <h1><img src="<?php echo base_url().'common_assets/images/shop.png';?>" style="width: 30px"> ADD Saller</h1>
     <?php } ?>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url()?>admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -962,7 +962,7 @@
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab">Vendor Detail</a></li>
-              <li><a href="#addbank" data-toggle="tab">Bank Detail</a></li>
+              <!--<li><a href="#addbank" data-toggle="tab">Bank Detail</a></li>-->
              <!--  <li><a href="#gumasta" data-toggle="tab">Employer Registration Number</a></li> -->
               <?php //if(isset($shop_data['shop_id']) && !empty($shop_data['shop_id'])){ ?>
                 <!--  <li><a href="<?php echo base_url()?>adminnew/chageshoppassowrd/<?php echo $shop_data['shop_id'];?>" >Change password</a></li> -->
@@ -973,19 +973,17 @@
                 <div class="tab-content" style="padding: 0px">
                   <div class="active tab-pane" style="margin: 10px" id="activity">
                       <div class="col-md-6">
-                        <!-- <div class="form-group">
-                          <label>Registration Number</label>
-                          <input type="text" class="form-control" name="shop_registration_no" value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_registration_no']) ? $shop_data['shop_registration_no'] : '' ); ?>" >
-                        </div> -->
                         <div class="form-group">
                             <div class="form-group">
-                              <label>Vendore Categories</label>
-                              <select class="form-control" name="shopcetegory_type_id">
-                                <option value="">Select Any Vendore Categories Type</option>
-                              <?php if(!empty($shopcategories_data)){ ?>
+                              <label>Saller Categories</label>
+                              <select class="form-control" name="shop_category">
+                                <option value="">Select Any Saller Categories Type
+                                </option>
+                                <?php if(!empty($shopcategories_data)){ 
+                                ?>
                                 <?php 
                                 foreach ($shopcategories_data as $shop_type_list1) {
-                                  if($shop_data['shopcetegory_type_id'] == $shop_type_list1['category_name']){
+                                  if($shop_data['shop_category'] && $shop_type_list1['category_name']){
                                     $duration1="selected";
                                   }else{
                                     $duration1="";
@@ -1002,7 +1000,7 @@
                             </div>
                           </select>
                         </div>
-
+                        <?php //p($shop_data); ?>
                          <div class="form-group">
                           <label>Shop Name</label>
                           <input type="text" class="form-control" name="shop_name" value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_name']) ? $shop_data['shop_name'] : '' )?>" required>
@@ -1011,44 +1009,12 @@
                           <label>Owner Name</label>
                           <input type="text" class="form-control" name="owner_name" value="<?php echo (!empty($shop_data) && !empty($shop_data['owner_name']) ? $shop_data['owner_name'] : '' ); ?>" required>
                         </div>
-                        <div class="form-group">
-                          <label>Email-ID</label>
-                          <input type="email" class="form-control" name="email" value="<?php echo (!empty($shop_data) && !empty($shop_data['email']) ? $shop_data['email'] : '' )?>" required>
-                        </div>
                          <?php if(!isset($shop_data['shop_id']) && empty($shop_data['shop_id'])){ ?>
                           <div class="form-group">
                             <label>Password</label>
                             <input type="password" class="form-control" name="password">
                           </div>
                         <?php } ?>
-                          <!-- <div class="form-group">
-                              <label>Select MemberShip Type</label>
-                              <select class="form-control" name="membership-duration">
-                                <option value="">Select MemberShip Type</option>
-                                <?php if(!empty($membership)){ ?>
-                                <?php 
-                                foreach ($membership as $shop_type_list2) {
-                                  if($shop_data['membership-duration'] == $shop_type_list2['duration']){
-                                    $duration="selected";
-                                  }else{
-                                    $duration="";
-                                  }
-                                ?>
-                                  <option value="<?php echo $shop_type_list2['duration']; ?>" <?php echo $duration; ?>><?php echo $shop_type_list2['duration'];?></option>
-                                <?php
-                                }
-                                ?>
-                                <?php
-                                }
-                                ?>
-                              </select>
-                          </div>                         -->
-                       
-                        <!-- <div class="form-group">
-                          <label>Password</label>
-                          <input type="password" class="form-control" name="password" value=""  placeholder="enter passwod">
-                        </div> -->
-                        
                         <?php if(isset($shop_data['owner_image']) && !empty($shop_data['owner_image'])){ ?>
                           <div class="form-group">
                             <img src="<?php echo base_url()?>uploads/shop_images/shop_owner_images/<?php echo $shop_data['owner_image'];?>" class="img-responsive">
@@ -1058,87 +1024,7 @@
                             <label>Owner Image</label>
                             <input type="file" name="owner_image" class="form-control" value ="<?php echo (!empty($shop_data) && !empty($shop_data['owner_image']['name']) ? $shop_data['owner_image']['name'] : '' )?>" >
                           </div>
-                          <!--isset($_FILES['owner_image']['name']) && !empty($_FILES['owner_image']['name'])-->
-                          <div class="form-group">
-                            <label>Employer Identification number</label>
-                            <input type="text" class="form-control" name="adhar_no" value="<?php echo (!empty($shop_data) && !empty($shop_data['adhar_no']) ? $shop_data['adhar_no'] : '' )?>">
-                          </div>
-                          <div class="form-group">
-                              <label>Employer Identification image (265 * 165 px ) </label>
-                              <input type="file" name=" adhar_image" class="form-control">
-                          </div>
-                        <?php if(isset($shop_data['adhar_image']) && !empty($shop_data['adhar_image'])){ ?>
-                            <div class="form-group">
-                              <img src="<?php echo base_url()?>uploads/shop_images/adhar_image/<?php echo $shop_data['adhar_image'];?>" class="img-responsive">
-                            </div>
-                        <?php } ?>
-                      </div>
-                      <div class="col-md-6">
-                        <?php //if(isset($shop_data['shop_id']) && !empty($shop_data['shop_id'])){ ?>
-                            <!-- <div class="form-group">
-                              <label>GST Number</label>
-                              <input type="text" class="form-control" name="gst_number" value="<?php echo (!empty($shop_data) && !empty($shop_data['gst_number']) ? $shop_data['gst_number'] : '' )?>" >
-                            </div> -->
-                        <?php //}else{ ?>
-                                <div class="form-group">
-                                  <div class="form-group">
-                                  <label>Mobile Number</label><br>
-                                 <select name="country_code" class="form-control" style="width:16%; height: 34px;display: initial; float:left;">
-                                     
-   
-
-                                   <option <?php if(isset($shop_data['country_code']) && !empty($shop_data['country_code']==+1)){echo 'selected';}else{echo ''; }?>>+1</option>
-                                    <option <?php if(isset($shop_data['country_code']) && !empty($shop_data['country_code']==+91)){echo 'selected';}else{echo ''; }?>>+91</option>
-                                 </select>
-                                 <?php 
-                                //  if(!empty($shop_data['mobile_no'])){
-                                //     $number = $shop_data['mobile_no']; 
-                                //     $new_number = $number;
-                                //  }else{
-                                //      $new_number="";
-                                //  }
-                                 ?>
-                                  <input type="tel" style="width:84%; height: 34px; display: inline-block; float:left" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="form-control" name="mobile_no" size="10" value="<?php echo (!empty($shop_data) && !empty($shop_data['mobile_no']) ? $shop_data['mobile_no'] : '' )?>"/>
-                                </div>
-                                </div>
-                        <?php if(isset($shop_data['shop_image_desktop']) && !empty($shop_data['shop_image_desktop'])){ ?>
-                            <div class="form-group">
-                              <img src="<?php echo base_url()?>uploads/shop_images/shop_image_desktop/<?php echo $shop_data['shop_image_desktop'];?>" class="img-responsive">
-                            </div>
-                        <?php } ?>
-                          <div class="form-group">
-                            <label>Shop Image (265 * 165 px ) </label>
-                            <input type="file" name="shop_image_mobile" class="form-control" >
-                          </div>
-                        <div class="form-group">
-                          <label>Tax identification number</label>
-                          <input type="text" class="form-control" name="pan_no" value="<?php echo (!empty($shop_data) && !empty($shop_data['pan_no']) ? $shop_data['pan_no'] : '' )?>">
-                        </div>
-                        <div class="form-group">
-                          <label>Tax identification number document (265 * 165 px ) </label>
-                          <input type="file" name="pan_image" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                          <label>business registered in</label>
-                          <input type="text" class="form-control" name="business-registerd" value="<?php echo (!empty($shop_data) && !empty($shop_data['business-registerd']) ? $shop_data['business-registerd'] : '' )?>">
-                        </div>
-
-                        <div class="form-group">
-                          <label>Chain (owned . operated by parent company)</label>
-                          <input type="text" class="form-control" name="chain" value="<?php echo (!empty($shop_data) && !empty($shop_data['chain']) ? $shop_data['chain'] : '' )?>">
-                        </div>
-                         <div class="form-group">
-                          <label>Franchise (corporate brand)</label>
-                          <input type="text" class="form-control" name="franchise" value="<?php echo (!empty($shop_data) && !empty($shop_data['franchise']) ? $shop_data['franchise'] : '' )?>">
-                        </div>
-                       
-                        <?php if(isset($shop_data['pan_image']) && !empty($shop_data['pan_image'])){ ?>
-                          <div class="form-group">
-                            <img src="<?php echo base_url()?>uploads/shop_images/pan_image/<?php echo $shop_data['pan_image'];?>" class="img-responsive">
-                          </div>
-                        <?php } ?>
-                      </div>
-                      <div class="col-md-12">
+                          <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
@@ -1151,7 +1037,7 @@
                               ?>
                                 
                                 <label>Categories</label>
-                                <select class="form-control select2 catselect" name="shopping_categories[]" multiple="multiple" data-placeholder="Select a categories"
+                                <select class="form-control select2 catselect" name="category[]" multiple="multiple" data-placeholder="Select a categories"
                                         style="width: 100%;" >
                                 <?php if(isset($allcategories) && !empty($allcategories)){ 
                                     foreach ($allcategories as $allcategoriesdata){
@@ -1161,63 +1047,100 @@
                                 </select>
                               </div>
                           </div>
-                          <div class="form-group col-md-6">
-                          <label>Years in business</label>
-                            <select class="form-control" name="year_business">
-                              <option>Choose years in business range </option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='1-4'){echo "selected";}else{echo "";}?>>1-4</option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='5-8'){echo "selected";}else{echo "";}?>>5-8</option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='9-12'){echo "selected";}else{echo "";}?> >9-12</option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='13+'){echo "selected";}else{echo "";}?> >13+</option>
-                            </select>
-                        </div>
-                          <!-- <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Upload GST <div class="form-group">
-                          <label>Years in business</label>
-                            <select class="form-control" name="year_business">
-                              <option>Choose years in business range </option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='1-4'){echo "selected";}else{echo "";}?>>1-4</option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='5-8'){echo "selected";}else{echo "";}?>>5-8</option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='9-12'){echo "selected";}else{echo "";}?> >9-12</option>
-                              <option <?php  if(!empty($shop_data['year_business']) && $shop_data['year_business']=='13+'){echo "selected";}else{echo "";}?> >13+</option>
-                            </select>
-                        </div>Document</label>
-                              <input type="file" name="gst_image" class="form-control" >
-                            </div>
-                            <?php if(isset($shop_data['gst_image']) && !empty($shop_data['gst_image'])){ ?>
-                              <div class="form-group">
-                                <img src="<?php echo base_url()?>uploads/shop_images/gst_image/<?php echo $shop_data['gst_image'];?>" class="img-responsive">
-                              </div>
-                            <?php } ?>
-                          </div> -->
-
                         </div>
                       </div>
-                      <div class="col-md-12">
-                         <div class="form-group">
-                          <label>Short description of nature of business</label>
-                          <input name="desc" class="form-control" value="<?php echo (!empty($shop_data) && !empty($shop_data['desc']) ? $shop_data['desc'] : '' )?>" required>
+                          <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" class="form-control" value ="<?php echo (!empty($shop_data) && !empty($shop_data['city']) ? $shop_data['city'] : '' )?>" >
+                          </div>
+                          
+                          <div class="form-group">
+                            <label>Area</label>
+                            <input type="text" name="area" class="form-control" value ="<?php echo (!empty($shop_data) && !empty($shop_data['area']) ? $shop_data['area'] : '' )?>" >
+                          </div>
+                          <?php //p($shop_data['trustscore']); ?>
+                          <div class="form-group">
+                            <label>Trust Core</label>
+                            <input type="number" name="trustscore" class="form-control" value ="<?php echo $shop_data['trustscore']; ?>" >
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                        <?php if(isset($shop_data['shop_image_desktop']) && !empty($shop_data['shop_image_desktop'])){ ?>
+                            <div class="form-group">
+                              <img src="<?php echo base_url()?>uploads/shop_images/shop_image_desktop/<?php echo $shop_data['shop_image_desktop'];?>" class="img-responsive">
+                            </div>
+                        <?php } ?>
+                          <div class="form-group">
+                            <label>Shop Image (265 * 165 px ) </label>
+                            <input type="file" name="shop_image_mobile" class="form-control" >
                           </div>
                         <div class="form-group">
-                          <label>Address</label>
-                          <input name="shop_address" class="form-control"  id="pac-input" value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_address']) ? $shop_data['shop_address'] : '' )?>">
+                          <label>GST number</label>
+                          <input type="text" class="form-control" name="gst_number" value="<?php echo (!empty($shop_data) && !empty($shop_data['gst_number']) ? $shop_data['gst_number'] : '' )?>">
                         </div>
-                      </div>
-                      <div class="col-md-12" style="padding: 0px">
-                        <div class="col-md-6">
+                        <?php //p($shop_data); ?>
+                        <div class="form-group">
+                          <label>Type</label>
+                          <input type="text" class="form-control" name="type" value="<?php echo (!empty($shop_data) && !empty($shop_data['saller_typ']) ? $shop_data['saller_typ'] : '' )?>">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label>Vcash</label>
+                          <input type="text" class="form-control" name="vcash" value="<?php echo (!empty($shop_data) && !empty($shop_data['vcash']) ? $shop_data['vcash'] : '' )?>">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label>Saller Address</label>
+                          <input type="text" class="form-control" name="shop_address" value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_address']) ? $shop_data['shop_address'] : '' )?>">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label>Mobile Number</label>
+                          <input type="text" class="form-control" name="seller_contact_number" value="<?php echo (!empty($shop_data) && !empty($shop_data['seller_contact_number']) ? $shop_data['seller_contact_number'] : '' )?>">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label>Country</label>
+                          <input type="text" class="form-control" name="country" value="<?php echo (!empty($shop_data) && !empty($shop_data['country']) ? $shop_data['country'] : 'India' )?>">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label>Transaction Start Date</label>
+                          <input type="date" class="form-control" name="transaction_start_date" value="<?php echo (!empty($shop_data) && !empty($shop_data['transaction_start_date']) ? $shop_data['transaction_start_date'] : '' )?>">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label>Transaction End Date</label>
+                          <input type="date" class="form-control" name="transaction_end_date" value="<?php echo (!empty($shop_data) && !empty($shop_data['transaction_end_date']) ? $shop_data['transaction_end_date'] : '' )?>">
+                        </div>
+                        
+                        <?php if(isset($shop_data['pan_image']) && !empty($shop_data['pan_image'])){ ?>
                           <div class="form-group">
-                            <label>Latitude</label>
-                            <input type="text" name="shop_latitude"  class="form-control" id="latitude"  value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_latitude']) ? $shop_data['shop_latitude'] : "" )?>">
+                            <img src="<?php echo base_url()?>uploads/shop_images/pan_image/<?php echo $shop_data['pan_image'];?>" class="img-responsive">
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Longitude</label>
-                            <input type="text" name="shop_longitude"  class="form-control" id="longitude"  value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_longitude']) ? $shop_data['shop_longitude'] : "" )?>">
-                          </div>
-                        </div>
+                        <?php } ?>
                       </div>
+                      
+                      <!--<div class="col-md-12">-->
+                      <!--   <div class="form-group">-->
+                      <!--    <label>Short description of nature of business</label>-->
+                      <!--    <input name="desc" class="form-control" value="<?php echo (!empty($shop_data) && !empty($shop_data['desc']) ? $shop_data['desc'] : '' )?>" required>-->
+                      <!--    </div>-->
+                      <!--</div>-->
+                      <!--<div class="col-md-12" style="padding: 0px">-->
+                      <!--  <div class="col-md-6">-->
+                      <!--    <div class="form-group">-->
+                      <!--      <label>Latitude</label>-->
+                      <!--      <input type="text" name="shop_latitude"  class="form-control" id="latitude"  value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_latitude']) ? $shop_data['shop_latitude'] : "" )?>">-->
+                      <!--    </div>-->
+                      <!--  </div>-->
+                      <!--  <div class="col-md-6">-->
+                      <!--    <div class="form-group">-->
+                      <!--      <label>Longitude</label>-->
+                      <!--      <input type="text" name="shop_longitude"  class="form-control" id="longitude"  value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_longitude']) ? $shop_data['shop_longitude'] : "" )?>">-->
+                      <!--    </div>-->
+                      <!--  </div>-->
+                      <!--</div>-->
                       <div class="col-md-12" style="height: 243px;" id="gmap"></div>
                       <div id="infowindow-content">
                         <img src="" width="16" height="16" id="place-icon">
@@ -1225,64 +1148,26 @@
                         <span id="place-address"><?php echo (!empty($shop_data) && !empty($shop_data['address']) ? $shop_data['address'] : "" )?></span>
                       </div>
                   </div>
-                  <div class="tab-pane" id="addbank" style="margin: 10px">
-                      <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Account Holder Name</label>
-                            <input type="text" class="form-control" name="account_holder_name" value="<?php echo (!empty($shop_data) && !empty($shop_data['account_holder_name']) ? $shop_data['account_holder_name'] : "" )?>" >
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Routing number</label>
-                          <input type="text" class="form-control" name="routing-number" value="<?php echo (!empty($shop_data) && !empty($shop_data['routing-number']) ? $shop_data['routing-number'] : "" )?>" required>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Account Number</label>
-                          <input type="text" class="form-control" name="bank_acc_no" value="<?php echo (!empty($shop_data) && !empty($shop_data['bank_acc_no']) ? $shop_data['bank_acc_no'] : "" )?>" >
-                        </div>
-                      </div>
-                     <!--  <div class="col-md-6">
-                        <div class="form-group">
-                          <label>IfSC CODE</label>
-                          <input type="text" class="form-control" name="bank_ifsc_code" value="<?php echo (!empty($shop_data) && !empty($shop_data['bank_ifsc_code']) ? $shop_data['bank_ifsc_code'] : "" )?>" >
-                        </div>
-                      </div> -->
-                     <!--  <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Branch</label>
-                          <input type="text" class="form-control" name="bank_branch" value="<?php echo (!empty($shop_data) && !empty($shop_data['bank_branch']) ? $shop_data['bank_branch'] : "" )?>">
-                        </div>
-                      </div> -->
-                      <?php if(isset($shop_data['cancel_check_image']) && !empty($shop_data['cancel_check_image'])){ ?>
-                          <div class="col-md-12">
-                            <img src="<?php echo base_url()?>uploads/shop_images/cancel_check_images/<?php echo $shop_data['cancel_check_image'];?>" class="img-responsive">
-                          </div>
-                        <?php  } ?>
-                      <!-- <div class="col-md-6">
-                        <label>Cancel Check Image</label>
-                        <input type="file" name="cancel_check_image" class="form-control">
-                      </div> -->
-                  </div>
-                 <!--  <div class="tab-pane" id="gumasta" style="margin: 10px">
-                      <?php if(isset($shop_data['owner_image']) && !empty($shop_data['owner_image'])){ ?>
-                        <div class="form-group">
-                          <img src="<?php echo base_url()?>uploads/shop_images/gumasta_images/<?php echo $shop_data['gumasta_image'];?>" class="img-responsive">
-                        </div>
-                      <?php  } ?>
-                      <div class="form-group">
-                        <label>Employer Registration Number</label>
-                        <input type="file" name="gumasta_image" class="form-control">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control" name="desc"><?php echo !empty($shop_data['desccription']) ? $shop_data['desccription'] : ''; ?></textarea>
-                      </div>
-                  </div> -->
-                </div>
+                <!--<div class="tab-pane" id="addbank" style="margin: 10px">-->
+                <!--      <div class="col-md-6">-->
+                <!--          <div class="form-group">-->
+                <!--            <label>Account Holder Name</label>-->
+                <!--            <input type="text" class="form-control" name="account_holder_name" value="<?php echo (!empty($shop_data) && !empty($shop_data['account_holder_name']) ? $shop_data['account_holder_name'] : "" )?>" >-->
+                <!--          </div>-->
+                <!--      </div>-->
+                <!--      <div class="col-md-6">-->
+                <!--        <div class="form-group">-->
+                <!--          <label>Routing number</label>-->
+                <!--          <input type="text" class="form-control" name="routing-number" value="<?php echo (!empty($shop_data) && !empty($shop_data['routing-number']) ? $shop_data['routing-number'] : "" )?>" required>-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--      <div class="col-md-6">-->
+                <!--        <div class="form-group">-->
+                <!--          <label>Account Number</label>-->
+                <!--          <input type="text" class="form-control" name="bank_acc_no" value="<?php echo (!empty($shop_data) && !empty($shop_data['bank_acc_no']) ? $shop_data['bank_acc_no'] : "" )?>" >-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--</div>-->
                 <div class="col-md-12" style="margin: 10px">
                   <?php if(isset($shop_data['shop_id']) && !empty($shop_data['shop_id'])){ ?>
                     <input type="hidden" name="shop_id" value="<?php echo (!empty($shop_data) && !empty($shop_data['shop_id']) ? $shop_data['shop_id'] : "" )?>">

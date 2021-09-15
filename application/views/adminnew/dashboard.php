@@ -101,6 +101,12 @@
     border-color: #d9534f;
     color: #fff;
 }
+.panel-heading.fast-view-panel.st-bg1 {
+    background: #960c19;
+}
+.panel-heading.fast-view-panel.st-bg2 {
+    background: #098009;
+}
 
 </style>
 <script src="<?php echo base_url();?>backend_assets/highcharts/highcharts.js"></script>
@@ -129,10 +135,10 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-green">
-                <div class="panel-heading fast-view-panel">
+                <div class="panel-heading fast-view-panel st-bg1">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x" style="font-size: 4em;"></i>
+                            <i class="fa fa-user-o fa-5x" style="font-size: 4em;"></i>
                         </div>
                         <div class="col-xs-9 text-right" style="padding-right: 9px;">
                             <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('shops',array('status'=>1));?></div>
@@ -151,10 +157,10 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-green">
-                <div class="panel-heading fast-view-panel">
+                <div class="panel-heading fast-view-panel st-bg2">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x" style="font-size: 4em;"></i>
+                            <i class="fa fa-users fa-5x" style="font-size: 4em;"></i>
                         </div>
                         <div class="col-xs-9 text-right" style="padding-right: 9px;">
                             <div class="huge"><?php echo $pd =  $this->Common_model->getRecordCount('shops',array('status'=>1));?></div>
@@ -202,114 +208,67 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script> 
 
 <script>
+//     $('#range a').on('click', function(e) {
+//     e.preventDefault();
     
-    /*
-     * Chart for orders by mount/year 
-     */
-   /* $(function () {
-    Highcharts.chart('container-by-month', {
-    title: {
-    text: 'Monthly Orders',
-            x: - 20
-    },
-            subtitle: {
-            text: 'Source: Orders table',
-                    x: - 20
-            },
-            xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-            title: {
-            text: 'Orders'
-            },
-                    plotLines: [{
-                    value: 0,
-                            width: 1,
-                            color: '#808080'
-                    }]
-            },
-            tooltip: {
-            valueSuffix: ' Orders'
-            },
-            legend: {
-            layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-            },
-            series: [
-<?php foreach ($ordersByMonth['years'] as $year) { ?>
-                {
-                name: '<?= $year ?>',
-                        data: [<?= implode(',', $ordersByMonth['orders'][$year]) ?>]
-                },
-<?php } ?>
-            ]
-    });
-    });*/
-    $('#range a').on('click', function(e) {
-    e.preventDefault();
+//     $(this).parent().parent().find('li').removeClass('active');
     
-    $(this).parent().parent().find('li').removeClass('active');
+//     $(this).parent().addClass('active');
     
-    $(this).parent().addClass('active');
-    
-    $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url();?>/adminnew/ajax_data?range='+$(this).attr('data-value'),
-        dataType: 'json',
-        success: function(json) {
-            console.log(json['membership']);
-            if (typeof json['vendors'] == 'undefined' || typeof json['membership'] == 'undefined') { return false; }
-            var option = {  
-                shadowSize: 0,
-                colors: ['#9FD5F1', '#1065D2'],
-                bars: { 
-                    show: true,
-                    fill: true,
-                    lineWidth: 1
-                },
-                grid: {
-                    backgroundColor: '#FFFFFF',
-                    hoverable: true
-                },
-                points: {
-                    show: false
-                },
-                xaxis: {
-                    show: true,
-                    ticks: json['xaxis']
-                }
-            }
+//     $.ajax({
+//         type: 'POST',
+//         url: '<?php echo base_url();?>/adminnew/ajax_data?range='+$(this).attr('data-value'),
+//         dataType: 'json',
+//         success: function(json) {
+//             console.log(json['membership']);
+//             if (typeof json['vendors'] == 'undefined' || typeof json['membership'] == 'undefined') { return false; }
+//             var option = {  
+//                 shadowSize: 0,
+//                 colors: ['#9FD5F1', '#1065D2'],
+//                 bars: { 
+//                     show: true,
+//                     fill: true,
+//                     lineWidth: 1
+//                 },
+//                 grid: {
+//                     backgroundColor: '#FFFFFF',
+//                     hoverable: true
+//                 },
+//                 points: {
+//                     show: false
+//                 },
+//                 xaxis: {
+//                     show: true,
+//                     ticks: json['xaxis']
+//                 }
+//             }
             
-            $.plot('#chart-sale', [json['vendors'],json['membership']], option);   //json['customer']
+//             $.plot('#chart-sale', [json['vendors'],json['membership']], option);   //json['customer']
                     
-            $('#chart-sale').bind('plothover', function(event, pos, item) {
-                $('.tooltip').remove();
+//             $('#chart-sale').bind('plothover', function(event, pos, item) {
+//                 $('.tooltip').remove();
               
-                if (item) {
-                    $('<div id="tooltip" class="tooltip top in"><div class="tooltip-arrow"></div><div class="tooltip-inner">' + item.datapoint[1].toFixed(2) + '</div></div>').prependTo('body');
+//                 if (item) {
+//                     $('<div id="tooltip" class="tooltip top in"><div class="tooltip-arrow"></div><div class="tooltip-inner">' + item.datapoint[1].toFixed(2) + '</div></div>').prependTo('body');
                     
-                    $('#tooltip').css({
-                        position: 'absolute',
-                        left: item.pageX - ($('#tooltip').outerWidth() / 2),
-                        top: item.pageY - $('#tooltip').outerHeight(),
-                        pointer: 'cusror'
-                    }).fadeIn('slow');  
+//                     $('#tooltip').css({
+//                         position: 'absolute',
+//                         left: item.pageX - ($('#tooltip').outerWidth() / 2),
+//                         top: item.pageY - $('#tooltip').outerHeight(),
+//                         pointer: 'cusror'
+//                     }).fadeIn('slow');  
                     
-                    $('#chart-sale').css('cursor', 'pointer');      
-                } else {
-                    $('#chart-sale').css('cursor', 'auto');
-                }
-            });
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-           alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-    });
-});
-    $('#range .active a').trigger('click');
+//                     $('#chart-sale').css('cursor', 'pointer');      
+//                 } else {
+//                     $('#chart-sale').css('cursor', 'auto');
+//                 }
+//             });
+//         },
+//         error: function(xhr, ajaxOptions, thrownError) {
+//           alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+//         }
+//     });
+// });
+//     $('#range .active a').trigger('click');
 
 </script>

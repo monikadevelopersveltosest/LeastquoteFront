@@ -63,13 +63,16 @@
   background-color:#00a65aad;;
   border-bottom: 4px solid #5db784;
 }
+img.rt-logo {
+    width: 100px;
+}
 </style>
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="login-box-body">
     <!-- <p class="login-box-msg">Sign in to start your session</p> -->
     <div class="login-logo">
-      <a href="<?php echo base_url();?>"><img src="<?php echo base_url().'uploads/'. getWebOptionValue('backlogo');?>" alt="<?php echo  getWebOptionValue('site_title');?>"></a>
+      <a href="<?php echo base_url();?>"><img src="<?php echo base_url().'uploads/'. getWebOptionValue('backlogo');?>" alt="<?php echo  getWebOptionValue('site_title');?>" class="rt-logo"></a>
     </div>
     <form  id="loginform" method="post" style="padding: 15px;">
       <div class="form-group has-feedback">

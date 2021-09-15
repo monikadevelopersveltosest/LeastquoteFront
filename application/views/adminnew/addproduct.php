@@ -1,6 +1,3 @@
-<?php //$this->load->view('adminnew/nav'); ?>
-
-
 
   <!-- Content Wrapper. Contains page content -->
 
@@ -11,7 +8,6 @@
     <section class="content-header">
 
     <?php 
-   // echo '<pre>';print_r($product_data);die;
     if(!empty($product_data)) { 
       ?>
         <h1>Edit Product</h1>
@@ -59,6 +55,7 @@
               <div class="alert alert-success" align="center">
 
               <strong><?php echo $success; ?></strong>
+              <?php  echo '<meta http-equiv="refresh" content="2;url='.base_url('adminnew/productlist').'">'; ?>
 
               </div>
 
@@ -79,22 +76,76 @@
               <?php 
             }
           ?>
-
+<?php 
+//p($product_data);
+?>
           <form role="form" enctype="multipart/form-data" method="post" action="">
               <div class="col-md-6">
                   
-
+                <div class="form-group">
+                    <label>Saller Category</label>
+                    <select  class="form-control" name="saller_category" required>
+                       <option>Select Saller Category</option>
+                       <?php 
+                       if(!empty($all_categories)){
+                           foreach($all_categories as $key=> $value){
+                               $duration="";
+                               if(!empty($product_data)){
+                                   if($product_data['saller_category']==$value['category_name']){
+                                       $duration='selected';
+                                   }
+                               }
+                               ?>
+                               <option <?php echo $duration; ?> ><?php echo $value['category_name'];?></option>
+                               <?php
+                           }
+                       }else{
+                           ?>
+                           <option>Not Record Found</option>
+                           <?php
+                       }
+                       ?>
+                    </select>
+                  </div>
+                <div class="form-group">
+                    <label>Product Brand</label>
+                    <select  class="form-control" name="brand" required>
+                       <option>Select Brand</option>
+                       <?php 
+                       if(!empty($all_brand)){
+                           foreach($all_brand as $key=> $value){
+                               $dusration="";
+                               if(!empty($product_data)){
+                                   if($product_data['brand']==$value['brand_name']){
+                                       $dusration="selected";
+                                   }
+                               }
+                               ?>
+                               <option <?php echo $dusration; ?>><?php echo $value['brand_name'];?></option>
+                               <?php
+                           }
+                       }else{
+                           ?>
+                           <option>Not Record Found</option>
+                           <?php
+                       }
+                       ?>
+                    </select>
+                  </div>
                   <div class="form-group">
                     <label>Product Name</label>
                     <input type="text" class="form-control" name="name" value="<?php echo (!empty($product_data) && !empty($product_data['name']) ? $product_data['name'] : "" )?>" required>
                   </div>
-                  
+                  <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" name="con_vfeess" value="<?php echo (!empty($product_data) && !empty($product_data['con_vfeess']) ? $product_data['con_vfeess'] : "" )?>" required>
+                  </div>
                   <?php 
                   if(!empty($product_data))
                   {
                   ?>
                     <div class="form-group">
-                      <img src="<?php echo base_url()?>uploads/category/<?php echo (!empty($product_data['category_image']) ? $product_data['category_image'] : "default.png")?>">
+                      <img src="<?php echo base_url()?>uploads/product_images/<?php echo (!empty($product_data['product_images']) ? $product_data['product_images'] : "default.png")?>">
                     </div>
 
                   <?php 
@@ -102,7 +153,7 @@
                   ?>
                   <div class="form-group">
                     <label>Product Image (Type : jpg/png)</label>
-                    <input type="file" class="form-control" name="category_image">
+                    <input type="file" class="form-control" name="image">
                   </div>
 
                   <!-- <div class="form-group">
@@ -112,7 +163,7 @@
                   
             </div>
             <div class="col-md-12 mt-5">
-              <input type="hidden" name="id" value="<?php echo (!empty($product_data) && !empty($product_data['id']) ? $product_data['id'] : "" )?>">
+              <input type="hidden" name="id" value="<?php echo (!empty($product_data) && !empty($product_data['product_id']) ? $product_data['product_id'] : "" )?>">
                <button type="submit" name="submit"  class="btn btn-primary">Save</button>
             </div>
 

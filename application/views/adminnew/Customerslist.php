@@ -16,10 +16,11 @@
             <thead>
               <tr>
                 <th>S.no.</th>
-                <th>Name</th>
+                <th>User Name</th>
                 <th>Email</th>
                 <th>Mobile_no</th>
-                <th>Address</th>
+                <th>Type</th>
+                <th>Vcash</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th>Action</th>                
@@ -29,28 +30,30 @@
               <?php $count = 1; 
                 if(!empty($customer_data)){
                   foreach ($customer_data as $getdata) { 
+                    //p($getdata);
               ?>
               <tr>
                 <td><?php echo $count; ?></td>
-                <td><?php  echo (!empty($getdata['first_name'])?$getdata['first_name']:'none'); ?></td>
+                <td><?php  echo (!empty($getdata['username'])?$getdata['username']:'none'); ?></td>
                 <td><?php  echo (!empty($getdata['email'])?$getdata['email']:'none'); ?></td>
-                <td><?php  echo (!empty($getdata['mobile_no'])?$getdata['mobile_no']:'none'); ?></td>
-                <td><?php  echo (!empty($getdata['address'])?$getdata['address']:'none'); ?></td>
+                <td><?php  echo (!empty($getdata['user_contact_number'])?$getdata['user_contact_number']:'none'); ?></td>
+                <td><?php  echo (!empty($getdata['type'])?$getdata['type']:'none'); ?></td>
+                <td><?php  echo (!empty($getdata['vcash'])?$getdata['vcash']:'none'); ?></td>
                 <td><?php  echo (!empty($getdata['create_date'])?$getdata['create_date']:'none'); ?></td>
                 <td><?php if($getdata['status']==0){echo '<button type="button" class="btn btn-warning">Deactive</button>';}
                           if($getdata['status']==1){echo '<button type="button" class="btn btn-success">Active</button>';}
                       ?>
                 </td>
-                <td><a href="<?php echo base_url() ?>adminnew/AddCustomer/<?php echo  $getdata['id']; ?>" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+                <td><a href="<?php echo base_url() ?>adminnew/AddCustomer/<?php echo  $getdata['subscriber_id']; ?>" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
 
                   <?php if($getdata['status']==0){?>
-                    <a href="javascript:void(0)" href-data="<?php echo  $getdata['id']; ?>" class="useractive" title="Change status"><i class="fa fa-toggle-off" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0)" href-data="<?php echo  $getdata['subscriber_id']; ?>" class="useractive" title="Change status"><i class="fa fa-toggle-off" aria-hidden="true"></i></a>
 
                   <?php } if($getdata['status']==1){?>
-                    <a href="javascript:void(0)" href-data="<?php echo  $getdata['id']; ?>" class="deactive" title="Change status"><i class="fa fa-toggle-on" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0)" href-data="<?php echo  $getdata['subscriber_id']; ?>" class="deactive" title="Change status"><i class="fa fa-toggle-on" aria-hidden="true"></i></a>
 
                   <?php }?>
-                    <a href="javascript:void(0)" href-data="<?php echo  $getdata['id']; ?>" class="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0)" href-data="<?php echo  $getdata['subscriber_id']; ?>" class="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
               </tr>
 
@@ -89,8 +92,8 @@
     if(val){
       $.ajax({
         type: "POST",
-        url: "<?php echo base_url();?>adminnew/change_status",
-        data:{tablename:'users',id:id,status:3,whrcol:'id',whrstatuscol:'status',action:"Delete"},
+        url: "<?php echo base_url();?>adminnew/deleteRecord",
+        data:{table:'users',id:id,status:3,colwhr:'subscriber_id',whrstatuscol:'status',action:"Delete"},
         dataType:'json',
         success: function(response) {
           if (response.status == 1){
@@ -113,7 +116,7 @@
             $.ajax({
               type: "POST",
               url: "<?php echo base_url();?>adminnew/change_status",
-              data:{tablename:'users',id:id,status:0,whrcol:'id',whrstatuscol:'status',action:"Deactive"},
+              data:{tablename:'users',id:id,status:0,whrcol:'subscriber_id',whrstatuscol:'status',action:"Deactive"},
               dataType:'json',
               success: function(response) {
                 if (response.status == 1){
@@ -133,7 +136,7 @@
       $.ajax({
         type: "POST",
         url: "<?php echo base_url();?>adminnew/change_status",
-        data:{tablename:'users',id:id,status:1,whrcol:'id',whrstatuscol:'status',action:"Active"},
+        data:{tablename:'users',id:id,status:1,whrcol:'subscriber_id',whrstatuscol:'status',action:"Active"},
         dataType:'json',
         success: function(response) {
           if (response.status == 1){

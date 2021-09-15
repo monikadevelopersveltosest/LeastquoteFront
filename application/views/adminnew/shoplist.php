@@ -105,8 +105,8 @@
     if(val){
       $.ajax({
         type: "POST",
-        url: "<?php echo base_url();?>adminnew/change_status",
-        data:{tablename:'shops',id:id,status:3,whrcol:'shop_id',whrstatuscol:'status',action:"Delete"},
+        url: "<?php echo base_url();?>adminnew/deleteRecord",
+        data:{table:'shops',id:id,status:3,colwhr:'shop_id',whrstatuscol:'status',action:"Delete"},
         dataType:'json',
         success: function(response) {
           if (response.status == 1){

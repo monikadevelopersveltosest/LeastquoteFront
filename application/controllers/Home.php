@@ -49,7 +49,27 @@ class Home extends CI_Controller {
 		$this->load->view('front/footer');
 	}
 	public function signUp(){
-		$data=array();
+	   $data=array();
+	    if(!empty($_POST)){
+	        $insert_data=array();
+	        $insert_data['username']=$_POST['username'];
+	        $insert_data['email']=$_POST['email'];
+	        $insert_data['password']=md5($_POST['password']);
+	        $insert_data['show_password']=$_POST['password'];//status
+	        $insert_data['status']=1;
+	        $insert_data['create_date'] = date('Y-m-d H:i:s');
+			
+			$result_id = $this->Common_model->addrecords('users',$insert_data);
+			if(!empty($result_id)){
+			    $checkmobilenootp = $this->Common_model->GetWhere('users', array('subscriber_id'=>$result_id));
+			    //p($checkmobilenootp[0]);
+			    $this->session->set_userdata(USER_SESSION, $checkmobilenootp[0]);
+			    
+			    $data['success'] = "Buyer Registartion has been sucessfully";
+			}else{
+			    $data['error'] = "Something went wrong please try again";
+			}
+	    }
 		$this->load->view('front/header');
 		$this->load->view('front/sign-up',$data);
 		$this->load->view('front/footer');
@@ -109,7 +129,21 @@ class Home extends CI_Controller {
 		$this->load->view('front/footer');
 	}
 	public function signIn(){
-		$data=array();
+	   $data=array();
+	    if(!empty($_POST)){
+	        $name=$_POST['name'];
+	        $password=md5($_POST['password']);
+	        $chkreturnrequest = $this->Common_model->GetWhere("users",array('username'=>$name,'password'=>$password));
+	       //p($chkreturnrequest);
+	        if($chkreturnrequest[0]['status']=='1'){
+	            $this->session->set_userdata(USER_SESSION, $chkreturnrequest);
+	           $data['success']="successfully login";
+	        }else if($chkreturnrequest['status']=='0'){
+	            $data['error']="Your account has been deactivated";
+	        }else{
+	            $data['error']="Invailid Credential";
+	        }
+	    }
 		$this->load->view('front/header');
 		$this->load->view('front/sign-in',$data);
 		$this->load->view('front/footer');
@@ -2126,8 +2160,8 @@ class Home extends CI_Controller {
     }
 	public function logout(){
     	$this->session->unset_userdata(USER_SESSION);
-    	$this->session->unset_userdata('cart');
-    	$this->session->unset_userdata('couponcode');
+    // 	$this->session->unset_userdata('cart');
+    // 	$this->session->unset_userdata('couponcode');
 		redirect(base_url('home'),'refresh');
     }
 

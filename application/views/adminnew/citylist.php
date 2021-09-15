@@ -1,7 +1,7 @@
 
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <section class="content-header"><h1>City <small>List</small></h1></section>
+  <section class="content-header"><h1> <img src="<?php echo base_url().'common_assets/images/city-list.png';?>" style="width: 30px">City <small>List</small></h1></section>
   <!-- Main content -->
   <section class="content">
     <div class="row">

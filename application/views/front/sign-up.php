@@ -41,25 +41,37 @@
                     <div class="or">
                         <span>Or</span>
                     </div> -->
-                    <form class="login-form">
+                    <?php if(isset($error) && !empty($error)){ ?>
+
+  				  <div class="alert alert-danger" align="center">
+  				  	<strong><?php echo $error; ?></strong>
+  				  </div>
+  				<?php } ?>
+              <?php if(isset($success) && !empty($success)){ 
+                 echo '<div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-close"></i></button><h4><i class="fa fa-spinner fa-spin"></i>'.$success.'</h4></div>';
+                echo '<meta http-equiv="refresh" content="2;url='.base_url('home/signIn').'">';
+                } ?>
+                    <form class="login-form" method="post">
                         <div class="form-group mb-30">
                             <label for="login-username"><i class="far fa-user"></i></label>
-                            <input type="text" id="login-username" placeholder="username">
+                            <input type="text" id="login-username" placeholder="username" name="username" required>
                         </div>
                         <div class="form-group mb-30">
                             <label for="login-email"><i class="far fa-envelope"></i></label>
-                            <input type="text" id="login-email" placeholder="Email Address">
+                            <input type="text" id="login-email" placeholder="Email Address" name="email" required>
                         </div>
                         <div class="form-group mb-30">
                             <label for="login-pass"><i class="fas fa-lock"></i></label>
-                            <input type="password" id="login-pass" placeholder="Password">
+                            <input type="password" id="login-pass" placeholder="Password" name="password" required>
                             <span class="pass-type"><i class="fas fa-eye"></i></span>
                         </div>
                         <div class="form-group checkgroup mb-30">
                             <input type="checkbox" name="terms" id="check"><label for="check">The leastquote Terms of Use apply</label>
                         </div>
                         <div class="form-group mb-0">
-                        	<a href="<?php echo base_url();?>home/signIn" class="custom-button st-btn ">Sign up</a>
+                            <!--<input type="submit" name="submit" class="custom-button st-btn " value="Sign up"> <?php echo base_url();?>home/signIn-->
+                        	<a href="javascript:saveData(0);" type="submit" class="custom-button st-btn ">Sign up</a>
                         </div>
                     </form>
                 </div>
@@ -74,3 +86,8 @@
         </div>
     </section>
     <!--============= Account Section Ends Here =============-->
+<script>
+    function saveData(){
+        $( ".login-form" ).submit();
+    }
+</script>

@@ -20,7 +20,7 @@
 
             <div class="table-responsive">
 
-              <h3 class="box-title" style="padding-bottom: 10px;"><i class="fa fa-question-circle"></i> All Products</h3>
+              <h3 class="box-title" style="padding-bottom: 10px;"> <img src="<?php echo base_url().'common_assets/images/box-img.png';?>" style="width: 30px"> All Products</h3>
 
                 <div class="row">
 
@@ -47,14 +47,11 @@
                         <tr>
 
                             <th style="width: 20px;">S.NO</th>
-
+                            <th>Product Id</th> 
                             <th>Title</th>
-
-                            <!-- <th>Unit Price</th> -->
-
-                            <!-- <th>Discount</th> -->
-
-                            <!-- <th>Quantity</th> -->
+                            <th>Price</th> 
+                            <th>Saller category</th>
+                            <th>Brand</th>
 
                             <!-- <th>Fetured</th> -->
 
@@ -77,25 +74,27 @@
                             $i = 1;
 
                             foreach ($rows as $key => $value) {
-                             // echo "<pre>";print_r($value);die;
+                                //echo "<pre>";print_r($value);die;
 
                                 ?>
 
                                     <tr>
 
                                         <td><?php echo $i;$i++; ?></td>
-
+                                        <td><?php echo $value['product_reg_id']; ?></td>
                                         <td><a ><?php echo $value['name']; ?></a></td>
-
+                                         <td><?php echo $value['con_vfeess']; ?></td> 
+                                         <td><?php echo $value['saller_category'];?></td>
+                                         <td><?php echo $value['brand'];?></td>
                                          <td><?php echo $value['create_date']; ?></td>                                       
                                         <td>
                                             <div class="dropdown">
                                               <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Select Action
                                               <span class="caret"></span></button>
                                               <ul class="dropdown-menu">
-                                                <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['id']?>"  >View</a></li>
-                                                <li><a href="<?php echo base_url().'adminnew/addproduct/'.$value['id']?>"  >Edit</a></li>
-                                                <li><a href="javascript:void(0)" href-data="<?php echo  $value['id']; ?>" class="delete" >Delete1</a></li>
+                                                <li><a href="<?php echo base_url().'adminnew/productdetail/'.$value['product_id']?>"  >View</a></li>
+                                                <li><a href="<?php echo base_url().'adminnew/addproduct/'.$value['product_id']?>"  >Edit</a></li>
+                                                <li><a href="javascript:void(0)" href-data="<?php echo  $value['product_id']; ?>" class="delete" >Delete</a></li>
                                               </ul>
                                             </div>
                                         </td>
@@ -143,13 +142,13 @@
     });
   });
   $(".delete").click(function(e){
-    var val = confirm("Are you sure, you want to delete user ?");
+    var val = confirm("Are you sure, you want to delete product ?");
     var id = $(this).attr("href-data");
     if(val){
       $.ajax({
         type: "POST",
         url: "<?php echo base_url();?>adminnew/deleteRecord",
-        data:{table:'dummyproduct',id:id,status:3,colwhr:'id',whrstatuscol:'status',action:"Delete"},
+        data:{table:'product',id:id,status:3,colwhr:'product_id',whrstatuscol:'status',action:"Delete"},
         dataType:'json',
         success: function(response) {
           if (response.status == 1){

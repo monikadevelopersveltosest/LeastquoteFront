@@ -52,6 +52,9 @@ a.st-ankr {
 
 <body>
 
+  <?php  
+  $session_userdata = $this->session->userdata(USER_SESSION); 
+  ?>
 
     <!--============= ScrollToTop Section Starts Here =============-->
    
@@ -95,7 +98,13 @@ a.st-ankr {
                                 <a href="javascript:void(0);" class="st-ankr">Dashboard</a>
                                 <a href="javascript:void(0);" class="st-ankr">lorem</a>
                                 <a href="javascript:void(0);" class="st-ankr">lorem</a>
-                                <a href="javascript:void(0);" class="st-ankr">lorem</a>
+                                <?php if(!empty($session_userdata)){ ?>
+                                    <a href="<?php echo base_url();?>home/logout" class="st-ankr">Log Out</a>
+                                <?php }else{
+                                ?>
+                                <a href="<?php echo base_url();?>home/signIn" class="st-ankr">Log In</a>
+                                <?php 
+                                } ?>
                              </div>
                         </li> 
                     </ul>

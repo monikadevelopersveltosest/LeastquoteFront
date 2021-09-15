@@ -53,7 +53,6 @@ class Adminnew extends CI_Controller {
 
 
 	public function loginajax()
-
 	{
 
 		$email_id = trim($_POST['email_id']);
@@ -117,7 +116,9 @@ class Adminnew extends CI_Controller {
 	}
 
 
-
+    public function productCategory(){
+        echo "product category";
+    }
 	public function manageprofile()
 
 	{
@@ -510,57 +511,50 @@ class Adminnew extends CI_Controller {
 	public function productlist()
 	{   
 		$data = array();
-		// if($this->input->get('per_page'))
-		// {
+		if($this->input->get('per_page'))
+		{
 
-		// 	$page = $this->input->get('per_page');
+			$page = $this->input->get('per_page');
 
-		// }else{
+		}else{
 
-		// 	$page=0;
+			$page=0;
 
-		// }
-
-		
-
-		//$whr = array();
-
-		// $whr[] = "o.userid != 0";
-
-		//$whr = array();
-
-		// if(isset($_GET['status'])){
-
-		// 	$whr[] = "status = ".$_GET['status'];
-
-		// }else{
-
-		// 	$whr[] = "status != 3";
-
-		// }
+		}
 
 		
 
-		//$orderby = " LIMIT " .$page.", ".total_per_page;
+		$whr = array();
 
-		//$where = " WHERE ".implode(" AND ", $whr);
+		//$whr[] = "o.userid != 0";
 
-    	//$data['rows'] = $this->Common_model->getwherecustome('dummyproduct',$where,$orderby);
+		$whr = array();
 
-		//$data['pagination'] = $this->Common_model->getwhrcountbycol('dummyproduct','id',$where); 
+		if(isset($_GET['status'])){
 
-		//$data['totalorderamount'] = $this->Common_model->getWhrOrderssum('o.total',$where);
+			$whr[] = "status = ".$_GET['status'];
 
+		}else{
 
+			$whr[] = "status != 3";
 
-    	//$url = base_url()."adminnew/productlist";
+		}
 
-		//$data["links"] = $this->pagination($url,$data['pagination'],$this->input->get('per_page'),total_per_page);
-		$data['rows'] = $this->Common_model->getwhere('dummyproduct',array());
+		
+
+		$orderby = " LIMIT " .$page.", ".total_per_page;
+
+		$where = " WHERE ".implode(" AND ", $whr);
+
+    	$data['rows'] = $this->Common_model->getwherecustome('product',$where,$orderby);
+
+		$data['pagination'] = $this->Common_model->getwhrcountbycol('product','product_id',$where); 
+    	$url = base_url()."adminnew/productlist";
+
+		$data["links"] = $this->pagination($url,$data['pagination'],$this->input->get('per_page'),total_per_page);
+		$data['rows'] = $this->Common_model->getwhere('product',array());
 		$this->load->view('adminnew/header');
-
 		$this->load->view('adminnew/productlist', $data);
-
 		$this->load->view('adminnew/footer');
 
 	}
@@ -568,17 +562,15 @@ class Adminnew extends CI_Controller {
 
 
 	public function productdetail($pid = false){
-
 		if($pid){
 
 			$data = array();
 
 			$data['product_data'] = $this->Common_model->getSingleRecordById("product",array('product_id'=>$pid));
-
-			$data['color'] = $this->Common_model->getwhere("colors",array(1=>1));
-
-			$data['categorylist'] = $this->Common_model->getwhere("categories",array('status'=>1,'parent_category_id'=>0));
-
+			$whr2=array("1"=>1);
+            $data['all_categories'] = $this->Common_model->GetWhere('shopcategories', $whr2);
+		    $data['all_brand'] = $this->Common_model->GetWhere('brand', $whr2);
+		    //p($data);
 			$this->load->view('adminnew/header');
 
 			$this->load->view('adminnew/productdetail',$data);
@@ -589,53 +581,57 @@ class Adminnew extends CI_Controller {
 
 	}
 	public function addproduct($id=false){
-		//echo $id;die;
+		
 		$data = array();
 		$data['success'] = "";
 		$data['error'] = "";
 		$data['cat_data'] = "";
 		if(isset($_POST['submit']))
 		{
+		    ///p($_POST);
 			$user_data = array();
 
 			$filearray = array();
-			if (isset($_FILES)) {
-			    //echo '<pre>';print_r($_FILES);die();
-			    foreach ($_FILES as $key => $value){
-			        //print_r($value['size']);
-			        if($value['size'] > 0) {
-						$filearraydata = $this->uploadcategoryfile($key);
-			            $filearray[$key] = $filearraydata;
-			        }else{
-			            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
-			        }
-			    }
-				//$post_data = $_POST+$filearray;
-			}
+// 			if (isset($_FILES)) {
+// 			    foreach ($_FILES as $key => $value){
+// 			        if($value['size'] > 0) {
+// 						$filearraydata = $this->uploadcategoryfile($key);
+// 			            $filearray[$key] = $filearraydata;
+// 			        }else{
+// 			            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
+// 			        }
+// 			    }
+// 			}
+        if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])){
 
-			if(isset($filearray['category_image'])) {
-				$user_data['category_image'] = $filearray['category_image'];
-			}
+        		$uploadpath = "./uploads/product_images/";
 
-			// print_r($filearray);
-			// die;
-			// $parent_id = $_POST['parent_id'];
+        		$filearrayddata = $this->uploadfilebypath('image',$uploadpath);
+
+            	if(isset($filearrayddata)){
+					$user_data['product_images'] = $filearrayddata;
+				}
+        	}
+		
+            $user_data['product_reg_id'] = $this->createCode('product','product_reg_id');
 			$user_data['name'] = $_POST['name'];
-			//$user_data['pos'] = $_POST['pos'];
-			//$user_data['category_percentage'] = $_POST['category_percentage'];
+			$user_data['saller_category']=$_POST['saller_category'];
+			$user_data['brand']=$_POST['brand'];
+			$user_data['con_vfeess']=$_POST['con_vfeess'];
+			$user_data['status']='1';
 			$user_data['create_date'] = date('Y-m-d H:i:s');
-			///p($user_data);die;
+		    //p($user_data);
 			if (isset($_POST['id']) &&  !empty($_POST['id'])){
-				$result_id = $this->Common_model->updateRecords('dummyproduct',$user_data,array('id'=>$_POST['id']));
+				$result_id = $this->Common_model->updateRecords('product',$user_data,array('product_id'=>$_POST['id']));
 			}
 			else
 			{
-				$result_id = $this->Common_model->addRecords('dummyproduct',$user_data);
+				$result_id = $this->Common_model->addRecords('product',$user_data);
 			}
 			if($result_id)
 			{
 				$data['success'] = "productlist has been added successfully";
-				redirect(base_url().'adminnew/productlist/');
+				//redirect(base_url().'adminnew/productlist/');
 			}
 			else
 			{
@@ -645,14 +641,71 @@ class Adminnew extends CI_Controller {
 		if(!empty($id))
 		{
 		    $whr = array();
-			$data['product_data'] = $this->Common_model->getSingleRecordById('dummyproduct', array("id"=>$id));
+			$data['product_data'] = $this->Common_model->getSingleRecordById('product', array("product_id"=>$id));
 
 			$data['cat_data'] = $this->Common_model->getSingleRecordById('shopcategories', $whr);
 		}
 		$whr2 = array('1'=>1);
 		$data['all_categories'] = $this->Common_model->GetWhere('shopcategories', $whr2);
+		$data['all_brand'] = $this->Common_model->GetWhere('brand', $whr2);
+		//p($data);
 		$this->load->view('adminnew/header');
 		$this->load->view('adminnew/addproduct',$data);
+		$this->load->view('adminnew/footer');
+	}
+	
+	public function brand(){
+	    $data = array();
+		$whr2 = array('1='=>1);
+		$data['city_data'] = $this->Common_model->GetWhere('brand', $whr2);
+	    $this->load->view('adminnew/header');
+		$this->load->view('adminnew/productbarand',$data);
+		$this->load->view('adminnew/footer');
+	}
+	
+	public function addbrand($id=false){
+	    $data = array();
+		$data['success'] = "";
+		$data['error'] = "";
+		$data['cat_data'] = "";
+		if(isset($_POST['submit']))
+		{
+			$user_data = array();
+			if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])){
+
+        		$uploadpath = "./uploads/brand_image/";
+
+        		$filearrayddata = $this->uploadfilebypath('image',$uploadpath);
+
+            	if(isset($filearrayddata)){
+					$user_data['image'] = $filearrayddata;
+				}
+        	}
+			$user_data['brand_name'] = $_POST['brand_name'];
+			$user_data['create_date'] = date('Y-m-d H:i:s');
+			if (isset($_POST['id']) &&  !empty($_POST['id'])){
+				$result_id = $this->Common_model->updateRecords('brand',$user_data,array('id'=>$_POST['id']));
+			}
+			else
+			{
+				$result_id = $this->Common_model->addRecords('brand',$user_data);
+			}
+			if(!empty($result_id)){
+			    $data['success'] = "Brand has been added successfully";
+			}else{
+			    $data['error'] = "Opps somthing went wrong";
+			}
+			//redirect(base_url().'adminnew/brand/');
+		}
+		if(!empty($id))
+		{
+		    $whr = array('id'=>$id);
+			$data['cat_data'] = $this->Common_model->getSingleRecordById('brand', $whr);
+		}
+		$whr2 = array('1'=>1);
+		$data['all_categories'] = $this->Common_model->GetWhere('shopcategories', $whr2);
+		$this->load->view('adminnew/header');
+		$this->load->view('adminnew/addbrand',$data);
 		$this->load->view('adminnew/footer');
 	}
 /*$this->load->view('adminnew/header');
@@ -2256,7 +2309,7 @@ class Adminnew extends CI_Controller {
 
 		$where = array('status !='=>3);
 
-		$data['customer_data'] = $this->Common_model->getAllRecordsOrderById("users",'id','DESC',$where);
+		$data['customer_data'] = $this->Common_model->getAllRecordsOrderById("users",'subscriber_id','DESC',$where);
 
 		$this->load->view('adminnew/header');
 
@@ -2269,27 +2322,14 @@ class Adminnew extends CI_Controller {
 
 
 	public function AddCustomer($user_id = ""){
-
-
-
 		$data = array();
-
 		$data['error_mobile'] = "";
-
 		$data['success'] = "";
-
 		$data['error'] = "";
-
 		$data['customer_data'] = "";
-
 		if(isset($_POST['submit']))
-
 		{
-
-			// print_r($_POST);
-
 			$user_data = $_POST;
-
 			$password = $user_data['password'];
 
 			unset($user_data['submit']);
@@ -2302,211 +2342,99 @@ class Adminnew extends CI_Controller {
 
 			$email = $user_data['email'];
 
-			$mobile_no = $user_data['mobile_no'];
+			$mobile_no = $user_data['user_contact_number'];
 
-			$check_mobile_no = $this->Common_model->GetWhere('users',array('mobile_no'=> $mobile_no));
+			$check_mobile_no = $this->Common_model->GetWhere('users',array('user_contact_number'=> $mobile_no));
 
 			if(empty($check_mobile_no))
-
 			{
-
 				$filearray = array();
-
 				if (isset($_FILES)) {
-
-				    //echo '<pre>';print_r($_FILES);die();
-
 				    $uploadpath = "./uploads/user_images/";
-
 				    foreach ($_FILES as $key => $value) {
-
-				        //print_r($value['size']);
-
 				        if($value['size'] > 0) {
-
 							$filearraydata = $this->uploadfilebypath($key,$uploadpath);
-
 				            $filearray[$key] = $filearraydata;
-
 				        }else{
-
 				            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
-
 				        }
-
 				    }
-
-					//$post_data = $_POST+$filearray;
-
 				}
-
-
-
 				if(isset($filearray['image'])) {
-
 					$user_data['image'] = $filearray['image'];
-
 				}
-
-				$user_data['reg_id'] = $this->createCode('users','reg_id');
-
+				//$user_data['reg_id'] = $this->createCode('users','reg_id');
 				$user_data['create_date'] = date('Y-m-d H:i:s');
-
+				$user_data['status'] = 1;
 				$result_id = $this->Common_model->addrecords('users',$user_data);
-
 				if($result_id){
-
 					$data['success'] = "Customer has been added sucessfully";
-
-					//redirect(base_url().'adminnew/AddCustomer/'.$result_id);
-
 				}else{
-
 					$data['error'] = "Something went wrong please try again";
-
 				}
-
 			}elseif(!empty($check_email)){
-
 				$data['error_email'] = "Mobile Number alredy exits";	
-
 			}else{
-
 				$data['error'] = "Something went wrong please try again";
-
-
-
 			}
-
 			$data['customer_data'] = $user_data;
-
 		}
-
-
 
 		if(isset($_POST['update']))
-
 		{
-
 			$user_data = $_POST;
-
-			$user_id = $user_data['id'];
+			$user_id = $user_data['subscriber_id'];
 
 			unset($user_data['update']);
-
-			$password = $user_data['password'];
+            
+			//$password = $user_data['password'];
 
 			unset($user_data['password']);
-
-			if(isset($password)&& !empty($password))
-
-			{
-
-				$user_data['password'] = md5($password);
-
-				$user_data['show_password'] = $password;
-
-			}
-
+            
+// 			if(isset($password)&& !empty($password))
+// 			{
+// 				$user_data['password'] = md5($password);
+// 				$user_data['show_password'] = $password;
+// 			}
 			$email = $user_data['email'];
-
-			$mobile_no = $user_data['mobile_no'];
-
-			$check_mobile_no = $this->Common_model->GetWhere('users',array('mobile_no'=> $mobile_no,'id !='=> $user_id));
-
-
-
-			if(empty($check_mobile_no))
-
+			$user_contact_number = $user_data['user_contact_number'];
+			$check_mobile_no = $this->Common_model->GetWhere('users',array('subscriber_id'=> $user_id));
+			if(!empty($check_mobile_no))
 			{
-
-				// print_r($user_data);
-
-				// die;
-
 				$filearray = array();
-
 				if (isset($_FILES)) {
-
-				    //echo '<pre>';print_r($_FILES);die();
-
 				    $uploadpath = "./uploads/user_images/";
-
 				    foreach ($_FILES as $key => $value) {
-
-				        //print_r($value['size']);
-
 				        if($value['size'] > 0) {
-
 							$filearraydata = $this->uploadfilebypath($key,$uploadpath);
-
 				            $filearray[$key] = $filearraydata;
-
 				        }else{
-
 				            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
-
 				        }
-
 				    }
-
-					//$post_data = $_POST+$filearray;
-
 				}
-
-
-
 				if(isset($filearray['image'])) {
-
 					$user_data['image'] = $filearray['image'];
-
 				}
-
-
-
-
-
-				$result = $this->Common_model->updateRecords('users',$user_data,array('id'=>$user_id));
-
+				$result = $this->Common_model->updateRecords('users',$user_data,array('subscriber_id'=>$user_id));
 				if($result)
-
 				{
-
 					$data['success'] = "Customer has been Updated sucessfully";
-
-
-
 				}else{
-
 					$data['error'] = "Something went wrong please try again";
-
-
-
 				}
 
 			}
-
 			elseif(!empty($check_mobile_no))
-
 			{
-
-				$data['error'] = "Mobile Number alredy exits";
-
-				// $data['error_mobile'] = "Mobile no. alredy exits";	
-
+			    $data['error'] = "Mobile Number alredy exits";
 			}else{
-
 				$data['error'] = "Something went wrong please try again";
-
 			}
-
 		}
-
-
-
 		if(!empty($user_id)){
 
-			$where = array('status !='=>3,'id'=>$user_id);
+			$where = array('status !='=>3,'subscriber_id'=>$user_id);
 
 			$data['customer_data'] = $this->Common_model->GetWhere("users",$where);
 
@@ -3427,138 +3355,58 @@ public function addShop($shop_id = false){
 		{
 			$user_data = $_POST;
 			$password = $user_data['password'];
+			$mobilno = $user_data['seller_contact_number'];
 			unset($user_data['submit']);
 			unset($user_data['password']);
 			$user_data['password'] = md5($password);
-			// $user_data['show_password'] = $password;
-			//$mobc=$_POST['country_code'].$_POST['mobile_no'];
-			$email = $user_data['email'];
-			//$mobile_no = base64_encode($mobc);
-			//$mobile_no = $mobc;
-			$user_data['mobile_no'] = $_POST['mobile_no'];//$mobile_no;
-			$user_data['country_code']=$_POST['country_code'];
-			//$user_data['gst_number'] = $user_data['gst_number'];
-			$user_data['pan_no'] = base64_encode($user_data['pan_no']);
-			$user_data['adhar_no'] = base64_encode($user_data['adhar_no']);
-			if(isset($_POST['shop_registration_no']) && !empty($_POST['shop_registration_no'])){
-				$user_data['shop_registration_no'] = $user_data['shop_registration_no'];
+			//$email = $user_data['email'];
+			$user_data['seller_contact_number'] = $_POST['seller_contact_number'];
+			$user_data['gst_number'] = $user_data['gst_number'];
+			
+			$user_data['saller_typ'] = $user_data['type'];//$user_data['shop_category'];
+			$user_data['shop_category'] = $user_data['shop_category'];
+			$user_data['shop_name'] = $user_data['shop_name'];
+			$user_data['owner_name'] = $user_data['owner_name'];
+			
+			$user_data['city'] = $user_data['city'];
+			$user_data['area'] = $user_data['area'];
+			$user_data['trustscore'] = $user_data['trustscore'];
+			$user_data['vcash'] = $user_data['vcash'];
+			$user_data['shop_address'] = $user_data['shop_address'];
+			
+			$user_data['country'] = $user_data['country'];
+			$user_data['transaction_start_date'] = $user_data['transaction_start_date'];
+			$user_data['transaction_end_date'] = $user_data['transaction_end_date'];
+			
+			if(isset($_POST['category']) && !empty($_POST['category'])){
+				$user_data['category'] = implode(",", $_POST['category']);
 			}
-			if(isset($_POST['shop_type_id']) && !empty($_POST['shop_type_id'])){
-				$user_data['shop_type_id'] = $user_data['shop_type_id'];
-			}
-			// print_r($_POST['shopping_categories']);
-			if(isset($_POST['shopping_categories']) && !empty($_POST['shopping_categories'])){
-				$user_data['shopping_categories'] = implode(",", $_POST['shopping_categories']);
-			}
-			// if(isset($_POST['shopping_specialized']) && !empty($_POST['shopping_specialized'])){
-			// 	$user_data['shopping_specialized'] = implode(",", $_POST['shopping_specialized']);
-			// }
-			$check_mobile_no = $this->Common_model->GetWhere('shops',array('mobile_no'=> $mobile_no));
+		    //p($user_data);
+			$check_mobile_no = $this->Common_model->GetWhere('shops',array('seller_contact_number'=> $mobilno));
+			
 			if(empty($check_mobile_no))
 			{	
 				$filearray = array();
 				if (isset($_FILES)) {
-				    //echo '<pre>';print_r($_FILES);die();
-				  //   if(isset($_FILES['owner_image']['name']) && !empty($_FILES['owner_image']['name'])){
-		    //     		$uploadpath = "./uploads/shop_images/shop_owner_images/";
-		    //     		$filearraydata = $this->uploadfilebypath('owner_image',$uploadpath);
-		    //         	if(isset($filearraydata)){
-						// 	$user_data['owner_image'] = $filearraydata;
-						// }
-		    //     	}
-		        	/*if(isset($_FILES['shop_logo']['name']) && !empty($_FILES['shop_logo']['name'])){
-		        		$uploadpath = "./uploads/shop_images/shop_logos/";
-		        		$filearraydatalogo = $this->uploadfilebypath('shop_logo',$uploadpath);
-		            	if(isset($filearraydatalogo)){
-							$user_data['shop_logo'] = $filearraydatalogo;
-						}
-		        	}*/
-		    //     	if(isset($_FILES['shop_image_mobile']['name']) && !empty($_FILES['shop_image_mobile']['name'])){
-		    //     		$uploadpath = "./uploads/shop_images/shop_image_mobile/";
-		    //     		$filearraydatamobile = $this->uploadfilebypath('shop_image_mobile',$uploadpath);
-		    //         	if(isset($filearraydatamobile)){
-						// 	$user_data['shop_image_mobile'] = $filearraydatamobile;
-						// }
-		    //     	}
-		        	/*if(isset($_FILES['shop_image_desktop']['name']) && !empty($_FILES['shop_image_desktop']['name'])){
-		        		$uploadpath = "./uploads/shop_images/shop_image_desktop/";
-		        		$filearraydatadsk = $this->uploadfilebypath('shop_image_desktop',$uploadpath);
-		            	if(isset($filearraydatadsk)){
-							$user_data['shop_image_desktop'] = $filearraydatadsk;
-						}
-		        	}*/
-		        	if(isset($_FILES['adhar_image']['name']) && !empty($_FILES['adhar_image']['name'])){
-		        		$uploadpath = "./uploads/shop_images/adhar_image/";
-		        		$filearrayadharimage = $this->uploadfilebypath('adhar_image',$uploadpath);
-		            	if(isset($filearrayadharimage)){
-							$user_data['adhar_image'] = $filearrayadharimage;
+				     if(isset($_FILES['owner_image']['name']) && !empty($_FILES['owner_image']['name'])){
+		        		$uploadpath = "./uploads/shop_images/shop_owner_images/";
+		        		$filearraydata = $this->uploadfilebypath('owner_image',$uploadpath);
+		            	if(isset($filearraydata)){
+							$user_data['owner_image'] = $filearraydata;
 						}
 		        	}
-		        	if(isset($_FILES['pan_image']['name']) && !empty($_FILES['pan_image']['name'])){
-		        		$uploadpath = "./uploads/shop_images/pan_image/";
-		        		$filearraypanimage = $this->uploadfilebypath('pan_image',$uploadpath);
-		            	if(isset($filearraypanimage)){
-							$user_data['pan_image'] = $filearraypanimage;
+		        	 
+		        	if(isset($_FILES['shop_image_mobile']['name']) && !empty($_FILES['shop_image_mobile']['name'])){
+		        		$uploadpath = "./uploads/shop_images/shop_image_mobile/";
+		        		$filearraydatamobile = $this->uploadfilebypath('shop_image_mobile',$uploadpath);
+		            	if(isset($filearraydatamobile)){
+							$user_data['shop_image'] = $filearraydatamobile;
 						}
 		        	}
-		    //     	if(isset($_FILES['gumasta_image']['name']) && !empty($_FILES['gumasta_image']['name'])){
-		    //     		$uploadpathgumasta = "./uploads/shop_images/gumasta_images/";
-		    //     		$filearraydatagumasta = $this->uploadfilebypath('gumasta_image',$uploadpathgumasta);
-		    //         	if(isset($filearraydatagumasta)){
-						// 	$user_data['gumasta_image'] = $filearraydatagumasta;
-						// }
-		    //     	}
-
-		    //     	if(isset($_FILES['cancel_check_image']['name']) && !empty($_FILES['cancel_check_image']['name'])){
-		    //     		$uploadpathcancelcheck = "./uploads/shop_images/cancel_check_images/";
-		    //     		$filearraydatacancelcheck = $this->uploadfilebypath('cancel_check_image',$uploadpathcancelcheck);
-		    //         	if(isset($filearraydatacancelcheck)){
-						// 	$user_data['cancel_check_image'] = $filearraydatacancelcheck;
-						// }
-		    //     	}
-		    //     	if(isset($_FILES['gst_image']['name']) && !empty($_FILES['gst_image']['name'])){
-		    //     		$uploadpath = "./uploads/shop_images/gst_image/";
-		    //     		$filearraygstimage = $this->uploadfilebypath('gst_image',$uploadpath);
-		    //         	if(isset($filearraygstimage)){
-						// 	$user_data['gst_image'] = $filearraygstimage;
-						// }
-		    //     	}
-
 		        }
-
-				// if(isset($filearray['shop_logo'])) {
-				// 	$user_data['shop_logo'] = $filearray['shop_logo'];
-				// }
-				// if(isset($_POST['meta_tags'])) {
-				// 	$user_data['meta_tags'] = $_POST['meta_tags'];
-				// }
-
-				if(isset($_POST['shopcetegory_type_id'])) {
-					$user_data['shopcetegory_type_id'] = $_POST['shopcetegory_type_id'];
-				}
-				// if(isset($_POST['membership-duration'])) {
-				// 	$user_data['membership-duration'] = $_POST['membership-duration'];
-				// }
-				if(isset($_POST['desc'])) {
-					$user_data['desc'] = $_POST['desc'];
-				}
-				if(isset($_POST['business-registerd'])) {
-					$user_data['business-registerd'] = $_POST['business-registerd'];
-				}
-				if(isset($_POST['chain'])) {
-					$user_data['chain'] = $_POST['chain'];
-				}
-				if(isset($_POST['franchise'])) {
-					$user_data['franchise'] = $_POST['franchise'];
-				}
-				if(isset($_POST['year_business'])) {
-					$user_data['year_business'] = $_POST['year_business'];
-				}//routing-number
-				if(isset($_POST['routing-number'])) {
-					$user_data['routing-number'] = $_POST['routing-number'];
-				}
 				$user_data['shop_reg_id'] = $this->createCode('shops','shop_reg_id');
-				$user_data['create_date'] = date('Y-m-d H:i:s');
+				$user_data['joining_date'] = date('Y-m-d H:i:s');
+				$user_data['status'] = '1';
 				$result_id = $this->Common_model->addrecords('shops',$user_data);
 				if($result_id){
 					// $data['success'] = "Shop has been added sucessfully";
@@ -3578,39 +3426,26 @@ public function addShop($shop_id = false){
 		if(isset($_POST['update']))
 		{
 			$user_data = array();
-			$user_data['owner_name'] = $_POST['owner_name'];
-			$user_data['shop_name'] = $_POST['shop_name'];
-			$user_data['email'] = $_POST['email'];
-			$user_data['shop_address'] = trim($_POST['shop_address']);
-			$user_data['shop_latitude'] = trim($_POST['shop_latitude']);
-			$user_data['shop_longitude'] = trim($_POST['shop_longitude']);
-			$user_data['account_holder_name'] = (isset($_POST['account_holder_name']) ? $_POST['account_holder_name'] : '');
-			$user_data['bank_acc_no'] = (isset($_POST['bank_acc_no']) ? $_POST['bank_acc_no'] : '');
-			$user_data['routing-number'] = (isset($_POST['routing-number']) ? $_POST['routing-number'] : '');
-			$email = $user_data['email'];
-			if(isset($_POST['shop_registration_no']) && !empty($_POST['shop_registration_no'])){
-				$user_data['shop_registration_no'] = $_POST['shop_registration_no'];
-			}
-			if(isset($_POST['shop_type_id']) && !empty($_POST['shop_type_id'])){
-				$user_data['shop_type_id'] = $_POST['shop_type_id'];
-			}
-			if(isset($_POST['adhar_no']) && !empty($_POST['adhar_no'])){
-				$user_data['adhar_no'] = base64_encode($_POST['adhar_no']);
-			}
-			if(isset($_POST['pan_no']) && !empty($_POST['pan_no'])){
-				$user_data['pan_no'] = base64_encode($_POST['pan_no']);
-			}
-			if(isset($_POST['gst_number']) && !empty($_POST['gst_number'])){
-				$user_data['gst_number'] = $_POST['gst_number'];
-			}
-			if(isset($_POST['mobile_no']) && !empty($_POST['mobile_no'])){
-				$user_data['mobile_no'] = $_POST['mobile_no'];
-			}
-			if(isset($_POST['country_code']) && !empty($_POST['country_code'])){
-				$user_data['country_code'] = $_POST['country_code'];
-			}
-			if(isset($_POST['shopping_categories']) && !empty($_POST['shopping_categories'])){
-				$user_data['shopping_categories'] = implode(",", $_POST['shopping_categories']);
+			$user_data['owner_name'] =!empty( $_POST['owner_name']) ?  $_POST['owner_name'] : '';
+			$user_data['shop_name'] = !empty($_POST['shop_name']) ? $_POST['shop_name'] : '';
+				$user_data['seller_contact_number'] = !empty($_POST['seller_contact_number']) ? $_POST['seller_contact_number'] : '';
+			$user_data['gst_number'] = !empty($_POST['gst_number']) ? $_POST['gst_number'] : '';
+		
+			//$user_data['shop_name'] = ;
+			//$user_data['owner_name'] = $user_data['owner_name'];
+			
+			$user_data['city'] = $_POST['city'];
+			$user_data['area'] = $_POST['area'];
+			$user_data['trustscore'] = $_POST['trustscore'];
+			$user_data['vcash'] = $_POST['vcash'];
+			$user_data['shop_address'] = $_POST['shop_address'];
+			
+			$user_data['country'] = $_POST['country'];
+			$user_data['transaction_start_date'] = !empty($_POST['transaction_start_date']) ? $_POST['transaction_start_date'] : '';
+			$user_data['transaction_end_date'] = !empty($_POST['transaction_end_date']) ? $_POST['transaction_end_date'] : '';
+			
+			if(isset($_POST['category']) && !empty($_POST['category'])){
+				$user_data['category'] = implode(",", $_POST['category']);
 			}
 			$filearray = array();
 			if (isset($_FILES)){
@@ -3628,43 +3463,13 @@ public function addShop($shop_id = false){
 						$user_data['shop_image_mobile'] = $filearraydatamobile;
 					}
 	        	}
-	        	if(isset($_FILES['adhar_image']['name']) && !empty($_FILES['adhar_image']['name'])){
-	        		$uploadpath = "./uploads/shop_images/adhar_image/";
-	        		$filearrayadharimage = $this->uploadfilebypath('adhar_image',$uploadpath);
-	            	if(isset($filearrayadharimage)){
-						$user_data['adhar_image'] = $filearrayadharimage;
-					}
-	        	}
-	        	if(isset($_FILES['pan_image']['name']) && !empty($_FILES['pan_image']['name'])){
-	        		$uploadpath = "./uploads/shop_images/pan_image/";
-	        		$filearraypanimage = $this->uploadfilebypath('pan_image',$uploadpath);
-	            	if(isset($filearraypanimage)){
-						$user_data['pan_image'] = $filearraypanimage;
-					}
-	        	}
 			}
 
 			if(isset($_POST['shopcetegory_type_id'])) {
-				$user_data['shopcetegory_type_id'] = $_POST['shopcetegory_type_id'];
+				$user_data['saller_typ'] = $_POST['shopcetegory_type_id'];
 			}
-			if(isset($_POST['desc'])) {
-				$user_data['desc'] = $_POST['desc'];
-			}
-				if(isset($_POST['business-registerd'])) {
-					$user_data['business-registerd'] = $_POST['business-registerd'];
-				}
-				if(isset($_POST['chain'])) {
-					$user_data['chain'] = $_POST['chain'];
-				}
-				if(isset($_POST['franchise'])) {
-					$user_data['franchise'] = $_POST['franchise'];
-				}
-				if(isset($_POST['year_business'])) {
-					$user_data['year_business'] = $_POST['year_business'];
-				}
-				if(isset($_POST['routing-number'])) {
-					$user_data['routing-number'] = $_POST['routing-number'];
-				}
+			$user_data['status'] = '1';
+		    //p($user_data);
 			$result_id = $this->Common_model->updateRecords('shops',$user_data,array('shop_id'=>$shop_id));
 			if($result_id){
 				$this->session->set_flashdata('addshop_success', 'Shop has been updated sucessfully');
@@ -3683,8 +3488,8 @@ public function addShop($shop_id = false){
 				$shop_data = $data['shop_data'][0];
 			}
 		}
-		$data['shop_type_list'] = $this->Common_model->GetWhere("shop_types",array('1'=>1));
-		$data['membership'] = $this->Common_model->GetWhere('members',array('1'=>1));
+		//$data['shop_type_list'] = $this->Common_model->GetWhere("shop_types",array('1'=>1));
+// 		$data['membership'] = $this->Common_model->GetWhere('members',array('1'=>1));
 		$data['shopcategories_data'] = $this->Common_model->GetWhere('shopcategories',array('1'=>1));
 		$data['shop_data'] = $shop_data;
 		//echo "<pre>";print_r($data);die;	
@@ -4768,7 +4573,7 @@ public function addShop($shop_id = false){
 
 	public function deleteRecord()   
     {
-
+    
         $id = $_POST['id'];
 
         $table = $_POST['table'];
@@ -4871,19 +4676,13 @@ public function addShop($shop_id = false){
 			            $this->session->set_flashdata('error_fileupload', 'File size is empty!');
 			        }
 			    }
-				//$post_data = $_POST+$filearray;
 			}
 
 			if(isset($filearray['category_image'])) {
 				$user_data['category_image'] = $filearray['category_image'];
 			}
 
-			// print_r($filearray);
-			// die;
-			// $parent_id = $_POST['parent_id'];
 			$user_data['category_name'] = $_POST['category_name'];
-			//$user_data['pos'] = $_POST['pos'];
-			//$user_data['category_percentage'] = $_POST['category_percentage'];
 			$user_data['create_date'] = date('Y-m-d H:i:s');
 			if (isset($_POST['id']) &&  !empty($_POST['id'])){
 				$result_id = $this->Common_model->updateRecords('shopcategories',$user_data,array('id'=>$_POST['id']));
@@ -4892,15 +4691,16 @@ public function addShop($shop_id = false){
 			{
 				$result_id = $this->Common_model->addRecords('shopcategories',$user_data);
 			}
-			if($result_id)
-			{
-				$data['success'] = "Categories has been added successfully";
-				redirect(base_url().'adminnew/VendorsCtegorylist/');
-			}
-			else
-			{
-				$data['error'] = "Some thing went wrong please try again";
-			}
+			$data['success'] = "Categories has been added successfully";
+			redirect(base_url().'adminnew/VendorsCtegorylist/');
+// 			if($result_id)
+// 			{
+				
+// 			}
+// 			else
+// 			{
+// 				$data['error'] = "Some thing went wrong please try again";
+// 			}
 		}
 		if(!empty($id))
 		{

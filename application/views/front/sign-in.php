@@ -43,21 +43,32 @@
                    <!--  <div class="or">
                         <span>Or</span>
                     </div> -->
-                    <form class="login-form">
+                     <?php if(isset($error) && !empty($error)){ ?>
+  				  <div class="alert alert-danger" align="center">
+  				  	<strong><?php echo $error; ?></strong>
+  				  </div>
+  				<?php } ?>
+              <?php if(isset($success) && !empty($success)){ 
+                 echo '<div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-close"></i></button><h4><i class="fa fa-spinner fa-spin"></i>'.$success.'</h4></div>';
+                echo '<meta http-equiv="refresh" content="2;url='.base_url('home/buyer').'">';
+                } ?>
+                    <form class="login-form" method="post">
                         <div class="form-group mb-30">
                             <label for="login-name"><i class="far fa-user"></i></label>
-                            <input type="text" id="login-name" placeholder="Username Nmae">
+                            <input type="text" id="login-name" placeholder="Username Nmae" name="name">
                         </div>
                         <div class="form-group">
                             <label for="login-pass"><i class="fas fa-lock"></i></label>
-                            <input type="password" id="login-pass" placeholder="Password">
+                            <input type="password" id="login-pass" placeholder="Password" name="password">
                             <span class="pass-type"><i class="fas fa-eye"></i></span>
                         </div>
                         <div class="form-group">
                             <a href="#0">Forgot Password?</a>
                         </div>
                         <div class="form-group mb-0">
-                           <a href="<?php echo base_url(); ?>home/buyer" class="custom-button st-btn ">LOG IN</a>
+                            <!--<?php echo base_url(); ?>home/buyer-->
+                           <a href="javascript:SignIn(0);" class="custom-button st-btn ">LOG IN</a>
                         </div>
                     </form>
                 </div>
@@ -72,6 +83,10 @@
         </div>
     </section>
     <!--============= Account Section Ends Here =============-->
-
+<script>
+    function SignIn(){
+        $( ".login-form" ).submit();
+    }
+</script>
 
     

@@ -38,7 +38,7 @@ $url.= $_SERVER['HTTP_HOST'];
 if($_SERVER['SERVER_NAME'] == 'localhost'){
 	$config['base_url'] ='https://localhost/LeastquoteFront/';
 }else{
-	$config['base_url'] = $url;
+	$config['base_url'] = $url."/";
 }
 /*
 |--------------------------------------------------------------------------
